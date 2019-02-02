@@ -1,0 +1,84 @@
+
+{% extends "headers.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="page-header">
+            <h1>{{ title }}</h1>
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <td>
+                    Peli
+                </td>
+                <td>
+                    Pelaaja
+                </td>
+                <td>
+                    Kesto
+                </td>
+                <td>
+                    säpo
+                </td>
+                <td>
+                    puh
+                </td>
+                <td>
+                    kontakti
+                </td>
+                <td>
+                    järjestely
+                </td>
+                <td>
+                    Muuta
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for entry in entrys %}
+                {% if entry.game %}
+                    <tr>
+                    <td>
+                        {{ entry.game }}
+                    </td>
+                    <td>
+                        {{ entry.nick }}
+                    </td>
+                    <td>
+                        {{ entry.time }}
+                    </td>
+                    <td>
+                        {{ entry.email }}
+                    </td>
+                    <td>
+                        {{ entry.phone }}
+                    </td>
+                    <td>
+                        {% if entry.con_irc %}
+                            I
+                        {% endif %}
+                    {% if entry.con_tel %}
+                            T
+                        {% endif %}
+                    {% if entry.con_email %}
+                            S
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{ entry.organize }}
+                    </td>
+                    <td>
+                        {% if entry.other %}
+                            <div title="{{ entry.other }}">###</div>
+                        {% endif %}
+                    </td>
+                {% endif %}
+            {% endfor %}
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

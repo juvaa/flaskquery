@@ -1,37 +1,81 @@
-{% import "bootstrap/wtf.html" as wtf %}
 
 {% extends "headers.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
 
 {% block content %}
     <div class="container">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
         <div class="page-header">
             <h1>{{ title }}</h1>
         </div>
-    {% if starttime < nowtime < endtime %}
-    <form class="form form-horizontal" method="post" role="form">
-        {{ form.hidden_tag() }}
-        {{ wtf.form_field(form.string) }}
-        {{ wtf.form_field(form.boolean) }}
-        {{ wtf.form_field(form.radio) }}
-        {% for e in form.radio.errors %}
-            <p class="text-danger">{{ e }}</p>
-        {% endfor %}
-        {{ wtf.form_field(form.text) }}
-        {{ wtf.form_field(form.submit) }}
-    </form>
-    {% elif nowtime < starttime %}
-        <p>Query will start at {{ starttime }}</p>
-    {% else %}
-        <p>Query has ended</p>
-    {% endif %}
-
-    <h3>Partisipants: {{ count }}/{{ limit }}</h3>
-    {% for entry in entrys%}
-        <p>{{ entry.string[:30] }}
-        {% if loop.index > limit %}
-             (in queue)
-        {% endif %}
-        </p>
-    {% endfor %}
+        Speedrun aiheinen pelitapahtuma 3.-5.5. välisenä aikana OTiT ry:n kiltahuoneella. Tapahtumassa olisi tarkoitus
+        pelata pelaajien valitsemia pelejä niin nopeasti kuin pelaajat suinkin niitä osaavat pelata. Tapahtuma
+        striimataan OTiTin twitch sivustolle.
+        <br>
+        Tapahtumaan haluttaisiin alustavasti pelaajia ja muuten tapahtuman järjestelyistä kiinnostuneita OTiTilta. Nyt
+        onkin aika selvittää paljonko tällaiselle olisi kiinnostusta, jotta voidaan alkaa määrittää kuinka suuren
+        tapahtuman tästä saa aikaan!<br>
+        Vielä ei tarvitse tietää minkä pelin haluaisi pelata, mutta muutoin tässä vaiheessa olisi hyvä pystyä
+        ilmoittautumaan mahdollisimman sitovasti.<br>
+    kysy lisää IRC-netissä jsloth :lta tai sähköpostilla osoitteesta joonas.val ÄT gmailpistecom
+        <form class="form form-horizontal" method="post" role="form">
+            {{ form.hidden_tag() }}
+            {{ wtf.form_field(form.nick) }}
+            {{ wtf.form_field(form.game) }}
+            {{ wtf.form_field(form.time) }}
+            {{ wtf.form_field(form.email) }}
+            {{ wtf.form_field(form.phone) }}
+            <label class="extra">Minut saa kiinni seuraavilla tavoilla:</label>
+            {{ wtf.form_field(form.con_irc) }}
+            {{ wtf.form_field(form.con_tel) }}
+            {{ wtf.form_field(form.con_email) }}
+            <label class="extra">Tapahtuman järjestely</label><br>
+            Tapahtuman suunnittelu ja järjestely on vielä alkutekijöissään ja mahdollisuudet valtavat. Ilmoita siis
+            kiinnostaako sinua suunnittelu taikka muiden suunnitteleman tapahtuman järjestelyt.
+            {{ wtf.form_field(form.organize) }}
+            {{ wtf.form_field(form.other) }}
+            {{ wtf.form_field(form.consent) }}
+            {{ wtf.form_field(form.gdpr_consent) }}
+            <br>
+            <a target="_blank" href="/vauhtijuoksu/static/Tietosuojaseloste.pdf">Tietosuojaseloste</a>
+            <br>
+            {{ wtf.form_field(form.submit) }}
+        </form>
+        <h3>Ilmoitetut pelit:</h3>
+        <table>
+            <thead>
+            <tr>
+                <td>
+                    Peli
+                </td>
+                <td>
+                    Pelaaja
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for entry in entrys %}
+                {% if entry.game %}
+                    <tr>
+                    <td>
+                        {{ entry.game }}
+                    </td>
+                    <td>
+                        {{ entry.nick }}
+                    </td>
+                {% endif %}
+            {% endfor %}
+            </tr>
+            </tbody>
+        </table>
     </div>
 {% endblock %}

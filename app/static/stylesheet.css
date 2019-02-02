@@ -2,3 +2,24 @@
     margin-right: 0;
     margin-left: 0;
 }
+body{
+    background: black url("/static/speed.jpg") center center fixed;
+    background-size: cover;
+    color: white;
+}
+.container{
+    background-color: rgba(0, 0, 0, 0.73);
+}
+
+table{
+    display: table;
+    width: 100%;
+}
+
+label.extra{
+    padding-top: 10px;
+}
+
+thead{
+    border-bottom: black solid 2px;
+}
