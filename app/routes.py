@@ -52,7 +52,7 @@ def index():
 
         db.session.add(sub)
         db.session.commit()
-        return redirect(url_for('index'))
+        return redirect('https://www.otit.fi/vauhtijuoksu')
 
     return render_template('index.html', title='Vauhtijuoksu',
                                          entrys=entrys,
