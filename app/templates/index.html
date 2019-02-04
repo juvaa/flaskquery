@@ -1,32 +1,30 @@
-
 {% extends "headers.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
 
 {% block content %}
     <div class="container">
-      {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul class=flashes>
-        {% for message in messages %}
-          <li>{{ message }}</li>
-        {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
         <div class="page-header">
             <h1>{{ title }}</h1>
         </div>
-        Speedrun aiheinen pelitapahtuma 3.-5.5. välisenä aikana OTiT ry:n kiltahuoneella. Tapahtumassa olisi tarkoitus
-        pelata pelaajien valitsemia pelejä niin nopeasti kuin pelaajat suinkin niitä osaavat pelata. Tapahtuma
-        striimataan OTiTin twitch sivustolle.
-        <br>
-        Tapahtumaan haluttaisiin alustavasti pelaajia ja muuten tapahtuman järjestelyistä kiinnostuneita OTiTilta. Nyt
-        onkin aika selvittää paljonko tällaiselle olisi kiinnostusta, jotta voidaan alkaa määrittää kuinka suuren
-        tapahtuman tästä saa aikaan!<br>
+        Kun juoksee lujaa, pääsee nopeasti pelin läpi. PC-vastaavat suuruudessaan järjestävät huikean vauhtijuoksu
+        (speedrun) tapahtuman kiltahuoneella 3.-5.5.2019. Osaatko pelata jonkun pelin läpi nopeasti? Tai haluatko edes
+        yrittää moista? Ilmoittaudu pelaajaksi tapahtumaan alla olevalla kaavakkeella. Pelata voit konsolilla
+        taikka PC:llä, mutta toive olisi että jokaiselta löytyisi itseltä välineet pelin pelaamiseen. Tapahtumaa
+        lähdetään suunnittelemaan tarkemmin osallistujien määrän ja mielenkiinnon mukaan. Mahdollisuudet ovat lähes
+        rajattomat!<br>
         Vielä ei tarvitse tietää minkä pelin haluaisi pelata, mutta muutoin tässä vaiheessa olisi hyvä pystyä
         ilmoittautumaan mahdollisimman sitovasti.<br>
-    kysy lisää IRC-netissä jsloth :lta tai sähköpostilla osoitteesta joonas.val ÄT gmailpistecom
+        kysy lisää IRC-netissä jsloth :lta tai sähköpostilla osoitteesta joonas.val ÄT gmailpistecom
         <form class="form form-horizontal" method="post" role="form">
             {{ form.hidden_tag() }}
             {{ wtf.form_field(form.nick) }}

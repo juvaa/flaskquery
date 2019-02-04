@@ -13,6 +13,6 @@ class Form(FlaskForm):
     game = StringField('Peli jonka haluaisit pelata')
     time = StringField('Pelin suurinpiirteinen kesto')
     other = TextAreaField('Muuta kerrottavaa')
-    consent = BooleanField('Lupaan merkitä tapahtuman kalenteriini ja teen kaikkeni jotta voin siihen osallistua*')
+    consent = BooleanField('Lupaan merkitä tapahtuman kalenteriini ja teen kaikkeni jotta voin siihen osallistua sekä lupaan opetella pelaamaan valitsemaani peliä*')
     gdpr_consent = BooleanField('Hyväksyn henkilötietojeni käsittelyn tietosuojaselosteen mukaisesti*')
     submit = SubmitField('Lähetä')
