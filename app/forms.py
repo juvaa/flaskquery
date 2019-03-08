@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, InputRequired, Optional
 
 class Form(FlaskForm):
     name = StringField('Nimi*', validators=[DataRequired()])
-    guild = RadioField('Kilta*', choices=(['otit', 'OTiT'],['sik', 'SIK'], ['blanko', 'Blanko']))
+    guild = RadioField('Ryhmä*', choices=(['otit', 'OTiT'],['sik', 'SIK'], ['blanko', 'Blanko'], ['henkilokunta', 'Tiedekunnan henkilöstö']))
     mail = StringField('Sähköpostiosoite*', validators=[DataRequired()])
     specialfoods = TextAreaField('Erityisruokavaliot (Vastaa vaikket osallistuisi sitseille)')
     hopesndreams = TextAreaField('Toiveita seminaarissa käsiteltävistä asioista.')

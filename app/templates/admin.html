@@ -162,6 +162,57 @@
         {% endfor %}
         </tbody>
     </table>
+<h3>henkilokunta: {{ h_count }}/{{ limit }}</h3>
+    <table>
+        <thead>
+        <tr>
+            <td>
+                #
+            </td>
+            <td>
+                Nimi
+            </td>
+            <td>
+                SäPo
+            </td>
+            <td>
+                erityisruokavalio
+            </td>
+            <td>
+                Toiveita
+            </td>
+            <td>
+                Juomat
+            </td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entry in b_entries %}
+            <tr>
+            <td>{{ loop.index }}.
+                {% if loop.index > limit %}
+                    (Vara)
+                {% endif %}
+            </td>
+            <td>
+                {{ entry.name }}
+            </td>
+            <td>
+                {{ entry.mail }}
+            </td>
+            <td>
+                {{ entry.specialfoods }}
+            </td>
+            <td>
+                {{ entry.hopesndreams }}
+            </td>
+            <td>
+                {{ entry.wine }} / {{ entry.beer }}
+            </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
  <h2>Muut osallistujat: {{ count }}</h2>
     <table>
         <thead>
