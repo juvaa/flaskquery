@@ -7,7 +7,7 @@
     <div class="page-header">
         <h1>{{ title }}</h1>
     </div>
-    <h2>Osallistujat</h2>
+    <h2>Sitsien osallistujat</h2>
     <h3>OTiT: {{ o_count }}/{{ limit }}</h3>
     <table>
         <thead>
@@ -22,10 +22,13 @@
                 SäPo
             </td>
             <td>
-                Puh
+                erityisruokavalio
             </td>
             <td>
-                Lähtö
+                Toiveita
+            </td>
+            <td>
+                Juomat
             </td>
         </tr>
         </thead>
@@ -44,10 +47,13 @@
                 {{ entry.mail }}
             </td>
             <td>
-                {{ entry.phone }}
+                {{ entry.specialneeds }}
             </td>
             <td>
-                {{ entry.place }}
+                {{ entry.hopesndreams }}
+            </td>
+            <td>
+                {{ entry.wine }} / {{ entry.beer }}
             </td>
             </tr>
         {% endfor %}
@@ -68,10 +74,13 @@
                 SäPo
             </td>
             <td>
-                Puh
+                erityisruokavalio
             </td>
             <td>
-                Lähtö
+                Toiveita
+            </td>
+            <td>
+                Juomat
             </td>
         </tr>
         </thead>
@@ -90,10 +99,115 @@
                 {{ entry.mail }}
             </td>
             <td>
-                {{ entry.phone }}
+                {{ entry.specialneeds }}
             </td>
             <td>
-                {{ entry.place }}
+                {{ entry.hopesndreams }}
+            </td>
+            <td>
+                {{ entry.wine }} / {{ entry.beer }}
+            </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<h3>Blanko: {{ b_count }}/{{ limit }}</h3>
+    <table>
+        <thead>
+        <tr>
+            <td>
+                #
+            </td>
+            <td>
+                Nimi
+            </td>
+            <td>
+                SäPo
+            </td>
+            <td>
+                erityisruokavalio
+            </td>
+            <td>
+                Toiveita
+            </td>
+            <td>
+                Juomat
+            </td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entry in b_entries %}
+            <tr>
+            <td>{{ loop.index }}.
+                {% if loop.index > limit %}
+                    (Vara)
+                {% endif %}
+            </td>
+            <td>
+                {{ entry.name }}
+            </td>
+            <td>
+                {{ entry.mail }}
+            </td>
+            <td>
+                {{ entry.specialneeds }}
+            </td>
+            <td>
+                {{ entry.hopesndreams }}
+            </td>
+            <td>
+                {{ entry.wine }} / {{ entry.beer }}
+            </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+ <h2>Muut osallistujat: {{ count }}</h2>
+    <table>
+        <thead>
+        <tr>
+            <td>
+                #
+            </td>
+            <td>
+                Nimi
+            </td>
+            <td>
+                SäPo
+            </td>
+            <td>
+                erityisruokavalio
+            </td>
+            <td>
+                Toiveita
+            </td>
+            <td>
+                Kilta
+            </td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entry in entries %}
+            <tr>
+            <td>{{ loop.index }}.
+                {% if loop.index > limit %}
+                    (Vara)
+                {% endif %}
+            </td>
+            <td>
+                {{ entry.name }}
+            </td>
+            <td>
+                {{ entry.mail }}
+            </td>
+            <td>
+                {{ entry.specialneeds }}
+            </td>
+            <td>
+                {{ entry.hopesndreams }}
+            </td>
+            <td>
+                {{ entry.guild }}
             </td>
             </tr>
         {% endfor %}

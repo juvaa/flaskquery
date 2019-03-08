@@ -1,3 +1,5 @@
+
+
 .form-horizontal .form-group {
     margin-right: 0;
     margin-left: 0;
@@ -6,6 +8,15 @@
 .extra-label{
     margin-bottom: 0;
     margin-top: 10px;
+}
+
+.inset{
+    padding-left: 40px;
+    padding-bottom: 10px;
+}
+
+.hide_{
+    display: none;
 }
 
 .return_msg{
@@ -28,14 +39,12 @@ table{
 }
 
 body {
-    background-size: cover;
-    background: linear-gradient(#0094ff, #000000 10%) repeat-x fixed center #000000;
-    color: white;
+    color: #000000;
     font-family: "arial", serif;
 }
 
 @keyframes flash {
-    0% { background-color: rgba(236, 234, 255, 0.63)
+    0% { background-color: rgba(47, 255, 0, 0.63)
     }
     100% { background-color: rgba(0, 142, 245, 0)
     }

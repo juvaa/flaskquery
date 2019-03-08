@@ -6,63 +6,77 @@ from datetime import datetime
 from flask_basicauth import BasicAuth
 import os
 
+
+rooturl = os.environ.get("ROOT_URL")
 app.config['BASIC_AUTH_USERNAME'] = os.environ.get("ADMIN_USER") or 'admin'
 app.config['BASIC_AUTH_PASSWORD'] = os.environ.get("ADMIN_PASSWORD") or 'helevetinhyvasalasana' # TODO: this could be somewhere else
 
 basic_auth = BasicAuth(app)
 
+limit = 17
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = Form()
 
-    starttime = datetime(2019, 2, 18, 13, 37, 00)
-    endtime = datetime(2019, 3, 15, 00, 00, 00)
+    starttime = datetime(2018, 3, 8, 12, 00, 00)
+    endtime = datetime(2019, 3, 26, 00, 00, 00)
     nowtime = datetime.now()
 
-    limit = 24
-
-    o_entries = Model.query.filter_by(guild="otit")
-    s_entries = Model.query.filter_by(guild="sik")
-    o_count = Model.query.filter_by(guild="otit").count()
-    s_count = Model.query.filter_by(guild="sik").count()
+    o_count = Model.query.filter_by(guild="otit", attend=True).count()
+    s_count = Model.query.filter_by(guild="sik", attend=True).count()
+    b_count = Model.query.filter_by(guild="blanko", attend=True).count()
 
     if form.validate_on_submit():
         flash('Kiitos ilmoittautumisesta!')
+        if form.attend.data and Model.query.filter_by(guild=form.guild.data, attend=True).count() >= limit:
+            flash('Olet varasijalla!')
+
         sub = Model(
 
             name=form.name.data,
             mail=form.mail.data,
             guild=form.guild.data,
-            phone=form.phone.data,
-            place=form.place.data,
+            specialfoods=form.specialfoods.data,
+            hopesndreams=form.hopesndreams.data,
+            attend=form.attend.data,
+            wine=form.wine.data,
+            beer=form.beer.data,
             datetime=nowtime
         )
+
         db.session.add(sub)
         db.session.commit()
-        return redirect("https://www.otit.fi/kmp/")
-    return render_template('index.html', title='KMP-2019 Ilmoittautuminen',
-                           o_entries=o_entries,
-                           s_entries=s_entries,
+        return redirect(rooturl)
+    return render_template('index.html', title='Opetuksenkehittämisseminaari ja proffasitsit 2019', rooturl=rooturl,
                            o_count=o_count,
                            s_count=s_count,
+                           b_count=b_count,
                            starttime=starttime,
                            endtime=endtime,
                            nowtime=nowtime,
                            limit=limit,
                            form=form)
 
+
 @app.route('/admin', methods=['GET'])
 @basic_auth.required
 def admin():
-    limit = 24
-    o_entries = Model.query.filter_by(guild="otit")
-    s_entries = Model.query.filter_by(guild="sik")
-    o_count = Model.query.filter_by(guild="otit").count()
-    s_count = Model.query.filter_by(guild="sik").count()
-    return render_template('admin.html', title='KMP-2019 ADMIN',
+    o_entries = Model.query.filter_by(guild="otit", attend=True)
+    s_entries = Model.query.filter_by(guild="sik", attend=True)
+    b_entries = Model.query.filter_by(guild="blanko", attend=True)
+    entries = Model.query.filter_by(attend=False)
+    o_count = Model.query.filter_by(guild="otit", attend=True).count()
+    s_count = Model.query.filter_by(guild="sik", attend=True).count()
+    b_count = Model.query.filter_by(guild="blanko", attend=True).count()
+    count = Model.query.filter_by(attend=False).count()
+    return render_template('admin.html', title='OKS-2019 ADMIN', rooturl=rooturl,
                            o_entries=o_entries,
                            s_entries=s_entries,
+                           b_entries=b_entries,
+                           entries=entries,
                            o_count=o_count,
                            s_count=s_count,
+                           b_count=b_count,
+                           count=count,
                            limit=limit)

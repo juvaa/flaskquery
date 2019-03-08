@@ -8,16 +8,17 @@
         <h1>{{ title }}</h1>
     </div>
     <p>
-        Se olisi taas se aika vuodesta kun OTiT ja SIK suuntaavat yhdessä katselemaan maailma menoa. Tänä vuonna
-        suuntaamme otaniemeen jossa OTiT puuhailee TiTeenien parissa ja SIK puuhailee sisarkiltansa kanssa. Mutta ei
-        reissu pelkkää hupailua ole, sillä teemme toki yritysvierailun firmaan X.
-    </p>
-    <p>
-        Excu starttaa 15.3 klo 07:00 yliopistolta ja kustantaa osallistujilta tasaiset 30 euroa. Takaisin olemme oulussa
-        joskus sunnuntaina.
-    </p>
-    <p>
-        Ilmo aukeaa 18.2.2019 klo 13:37 ja sulkeutuu 8.3.2019 klo 23.59
+        SIK, OTiT ja Blanko järjestävät jokavuotisen Tieto- ja sähkötekniikan tiedekunnan opetuksenkehittämisseminaarin
+        (OKS) tiistaina 2.4. Teekkaritalolla. Seminaari kokoaa yhteen järjestäjäkiltojen opiskelijat ja TST:n
+        opetushenkilökunnan keskustelemaan ajankohtaisista opintoihin liittyvistä teemoista ja miettimään miten opintoja
+        voitaisiin kehittää ja sujuvoittaa. Paikalle on myös kutsuttu kiltojen yhteistyöyritysten edustajia. Seminaariin
+        kuuluu kahvitarjoilu.
+        <br>Heti seminaarin jälkeen illanvietto jatkuu hyvämaineisten proffasitsien ja ruokatarjoilun merkeissä. Sitsit
+        ovat osallistujille ilmaiset. Pukukoodina on tumma puku. Sitsien jälkeen saunat lämpenevät.
+        <br>Alustava aikataulu seminaarin alkamiselle on 17:00, ja sitseille 20:00. Osallitujakiintiöt ovat alustavat,
+        ja tulevat riippumaan kutsuttujen yritysten edustajien osallistumisesta. Voit esittää toiveita tapahtumasta tai
+        seminaarissa käsiteltävistä aiheista ilmoittautumisen yhteydessä.
+
     </p>
     {% if starttime < nowtime < endtime %}
         <form class="form form-horizontal" method="post" role="form">
@@ -26,11 +27,29 @@
             <label class="extra-label">Kilta*</label>
             {{ wtf.form_field(form.guild) }}
             {% for e in form.guild.errors %}
-                <p class="text-danger">{{ e }}</p>
+                <p class="text-danger">Valitse kilta</p>
             {% endfor %}
+
             {{ wtf.form_field(form.mail) }}
-            {{ wtf.form_field(form.phone) }}
-            {{ wtf.form_field(form.place) }}
+
+            {{ wtf.form_field(form.specialfoods) }}
+            {{ wtf.form_field(form.hopesndreams) }}
+            {{ wtf.form_field(form.attend) }}
+            <div id="attend_box" class="inset hide_">
+                <label class="extra-label">Juomatoive</label>
+                {{ wtf.form_field(form.alcohol) }}
+                {% for e in form.alcohol.errors %}
+                    <p class="text-danger">Valitse juoma</p>
+                {% endfor %}
+
+                <div id="drinks" class="inset hide_">
+                    <label class="extra-label">Viini</label>
+                    {{ wtf.form_field(form.wine) }}
+
+                    <label class="extra-label">Mieto</label>
+                    {{ wtf.form_field(form.beer) }}
+                </div>
+            </div>
             {{ wtf.form_field(form.consent) }}
             {{ wtf.form_field(form.submit) }}
         </form>
@@ -40,29 +59,19 @@
         <p>Ilmoittautuminen on päättynyt</p>
     {% endif %}
     <p>
-        Tietosuojasuojaselosteen voit lukea täältä: <a href="https://www.otit.fi/kmp/static/KMPTietosuoja.pdf">Tietosuojaseloste</a>
+        Tietosuojasuojaselosteen voit lukea täältä: <a
+            href="{{ rooturl }}static/Tietosuoja.pdf">Tietosuojaseloste</a>
     </p>
-    <h2>Osallistujat</h2>
+    <h2>Kiintiöt</h2>
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <h3>OTiT: {{ o_count }}/{{ limit }}</h3>
-            {% for entry in o_entries %}
-                <p>{{ loop.index }}. {{ entry["name"][:30] }}
-                    {% if loop.index > limit %}
-                        (Varasijalla)
-                    {% endif %}
-                </p>
-            {% endfor %}
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <h3>SIK: {{ s_count }}/{{ limit }}</h3>
-            {% for entry in s_entries %}
-                <p>{{ loop.index }}. {{ entry["name"][:30] }}
-                    {% if loop.index > limit %}
-                        (Varasijalla)
-                    {% endif %}
-                </p>
-            {% endfor %}
+        </div>
+        <div class="col-sm-4">
+            <h3>Blanko: {{ b_count }}/{{ limit }}</h3>
         </div>
     </div>
 {% endblock %}

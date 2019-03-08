@@ -1,13 +1,17 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, BooleanField, SubmitField, RadioField, SelectField
-from wtforms.validators import DataRequired, InputRequired
+from wtforms import StringField, BooleanField, SubmitField, RadioField, SelectField, TextAreaField
+from wtforms.validators import DataRequired, InputRequired, Optional
 
 class Form(FlaskForm):
     name = StringField('Nimi*', validators=[DataRequired()])
-    guild = RadioField('Kilta*', choices=(['otit', 'OTiT'],['sik', 'SIK']))
+    guild = RadioField('Kilta*', choices=(['otit', 'OTiT'],['sik', 'SIK'], ['blanko', 'Blanko']))
     mail = StringField('Sähköpostiosoite*', validators=[DataRequired()])
-    phone = StringField('Puhelinnumero*', validators=[DataRequired()])
-    place = SelectField('Lähtöpaikka*', choices=(['yliopisto', 'Yliopisto'], ['tuira', 'Tuira'], ['linja-autoasema', 'Linja-autoasema']), validators=[DataRequired()])
+    specialfoods = TextAreaField('Erityisruokavaliot (Vastaa vaikket osallistuisi sitseille)')
+    hopesndreams = TextAreaField('Toiveita seminaarissa käsiteltävistä asioista.')
+    attend = BooleanField('Kyllä')
+    alcohol = RadioField('Juomatoive', choices=(['alkoholillinen', 'Alkoholillinen'], ['alkoholiton', 'Alkoholiton']), validators=[Optional()])
+    wine = RadioField('Juomatoive', choices=(['punaviini', 'Punaviini'], ['valkoviini', 'Valkoviini']), validators=[Optional()])
+    beer = RadioField('Juomatoive', choices=(['olut', 'Olut'], ['siideri', 'Siideri']), validators=[Optional()])
     consent = BooleanField(
         'Hyväksyn henkilötietojeni käsittelyn tietosuojaselosteen mukaisesti, sekä ymmärrän ilmoittatumisen olevan sitova.',
         validators=[InputRequired()])
