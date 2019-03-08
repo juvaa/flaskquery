@@ -24,7 +24,7 @@
         <form class="form form-horizontal" method="post" role="form">
             {{ form.hidden_tag() }}
             {{ wtf.form_field(form.name) }}
-            <label class="extra-label">Kilta*</label>
+            <label class="extra-label">Ryhmä*</label>
             {{ wtf.form_field(form.guild) }}
             {% for e in form.guild.errors %}
                 <p class="text-danger">Valitse kilta</p>
