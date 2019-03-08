@@ -23,14 +23,15 @@ def index():
     endtime = datetime(2019, 3, 26, 00, 00, 00)
     nowtime = datetime.now()
 
-    o_count = Model.query.filter_by(guild="otit", attend=True).count()
-    s_count = Model.query.filter_by(guild="sik", attend=True).count()
-    b_count = Model.query.filter_by(guild="blanko", attend=True).count()
-    h_count = Model.query.filter_by(guild="henkilokunta", attend=True).count()
+
+    o_count = Model.query.filter_by(guild="otit").count()
+    s_count = Model.query.filter_by(guild="sik").count()
+    b_count = Model.query.filter_by(guild="blanko").count()
+    h_count = Model.query.filter_by(guild="henkilokunta").count()
 
     if form.validate_on_submit():
         flash('Kiitos ilmoittautumisesta!')
-        if form.attend.data and Model.query.filter_by(guild=form.guild.data, attend=True).count() >= limit:
+        if form.attend.data and Model.query.filter_by(guild=form.guild.data).count() >= limit:
             flash('Olet varasijalla!')
 
         sub = Model(
