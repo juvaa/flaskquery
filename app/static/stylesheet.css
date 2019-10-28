@@ -16,14 +16,38 @@
 .hide_{
     display: none;
 }
+
+.leet{
+    color: greenyellow;
+    font-weight: bold;
+    font-family: monospace;
+}
+
 .avecheart{
-    color: #ff00c8;
+    color: #ff0012;
     font-size: 10px;
     vertical-align: top;
 }
 
+.opleaf{
+    color: red;
+    font-weight: bold;
+    font-family: monospace;
+    display: none;
 
+}
 
+.op{
+    display: none;
+}
+
+.ascii{
+    white-space: nowrap;
+    font-family: monospace;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
 
 html, body {
     width: 100%;
@@ -33,76 +57,20 @@ html, body {
 
 body {
     background-size: cover;
-    background: linear-gradient(#ff00c8, #000000 10%) repeat-x fixed center #000000;
+    background-color: black;
     color: white;
     font-family: "arial", serif;
 }
 
 
-#pacman {
-    pointer-events: none;
-    width: 0px;
-    height: 0px;
-    border-right: 10px solid transparent;
-    border-top: 10px solid #ff00c8;
-    border-left: 10px solid #ff00c8;
-    border-bottom: 10px solid #ff00c8;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
 
-.heart {
-    pointer-events: none;
-    position: relative;
-    width: 20px;
-    height: 18px;
-}
-
-.heart:before,
-.heart:after {
-    position: absolute;
-    content: "";
-    left: 10px;
-    top: 0;
-    width: 10px;
-    height: 16px;
-    background: #ff00c8;
-    border-radius: 10px 10px 0 0;
-    transform: rotate(-45deg);
-    transform-origin: 0 100%;
-}
-
-.heart:after {
-    left: 0;
-    transform: rotate(45deg);
-    transform-origin: 100% 100%;
-}
-
-#heart1{
-    pointer-events: none;
-    opacity: 0.2;
-}
-#heart2{
-    pointer-events: none;
-    opacity: 0.4;
-}
-#heart3{
-    pointer-events: none;
-    opacity: 0.6;
-}
-#heart4{
-    pointer-events: none;
-    opacity: 0.8;
+.operatorlead{
+    display: none;
 }
 
 .snowflake {
     pointer-events: none;
-    color: #ff00c8;
-    font-size: 1em;
-    font-family: Arial, sans-serif;
-    text-shadow: 0 0 5px #000;
+    transform: scaleY(-1);
 }
 
 @-webkit-keyframes snowflakes-fall {
@@ -144,6 +112,8 @@ body {
 }
 
 .snowflake {
+
+    transform: scaleY(-1);
     pointer-events: none;
     position: fixed;
     top: -10%;

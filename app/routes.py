@@ -3,73 +3,74 @@ from app import app, db
 from app.forms import Form
 from app.models import Model
 from datetime import datetime
+from flask_basicauth import BasicAuth
+import os
 
+app.config['BASIC_AUTH_USERNAME'] = os.environ.get("ADMIN_USER") or 'admin'
+app.config['BASIC_AUTH_PASSWORD'] = os.environ.get("ADMIN_PASSWORD") or 'helevetinhyvasalasana' # TODO: this could be somewhere else
+appurl = os.environ.get("URL")
+basic_auth = BasicAuth(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = Form()
 
-    starttime = datetime(2018, 1, 27, 12, 00, 00)
-    endtime = datetime(2019, 2, 1, 23, 59, 00)
+    teekkaritime = datetime(2019, 10, 30, 13, 37, 00)
+    endtime = datetime(2019, 11, 4, 11, 59, 59)
     nowtime = datetime.now()
 
-    otitlimit = 38
-    communicalimit = 38
 
-    entrys = Model.query.all()
-    count = Model.query.count()
+    entries_temp = Model.query.all()
 
+    entries = []
 
-    otits = []
-    communicas = []
+    for entry in entries_temp:
+        if entry.gdpr:
+            entries.append({"name": entry.name, "avec": False, "operator": entry.operator})
+        else:
+            entries.append({"name": "Remminorsu", "avec": False, "operator": entry.operator})
 
-    maxlimit = 500
-
-
-    for entry in entrys:
-        if entry.guild == "otit":
-            otits.append({"name": entry.name, "avec": False})
-            if entry.avec:
-                otits.append({"name": entry.avec_name, "avec": True})
-        elif entry.guild == "communica":
-            communicas.append({"name": entry.name, "avec": False})
-            if entry.avec:
-                communicas.append({"name": entry.avec_name, "avec": True})
+        if entry.avec:
+            if entry.avec_gdpr:
+                entries.append({"name": entry.avec_name, "avec": True})
+            else:
+                entries.append({"name": "Norsuavec", "avec": True})
 
 
-    if form.validate_on_submit() and count <= maxlimit:
+
+
+
+
+    if form.validate_on_submit():
         flash('Kiitos ilmoittautumisesta!')
         sub = Model(
             name=form.name.data,
             mail = form.mail.data,
-            guild = form.guild.data,
+            operator = form.operator.data,
             alcohol = form.alcohol.data,
             wine = form.wine.data,
             beer = form.beer.data,
             specialneeds = form.specialneeds.data,
+            gdpr = form.gdpr.data,
             avec = form.avec.data,
             avec_name = form.avec_name.data,
             avec_alcohol = form.avec_alcohol.data,
             avec_wine = form.avec_wine.data,
             avec_beer = form.avec_beer.data,
             avec_specialneeds = form.avec_specialneeds.data,
+            avec_gdpr = form.avec_gdpr.data,
             datetime = nowtime
         )
         db.session.add(sub)
         db.session.commit()
-        return redirect("https://www.otit.fi/humanoori-ilmo/")
+        return redirect(appurl)
 
-    elif form.is_submitted() and count > maxlimit:
-        flash('Ilmoittautuminen täynnä!')
+
 
     return render_template('index.html',
-                           starttime=starttime,
+                           appurl=appurl,
+                           teekkaritime=teekkaritime,
                            endtime=endtime,
                            nowtime=nowtime,
-                           otitlimit=otitlimit,
-                           otits=otits,
-                           otitcount=len(otits),
-                           communicalimit=communicalimit,
-                           communicas=communicas,
-                           communicacount=len(communicas),
+                           entries=entries,
                            form=form)
