@@ -87,11 +87,6 @@ Maksu suoritetaan Oulun Tietoteekkarit ry:n tilille FI03 4744 3020 0116 87 sunnu
                 {{ form.hidden_tag() }}
                 {{ wtf.form_field(form.operator) }}
 
-                {% if nowtime < teekkaritime %}
-                <div class="operatorlead">
-                {% else %}
-                <div>
-                {% endif %}
                 {{ wtf.form_field(form.name) }}
 
                 {{ wtf.form_field(form.mail) }}
@@ -139,12 +134,8 @@ Maksu suoritetaan Oulun Tietoteekkarit ry:n tilille FI03 4744 3020 0116 87 sunnu
                 {% endfor %}
 
                 {{ wtf.form_field(form.submit) }}
-                </div>
-                {% if nowtime < teekkaritime %}
-                <div class="nonoperatorlead">
-                    Ilmoittautuminen epäoperaattoreille aukeaa vasta 30.10.2019
-                </div>
-                    {% endif %}
+
+
             </form>
         {% else %}
             <p>Ilmoittautuminen on päättynyt</p>
