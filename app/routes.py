@@ -30,7 +30,7 @@ def index():
         flash('sent!')
         if not form.amount.data:
             amount = random.randint(1, random.randint(1, random.randint(1, 200)))
-            if random.randint(0,10) == 0:
+            if random.randint(0,20) == 0:
                 name = "Anonyymi"
                 message = ""
             else:
@@ -79,9 +79,10 @@ def api():
     for e in content:
         if datetime.now().timestamp() > float(e.activationstamp):
             c.append({
-                "DonationId": e.DonationId,
+                "DonationId": str(e.DonationId),
                 "Name": e.Name,
                 "Message": e.Message,
+                "Amount": e.Amount,
                 "MessageAnswer": e.MessageAnswer,
                 "CollectorImageUrl": e.CollectorImageUrl,
                 "CurrencySymbol": e.CurrencySymbol,
@@ -90,9 +91,10 @@ def api():
             })
         else:
             c.append({
-                "DonationId": e.DonationId,
+                "DonationId": str(e.DonationId),
                 "Name": "Anonyymi",
                 "Message": "",
+                "Amount": e.Amount,
                 "MessageAnswer": e.MessageAnswer,
                 "CollectorImageUrl": e.CollectorImageUrl,
                 "CurrencySymbol": e.CurrencySymbol,
