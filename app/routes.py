@@ -58,7 +58,8 @@ def index():
             CollectorImageUrl="",
             CurrencySymbol="€",
             CollectionUrl="/lahjaksitulevaisuus/6-3619",
-            TransactionDate=d[2]+"."+d[1]+"."+d[0]
+            TransactionDate=d[2]+"."+d[1]+"."+d[0],
+            activationstamp= datetime.now().timestamp() + random.randint(0, 60)
         )
 
         db.session.add(sub)
@@ -76,16 +77,28 @@ def api():
         content = Model.query.all()
     c = []
     for e in content:
-        c.append({
-            "DonationId": e.DonationId,
-            "Name": e.Name,
-            "Message": e.Message,
-            "MessageAnswer": e.MessageAnswer,
-            "CollectorImageUrl": e.CollectorImageUrl,
-            "CurrencySymbol": e.CurrencySymbol,
-            "CollectionUrl": e.CollectionUrl,
-            "TransactionDate": e.TransactionDate
-        })
+        if datetime.now().timestamp() > float(e.activationstamp):
+            c.append({
+                "DonationId": e.DonationId,
+                "Name": e.Name,
+                "Message": e.Message,
+                "MessageAnswer": e.MessageAnswer,
+                "CollectorImageUrl": e.CollectorImageUrl,
+                "CurrencySymbol": e.CurrencySymbol,
+                "CollectionUrl": e.CollectionUrl,
+                "TransactionDate": e.TransactionDate
+            })
+        else:
+            c.append({
+                "DonationId": e.DonationId,
+                "Name": "Anonyymi",
+                "Message": "",
+                "MessageAnswer": e.MessageAnswer,
+                "CollectorImageUrl": e.CollectorImageUrl,
+                "CurrencySymbol": e.CurrencySymbol,
+                "CollectionUrl": e.CollectionUrl,
+                "TransactionDate": e.TransactionDate
+            })
     c = c[::-1]
     return jsonify(c)
 

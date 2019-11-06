@@ -10,4 +10,4 @@ class Model(db.Model):
     CurrencySymbol = db.Column(db.String(64))
     CollectionUrl = db.Column(db.String(128))
     TransactionDate = db.Column(db.String(64))
-
+    activationstamp = db.Column(db.String(64))
