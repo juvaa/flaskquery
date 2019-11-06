@@ -86,5 +86,6 @@ def api():
             "CollectionUrl": e.CollectionUrl,
             "TransactionDate": e.TransactionDate
         })
+    c = c[::-1]
     return jsonify(c)
 
