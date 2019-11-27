@@ -15,7 +15,7 @@ basic_auth = BasicAuth(app)
 def index():
     form = Form()
 
-    teekkaritime = datetime(2019, 10, 30, 13, 37, 00)
+    starttime = datetime(2019, 10, 30, 13, 37, 00)
     endtime = datetime(2019, 11, 4, 11, 59, 59)
     nowtime = datetime.now()
 
@@ -26,16 +26,9 @@ def index():
 
     for entry in entries_temp:
         if entry.gdpr:
-            entries.append({"name": entry.name, "avec": False, "operator": entry.operator})
+            entries.append({"name": entry.name, "guild": entry.operator})
         else:
-            entries.append({"name": "Remminorsu", "avec": False, "operator": entry.operator})
-
-        if entry.avec:
-            if entry.avec_gdpr:
-                entries.append({"name": entry.avec_name, "avec": True})
-            else:
-                entries.append({"name": "Norsuavec", "avec": True})
-
+            entries.append({"name": "Anonyymi", "guild": entry.operator})
 
 
 
@@ -46,19 +39,12 @@ def index():
         sub = Model(
             name=form.name.data,
             mail = form.mail.data,
-            operator = form.operator.data,
+            guild = form.guild.data,
             alcohol = form.alcohol.data,
             wine = form.wine.data,
             beer = form.beer.data,
             specialneeds = form.specialneeds.data,
             gdpr = form.gdpr.data,
-            avec = form.avec.data,
-            avec_name = form.avec_name.data,
-            avec_alcohol = form.avec_alcohol.data,
-            avec_wine = form.avec_wine.data,
-            avec_beer = form.avec_beer.data,
-            avec_specialneeds = form.avec_specialneeds.data,
-            avec_gdpr = form.avec_gdpr.data,
             datetime = nowtime
         )
         db.session.add(sub)
@@ -69,7 +55,7 @@ def index():
 
     return render_template('index.html',
                            appurl=appurl,
-                           teekkaritime=teekkaritime,
+                           starttime=starttime,
                            endtime=endtime,
                            nowtime=nowtime,
                            entries=entries,

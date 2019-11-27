@@ -75,17 +75,16 @@ Maksu suoritetaan Oulun Tietoteekkarit ry:n tilille FI03 4744 3020 0116 87 sunnu
             </li>
         </ul>
         <p>
-        {% if nowtime < teekkaritime %}
-            Ilmoittautuminen muille kuin operaattoreille avautuu 30.10.2019 klo 13:37.
-        {% endif %}
         Ilmoittautuminen sulkeutuu 4.11.2019.
         </p>
-        {% if nowtime < endtime %}
+        {% if starttime < nowtime %}
+            ilmo aukeaa {{ starttime }}
+        {% elif nowtime < endtime %}
             <h2>Ilmoittautuminen</h2>
             <form class="form form-horizontal" method="post" role="form">
 
                 {{ form.hidden_tag() }}
-                {{ wtf.form_field(form.operator) }}
+                {{ wtf.form_field(form.guild) }}
 
                 {{ wtf.form_field(form.name) }}
 
@@ -105,29 +104,6 @@ Maksu suoritetaan Oulun Tietoteekkarit ry:n tilille FI03 4744 3020 0116 87 sunnu
                     {{ wtf.form_field(form.beer) }}
                 </div>
                 {{ wtf.form_field(form.specialneeds) }}
-
-
-                {{ wtf.form_field(form.avec) }}
-
-                {{ wtf.form_field(form.consent) }}
-                {{ wtf.form_field(form.gdpr) }}
-
-                <div id="avec-info" class="inset hide_">
-                    {{ wtf.form_field(form.avec_name) }}
-
-                    <label class="extra-label">Juomatoive</label>
-                    {{ wtf.form_field(form.avec_alcohol) }}
-                    <div id="avec-drinks" class="inset hide_">
-                        <label class="extra-label">Viini</label>
-                        {{ wtf.form_field(form.avec_wine) }}
-                        <label class="extra-label">Mieto</label>
-                        {{ wtf.form_field(form.avec_beer) }}
-                    </div>
-
-                    {{ wtf.form_field(form.avec_specialneeds) }}
-                    {{ wtf.form_field(form.avec_consent) }}
-                    {{ wtf.form_field(form.avec_gdpr) }}
-                </div>
 
                 {% for e in form.errors.items() %}
                     <p class="text-danger">{{ e }}</p>
