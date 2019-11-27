@@ -11,6 +11,7 @@ import os
 app.config['BASIC_AUTH_USERNAME'] = os.environ.get("ADMIN_USER") or 'admin'
 app.config['BASIC_AUTH_PASSWORD'] = os.environ.get("ADMIN_PASSWORD") or 'helevetinhyvasalasana' # TODO: this could be somewhere else
 appurl = os.environ.get("URL")
+default_admin_pass = os.environ.get("DEFADMINPAS")
 basic_auth = BasicAuth(app)
 
 reserved = ['admin', '']
@@ -24,7 +25,12 @@ def index():
 
 
     entries = Model.query.all()
-    admin = Admin.query.first().adminpass
+
+    if Admin.query.first():
+        admin = Admin.query.first().adminpass
+    else:
+        admin = default_admin_pass
+
 
 
     if form.validate_on_submit():
@@ -44,15 +50,14 @@ def index():
                 return render_template('index.html', title='asd.otit.fi', form=form, entries=entries, appurl=appurl)
         else:
             short = 'asd/' + short
+            public = False
 
         for entry in entries:
             if entry.short == short:
                 if entry.url == url:
                     flash('lyhenne uusittu!')
                     new = False
-                    if entry.public != public:
-                        flash('Listausta ei voida muuttaa :(')
-                        public = entry.public
+
 
                 else:
                     if datetime.strptime(entry.expiration, '%Y-%m-%d %H:%M:%S.%f') > nowtime:
@@ -85,7 +90,7 @@ def admin():
     if Admin.query.first():
         admin = Admin.query.first().adminpass
     else:
-        admin = "huutistaglukoosille"
+        admin = default_admin_pass
 
 
     nowtime = datetime.now()
