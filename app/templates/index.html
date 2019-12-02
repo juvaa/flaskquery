@@ -86,9 +86,6 @@ Eräpäivä/Due date: 8.12.
     </ul>
         </p>
 
-        {% if starttime > nowtime %}
-            ilmo aukeaa / Form opens <br> {{ starttime }}
-        {% elif nowtime < endtime %}
             <h2>Ilmoittautuminen</h2>
             <form class="form form-horizontal" method="post" role="form">
 
@@ -126,9 +123,7 @@ Eräpäivä/Due date: 8.12.
 
 
             </form>
-        {% else %}
-            <p>Ilmoittautuminen on päättynyt / The form has closed</p>
-        {% endif %}
+
         <a href="{{ appurl }}/static/mustaakinmustemmatsitsittietosuoja.pdf" target="_blank">Tietosuojaseloste</a>
         <br>
         / The information gathered from this form is handled confidentially and in accordance to the EU standards. More details upon request.
