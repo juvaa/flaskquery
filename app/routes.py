@@ -15,27 +15,32 @@ basic_auth = BasicAuth(app)
 def index():
     form = Form()
 
-    starttime = datetime(2019, 10, 30, 13, 37, 00)
-    endtime = datetime(2019, 11, 4, 11, 59, 59)
+    starttime = datetime(2019, 12, 2, 13, 37, 00)
+    endtime = datetime(2019, 12, 8, 23, 59, 59)
     nowtime = datetime.now()
 
 
     entries_temp = Model.query.all()
 
-    entries = []
+    otits = []
+    olos = []
 
     for entry in entries_temp:
-        if entry.gdpr:
-            entries.append({"name": entry.name, "guild": entry.operator})
-        else:
-            entries.append({"name": "Anonyymi", "guild": entry.operator})
-
-
+        if entry.guild == "otit":
+            if entry.gdpr:
+                otits.append(entry.name)
+            else:
+                otits.append("Remminorsu")
+        if entry.guild == "olo":
+            if entry.gdpr:
+                olos.append(entry.name)
+            else:
+                olos.append("Anonyymi")
 
 
 
     if form.validate_on_submit():
-        flash('Kiitos ilmoittautumisesta!')
+        flash('Form has been submitted!')
         sub = Model(
             name=form.name.data,
             mail = form.mail.data,
@@ -58,5 +63,6 @@ def index():
                            starttime=starttime,
                            endtime=endtime,
                            nowtime=nowtime,
-                           entries=entries,
+                           otits=otits,
+                           olos=olos,
                            form=form)
