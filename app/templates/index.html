@@ -142,10 +142,10 @@ Eräpäivä/Due date: 8.12.
         / The information gathered from this form is handled confidentially and in accordance to the EU standards. More details upon request.
         <div class="row">
             <div class="col-sm-6">
-        <h2>OTiT - Osallistujat / Attendees {{ otits|length }}/31</h2>
+        <h2>OTiT - Osallistujat / Attendees {{ otits|length }}/30</h2>
                 {% for entry in otits %}
                     <p>{{ loop.index }}. {{ entry[:50] }}
-                        {% if loop.index > 31 %}
+                        {% if loop.index > 30 %}
                             (Varasijalla / Reserve)
                         {% endif %}
                     </p>
@@ -153,10 +153,10 @@ Eräpäivä/Due date: 8.12.
             </div>
 
             <div class="col-sm-6">
-        <h2>OLO - Osallistujat / Attendees {{ olos|length }}/30</h2>
+        <h2>OLO - Osallistujat / Attendees {{ olos|length }}/28</h2>
                 {% for entry in olos %}
                     <p>{{ loop.index }}. {{ entry[:50] }}
-                        {% if loop.index > 30 %}
+                        {% if loop.index > 28 %}
                             (Varasijalla / Reserve)
                         {% endif %}
                     </p>
