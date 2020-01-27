@@ -50,6 +50,7 @@ def index():
         flash('Kiitos ilmoittautumisesta!')
         sub = Model(
             name=form.name.data,
+            mail=form.mail.data,
             guild = form.guild.data,
             alcohol = form.alcohol.data,
             wine = form.wine.data,
