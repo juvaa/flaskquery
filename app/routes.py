@@ -13,8 +13,9 @@ def index():
     endtime = datetime(2020, 2, 1, 23, 59, 00)
     nowtime = datetime.now()
 
-    otitlimit = 38
-    communicalimit = 38
+    otitlimit = 33
+    communicalimit = 33
+    proselimit = 34
 
     entrys = Model.query.all()
     count = Model.query.count()
@@ -22,6 +23,7 @@ def index():
 
     otits = []
     communicas = []
+    proses = []
 
     maxlimit = 500
 
@@ -35,6 +37,11 @@ def index():
             communicas.append({"name": entry.name, "avec": False})
             if entry.avec:
                 communicas.append({"name": entry.avec_name, "avec": True})
+        elif entry.guild == "prose":
+            proses.append({"name": entry.name, "avec": False})
+            if entry.avec:
+                proses.append({"name": entry.avec_name, "avec": True})
+
 
 
     if form.validate_on_submit() and count <= maxlimit:
@@ -72,4 +79,7 @@ def index():
                            communicalimit=communicalimit,
                            communicas=communicas,
                            communicacount=len(communicas),
+                           proselimit=proselimit,
+                           proses=proses,
+                           prosecount=len(proses),
                            form=form)

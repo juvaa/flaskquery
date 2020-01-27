@@ -5,47 +5,18 @@
 {% block content %}
     <div class="container">
         <div class="page-header">
-            <h1>Humanöörit goes Love Island</h1>
+            <h1>Humanööri sitsit 2020</h1>
         </div>
         <p>
-            OTiT ja Communica järjestävät taas jo perinteeksi muodostuneet Humanöörisitsit Teekkaritalolla. Tänä vuonna
-            sitsien teemana toimii ystävänpäivän kunniaksi Humanöörit goes Love Island. Tule siis paikan päälle ja
-            selvitä, löytyykö sinun elämäsi kumppani rakkauden talolta! Pukukoodina toimii tänä vuonna tumma
-            puku/cocktailmekko pinkillä tai punaisella twistillä. Pukeudu siis parhaimpiisi ja suuntaa Oulun omalle Love
-            Islandille etsimään elämäsi rakkautta!
-        </p>
-        <p>
-            Jatkoilla meininki lämpenee entisestään paljun ja saunan kuumentuessa, joten varaa OPM x2!
-        </p>
-        <p>
-            Tervetulleita sitsaamaan ovat Communican ja OTiTin opiskelijat aveceineen. Mukaan mahtuu 38 nopeinta
-            molemmista
-            killoista. Sitsilippu kustantaa alkoholittomana 17€ ja alkoholillisena 20€.
+            OTiT, Communica ja Prosesikilta järjestävät Humanöörisitsit Teekkaritalolla.
         </p>
         <p>
             Maksu Oulun Tietoteekkarit ry:n tilille FI03 4744 3020 0116 87 11.2. mennessä, viestikenttään "Humanöörisitsit", sekä oma (ja avecin
             jos
             maksat myös avecin) nimi.
+        </p>
         <p>
-        <ul>
-            <li>
-                Mitä? Humanöörisitsit goes Love Island
-            </li>
-            <li>
-                Missä? Teekkaritalo
-            </li>
-            <li>
-                Milloin? Torstaina 14.2. klo 19
-            </li>
-            <li>
-                Pukukoodi? Tumma puku/cocktailmekko pinkillä tai punaisella twistillä
-            </li>
-            <li>
-                Paljonko? 17/20€ (holiton/holillinen)
-            </li>
-        </ul>
-        <p>
-        ilmoittautuminen auki 28.1.-1.2.
+        ilmoittautuminen auki 31.1.-1.2.
         </p>
         {% if starttime < nowtime < endtime %}
             <h2>Ilmoittautuminen</h2>
@@ -104,7 +75,7 @@
                 {{ wtf.form_field(form.submit) }}
             </form>
         {% elif nowtime < starttime %}
-            <p>Ilmoittautuminen alkaa {{ starttime }}</p>
+            <p>Ilmoittautuminen alkaa {{ starttime }}<//p>
         {% else %}
             <p>Ilmoittautuminen on päättynyt</p>
         {% endif %}
@@ -136,56 +107,19 @@
                     </p>
                 {% endfor %}
             </div>
+            <div class="col-sm-6">
+                <h3>Prose: {{ prosecount }}/{{ proselimit }}</h3>
+                {% for entry in proses %}
+                    <p>{{ loop.index }}. {{ entry["name"][:30] }}
+                        {% if entry["avec"] %}
+                            <span class="avecheart">❤️</span>
+                        {% endif %}
+                        {% if loop.index > communicalimit %}
+                            (Varasijalla)
+                        {% endif %}
+                    </p>
+                {% endfor %}
+            </div>
         </div>
-    </div>
-
-
-    <div class="snowflakes" aria-hidden="true">
-        <div class="snowflake">
-            ❤️
-        </div>
-        <div class="snowflake">
-            ❤️
-        </div>
-        <div class="snowflake heart">
-
-        </div>
-        <div class="snowflake">
-            ❤️
-        </div>
-        <div class="snowflake heart">
-
-        </div>
-        <div class="snowflake">
-            ❤️
-        </div>
-        <div class="snowflake heart">
-
-        </div>
-        <div class="snowflake">
-            ❤️
-        </div>
-        <div class="snowflake heart">
-
-        </div>
-        <div class="snowflake">
-            ❤️
-        </div>
-        <div class="snowflake" id="pacman">
-
-        </div>
-        <div class="snowflake">
-            ❤️
-        </div>
-    </div>
-    <div id="heart1" class="heart">
-    </div>
-    <div id="heart2" class="heart">
-    </div>
-    <div id="heart3" class="heart">
-    </div>
-    <div id="heart4" class="heart">
-    </div>
-    <div id="heart5" class="heart">
     </div>
 {% endblock %}
