@@ -34,7 +34,6 @@ def index():
     #maxlimit = 100
     maxlimit = 9
 
-
     for entry in entrys:
         if entry.guild == "otit":
             otits.append({"name": entry.name, "avec": False})
