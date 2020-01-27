@@ -27,7 +27,7 @@ html, body {
 
 body {
     background-size: cover;
-    background: linear-gradient(#ff00c8, #000000 10%) repeat-x fixed center #000000;
-    color: white;
+    background: linear-gradient(#00025c, #202022 10%) repeat-x fixed center #202020;
+    color: #d8d8d8;
     font-family: "arial", serif;
 }
