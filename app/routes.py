@@ -27,7 +27,7 @@ def index():
     communicas = []
     proses = []
 
-    maxlimit = 500
+    maxlimit = 100
 
 
     for entry in entrys:
