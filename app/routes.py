@@ -3,6 +3,7 @@ from app import app, db
 from app.forms import Form
 from app.models import Model
 from datetime import datetime
+import os
 
 appurl = os.environ.get("URL")
 

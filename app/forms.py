@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, SubmitField, RadioField, TextAreaField
 from wtforms.validators import DataRequired, InputRequired, Optional
+import os
 
 appurl = os.environ.get("URL")
 
