@@ -4,6 +4,7 @@ from app.forms import Form
 from app.models import Model
 from datetime import datetime
 
+appurl = os.environ.get("URL")
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -83,3 +84,4 @@ def index():
                            proses=proses,
                            prosecount=len(proses),
                            form=form)
+                           appurl=appurl

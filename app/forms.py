@@ -2,6 +2,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, SubmitField, RadioField, TextAreaField
 from wtforms.validators import DataRequired, InputRequired, Optional
 
+appurl = os.environ.get("URL")
+
 class Form(FlaskForm):
     name = StringField('Nimi*', validators=[DataRequired()])
     guild = RadioField('Kilta', choices=(['otit', 'OTiT'], ['communica', 'Communica'], ['prose', 'Prose']))
