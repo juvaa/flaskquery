@@ -11,9 +11,7 @@
             OTiT, Communica ja Prosesikilta järjestävät Humanöörisitsit Teekkaritalolla.
         </p>
         <p>
-            Maksu Oulun Tietoteekkarit ry:n tilille FI03 4744 3020 0116 87 11.2. mennessä, viestikenttään "Humanöörisitsit", sekä oma (ja avecin
-            jos
-            maksat myös avecin) nimi.
+            Maksu Communica ry:n tilille FI52 5741 3620 5641 27, viestikenttään "Humanöörisitsit + oma nimi(+ avecin nimi)".
         </p>
         <p>
         ilmoittautuminen auki 31.1.-1.2.
@@ -85,9 +83,6 @@
                 <h3>OTiT: {{ otitcount }}/{{ otitlimit }}</h3>
                 {% for entry in otits %}
                     <p>{{ loop.index }}. {{ entry["name"][:30] }}
-                        {% if entry["avec"] %}
-                            <span class="avecheart">❤️</span>
-                        {% endif %}
                         {% if loop.index > otitlimit %}
                             (Varasijalla)
                         {% endif %}
@@ -98,9 +93,6 @@
                 <h3>Communica: {{ communicacount }}/{{ communicalimit }}</h3>
                 {% for entry in communicas %}
                     <p>{{ loop.index }}. {{ entry["name"][:30] }}
-                        {% if entry["avec"] %}
-                            <span class="avecheart">❤️</span>
-                        {% endif %}
                         {% if loop.index > communicalimit %}
                             (Varasijalla)
                         {% endif %}
@@ -111,9 +103,6 @@
                 <h3>Prose: {{ prosecount }}/{{ proselimit }}</h3>
                 {% for entry in proses %}
                     <p>{{ loop.index }}. {{ entry["name"][:30] }}
-                        {% if entry["avec"] %}
-                            <span class="avecheart">❤️</span>
-                        {% endif %}
                         {% if loop.index > communicalimit %}
                             (Varasijalla)
                         {% endif %}
