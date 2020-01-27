@@ -84,5 +84,5 @@ def index():
                            proselimit=proselimit,
                            proses=proses,
                            prosecount=len(proses),
-                           form=form)
-                           appurl=appurl
+                           form=form,
+                           appurl=appurl)
