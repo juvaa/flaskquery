@@ -16,7 +16,7 @@
         <p>
         Ilmoittautuminen auki 31.1.-1.2.
         </p>
-        {% if starttime < nowtime < endtime %}
+        {% if (starttime < nowtime < endtime) and ((otitcount + prosecount + communicacount) < 9) %}
             <h2>Ilmoittautuminen</h2>
             <form class="form form-horizontal" method="post" role="form">
 
