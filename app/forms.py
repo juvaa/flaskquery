@@ -10,7 +10,7 @@ class Form(FlaskForm):
     beer = RadioField('Juomatoive', choices=(['olut', 'Olut'], ['siideri', 'Siideri']), validators=[Optional()])
     specialneeds = TextAreaField('Allergiat ja erityisruokavaliot')
     consent = BooleanField(
-        'Hyväksyn henkilötietojeni käsittelyn <a target = "_blank" href = "{{ appurl }}/static/tietosuojaseloste.pdf" > tietosuojaselosteen </a> mukaisesti, sekä ymmärrän ilmoittatumisen olevan sitova.',
+        'Hyväksyn henkilötietojeni käsittelyn <a target = "_blank" href = "{}/static/tietosuojaseloste.pdf" > tietosuojaselosteen </a> mukaisesti, sekä ymmärrän ilmoittatumisen olevan sitova.'.format(appurl),
         validators=[InputRequired()])
 
     avec = BooleanField('Avec')
@@ -21,6 +21,6 @@ class Form(FlaskForm):
     avec_specialneeds = TextAreaField('Allergiat ja erityisruokavaliot')
     other = TextAreaField('Lisätietoja')
     avec_consent = BooleanField(
-        'Avecini hyväksyy hänen henkilötietojensa käsittelyn <a target = "_blank" href = "{{ appurl }}/static/tietosuojaseloste.pdf" > tietosuojaselosteen </a> mukaisesti.', default="checked", validators=[InputRequired()])
+        'Avecini hyväksyy hänen henkilötietojensa käsittelyn <a target = "_blank" href = "{}/static/tietosuojaseloste.pdf" > tietosuojaselosteen </a> mukaisesti.'.format(appurl), default="checked", validators=[InputRequired()])
 
     submit = SubmitField('Submit')

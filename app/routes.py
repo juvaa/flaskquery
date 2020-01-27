@@ -64,7 +64,7 @@ def index():
         )
         db.session.add(sub)
         db.session.commit()
-        return redirect("{{ appurl }}")
+        return redirect("{}".format(appurl))
 
     elif form.is_submitted() and count > maxlimit:
         flash('Ilmoittautuminen täynnä!')
