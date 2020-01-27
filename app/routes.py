@@ -15,9 +15,13 @@ def index():
     endtime = datetime(2020, 2, 1, 23, 59, 00)
     nowtime = datetime.now()
 
-    otitlimit = 33
-    communicalimit = 33
-    proselimit = 34
+    #otitlimit = 33
+    #communicalimit = 33
+    #proselimit = 34
+
+    otitlimit = 3
+    communicalimit = 3
+    proselimit = 3
 
     entrys = Model.query.all()
     count = Model.query.count()
@@ -27,7 +31,8 @@ def index():
     communicas = []
     proses = []
 
-    maxlimit = 100
+    #maxlimit = 100
+    maxlimit = 9
 
 
     for entry in entrys:
