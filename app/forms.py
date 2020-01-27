@@ -19,7 +19,7 @@ class Form(FlaskForm):
     avec_wine = RadioField('Juomatoive', choices=(['punaviini', 'Punaviini'], ['valkoviini', 'Valkoviini']), validators=[Optional()])
     avec_beer = RadioField('Juomatoive', choices=(['olut', 'Olut'], ['siideri', 'Siideri']), validators=[Optional()])
     avec_specialneeds = TextAreaField('Allergiat ja erityisruokavaliot')
-    other = TextAreaField('Muita huomiota')
+    other = TextAreaField('Lisätietoja')
     avec_consent = BooleanField(
         'Avecini hyväksyy hänen henkilötietojensa käsittelyn <a target = "_blank" href = "https://www.otit.fi/~jsloth/temp/tietosuojaseloste.pdf" > tietosuojaselosteen </a> mukaisesti.', default="checked", validators=[InputRequired()])
 
