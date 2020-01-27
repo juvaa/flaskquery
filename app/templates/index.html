@@ -64,6 +64,7 @@
                     {{ wtf.form_field(form.avec_specialneeds) }}
                     {{ wtf.form_field(form.avec_consent) }}
                 </div>
+                {{ wtf.form_field(form.other) }}
 
                 {% for e in form.errors.items() %}
                     <p class="text-danger">{{ e }}</p>

@@ -15,5 +15,6 @@ class Model(db.Model):
     avec_wine =  db.Column(db.String(64))
     avec_beer = db.Column(db.String(64))
     avec_specialneeds = db.Column(db.String(500))
+    other = db.Column(db.String(500))
 
     datetime = db.Column(db.DateTime())

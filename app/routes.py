@@ -59,6 +59,7 @@ def index():
             avec_wine = form.avec_wine.data,
             avec_beer = form.avec_beer.data,
             avec_specialneeds = form.avec_specialneeds.data,
+            other = form.other.data,
             datetime = nowtime
         )
         db.session.add(sub)
