@@ -4,7 +4,6 @@ class Model(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
     name = db.Column(db.String(64))
-    mail = db.Column(db.String(64))
     guild =  db.Column(db.String(64))
     alcohol = db.Column(db.String(64))
     wine = db.Column(db.String(64))
@@ -18,4 +17,3 @@ class Model(db.Model):
     avec_specialneeds = db.Column(db.String(500))
 
     datetime = db.Column(db.DateTime())
-

@@ -23,7 +23,6 @@
                 {{ form.hidden_tag() }}
                 {{ wtf.form_field(form.name) }}
 
-                {{ wtf.form_field(form.mail) }}
                 <label class="extra-label">Kilta</label>
                 {{ wtf.form_field(form.guild) }}
                 {% for e in form.guild.errors %}
