@@ -36,17 +36,11 @@ def index():
 
     for entry in entrys:
         if entry.guild == "otit":
-            otits.append({"name": entry.name, "avec": False})
-            if entry.avec:
-                otits.append({"name": entry.avec_name, "avec": True})
+            otits.append({"name": entry.name})
         elif entry.guild == "communica":
-            communicas.append({"name": entry.name, "avec": False})
-            if entry.avec:
-                communicas.append({"name": entry.avec_name, "avec": True})
+            communicas.append({"name": entry.name})
         elif entry.guild == "prose":
-            proses.append({"name": entry.name, "avec": False})
-            if entry.avec:
-                proses.append({"name": entry.avec_name, "avec": True})
+            proses.append({"name": entry.name})
 
 
 
@@ -70,15 +64,17 @@ def index():
             sub = Model(
                 avec = form.avec.data,
                 name = form.avec_name.data,
+                mail= " ",
                 guild = form.guild.data,
                 alcohol = form.avec_alcohol.data,
                 wine = form.avec_wine.data,
                 beer = form.avec_beer.data,
                 specialneeds = form.avec_specialneeds.data,
+                avec_name = " ",
+                other = " ",
                 datetime = nowtime
             )
             db.session.add(sub)
-
         db.session.commit()
         return redirect("{}".format(appurl))
 
