@@ -53,6 +53,7 @@ def index():
     if form.validate_on_submit() and count <= maxlimit:
         flash('Kiitos ilmoittautumisesta!')
         sub = Model(
+            avec = False,
             name=form.name.data,
             mail=form.mail.data,
             guild = form.guild.data,
@@ -60,16 +61,22 @@ def index():
             wine = form.wine.data,
             beer = form.beer.data,
             specialneeds = form.specialneeds.data,
-            avec = form.avec.data,
             avec_name = form.avec_name.data,
-            avec_alcohol = form.avec_alcohol.data,
-            avec_wine = form.avec_wine.data,
-            avec_beer = form.avec_beer.data,
-            avec_specialneeds = form.avec_specialneeds.data,
             other = form.other.data,
             datetime = nowtime
         )
         db.session.add(sub)
+        if form.avec.data:
+            sub = Model(
+                avec = form.avec.data,
+                name = form.avec_name.data,
+                guild = form.guild.data,
+                alcohol = form.avec_alcohol.data,
+                wine = form.avec_wine.data,
+                beer = form.avec_beer.data,
+                specialneeds = form.avec_specialneeds.data,
+                datetime = nowtime
+            )
         db.session.commit()
         return redirect("{}".format(appurl))
 
