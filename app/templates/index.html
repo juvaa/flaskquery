@@ -77,9 +77,9 @@
                 {{ wtf.form_field(form.submit) }}
             </form>
         {% elif nowtime < starttime %}
-            <p>Ilmoittautuminen alkaa {{ starttime }}</p></p>>
+            <h3>Ilmoittautuminen alkaa {{ starttime }} UTC</h3>
         {% else %}
-            <h2>Ilmoittautuminen on päättynyt</h2>
+            <h3>Ilmoittautuminen on päättynyt</h3>
         {% endif %}
         <h2>Osallistujat</h2>
         <div class="row">

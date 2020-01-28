@@ -11,10 +11,9 @@ appurl = os.environ.get("URL")
 def index():
     form = Form()
 
-    starttime = datetime(2020, 1, 26, 12, 00, 00)
-    endtime = datetime(2020, 2, 1, 23, 59, 00)
-    nowtime = datetime.now()
-
+    starttime = datetime(2020, 1, 28, 21, 20, 00)
+    endtime = datetime(2020, 1, 28, 21, 25, 00)
+    nowtime = datetime.utcnow()
     #otitlimit = 33
     #communicalimit = 33
     #proselimit = 34
