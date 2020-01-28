@@ -94,5 +94,6 @@ def index():
                            proselimit=proselimit,
                            proses=proses,
                            prosecount=len(proses),
+                           maxlimit=maxlimit,
                            form=form,
                            appurl=appurl)
