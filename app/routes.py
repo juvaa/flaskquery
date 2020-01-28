@@ -77,6 +77,8 @@ def index():
                 specialneeds = form.avec_specialneeds.data,
                 datetime = nowtime
             )
+            db.session.add(sub)
+
         db.session.commit()
         return redirect("{}".format(appurl))
 
