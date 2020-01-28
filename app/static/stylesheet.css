@@ -17,6 +17,11 @@
     display: none;
 }
 
+.flashes{
+    padding-top: 50px;
+    font-size: 72px;
+    padding-bottom: 50px;
+}
 
 
 html, body {
