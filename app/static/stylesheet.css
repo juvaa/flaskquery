@@ -18,9 +18,11 @@
 }
 
 .flashes{
-    padding-top: 50px;
-    font-size: 72px;
-    padding-bottom: 50px;
+    text-align: center;
+    padding-top: 25px;
+    font-size: 40px;
+    padding-bottom: 25px;
+    list-style-type: none;
 }
 
 
