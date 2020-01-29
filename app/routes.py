@@ -3,9 +3,13 @@ from app import app, db
 from app.forms import Form
 from app.models import Model
 from datetime import datetime
+from flask_basicauth import BasicAuth
 import os
 
+app.config['BASIC_AUTH_USERNAME'] = os.environ.get("ADMIN_USER") or 'admin'
+app.config['BASIC_AUTH_PASSWORD'] = os.environ.get("ADMIN_PASSWORD") or 'helevetinhyvasalasana' # TODO: this could be somewhere else
 appurl = os.environ.get("URL")
+basic_auth = BasicAuth(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -96,3 +100,10 @@ def index():
                            maxlimit=maxlimit,
                            form=form,
                            appurl=appurl)
+
+@app.route('/admin', methods=['GET'])
+@basic_auth.required
+def admin():
+    entrys = Model.query.all()
+    return render_template('admin.html', title='Humu admin', appurl=appurl,
+                           entries=entrys)
