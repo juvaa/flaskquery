@@ -61,6 +61,12 @@ td.long {
     white-space: normal;
 }
 
+th.guild {
+    text-align: center;
+    background-color: #ffffff;
+    color: #000000;
+}
+
 tr {
     border: 1px solid #ffffff;
     text-align: left;

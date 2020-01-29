@@ -34,8 +34,7 @@ def index():
     communicas = []
     proses = []
 
-    #maxlimit = 100
-    maxlimit = 27
+    maxlimit = 500
 
     for entry in entrys:
         if entry.guild == "otit":
@@ -44,7 +43,6 @@ def index():
             communicas.append({"name": entry.name})
         elif entry.guild == "prose":
             proses.append({"name": entry.name})
-
 
 
     if form.validate_on_submit() and count <= maxlimit:

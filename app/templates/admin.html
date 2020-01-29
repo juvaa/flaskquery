@@ -21,9 +21,6 @@
                 SäPo
             </th>
             <th>
-                kilta
-            </th>
-            <th>
                 juoma
             </th>
             <th>
@@ -50,44 +47,125 @@
         </tr>
         </thead>
         <tbody>
+        <th colspan="11" class="guild">OTiT 33</th>
         {% for entry in entrys %}
-            <tr>
-            <td>{{ loop.index }}.
-            </td>
-            <td>
-                {{ entry.name }}
-            </td>
-            <td>
-                {{ entry.mail }}
-            </td>
-            <td>
-                {{ entry.guild }}
-            </td>
-            <td>
-                {{ entry.alcohol }}
-            </td>
-            <td>
-                {{ entry.wine }}
-            </td>
-            <td>
-                {{ entry.beer }}
-            </td>
-            <td class="long">
-                {{ entry.specialneeds }}
-            </td>
-            <td>
-                {{ entry.avec_name }}
-            </td>
-            <td class="long">
-                {{ entry.other }}
-            </td>
-            <td>
-                {{ entry.avec }}
-            </td>
-            <td>
-                {{ entry.datetime }}
-            </td>
-            </tr>
+            {% if entry.guild == "otit" %}
+                <tr>
+                <td>
+                    {{ loop.index }}.
+                </td>
+                <td>
+                    {{ entry.name }}
+                </td>
+                <td>
+                    {{ entry.mail }}
+                </td>
+                <td>
+                    {{ entry.alcohol }}
+                </td>
+                <td>
+                    {{ entry.wine }}
+                </td>
+                <td>
+                    {{ entry.beer }}
+                </td>
+                <td class="long">
+                    {{ entry.specialneeds }}
+                </td>
+                <td>
+                    {{ entry.avec_name }}
+                </td>
+                <td class="long">
+                    {{ entry.other }}
+                </td>
+                <td>
+                    {{ entry.avec }}
+                </td>
+                <td>
+                    {{ entry.datetime }}
+                </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        <th colspan="11" class="guild">Communica 33</th>
+        {% for entry in entrys %}
+            {% if entry.guild == "communica" %}
+                <tr>
+                <td>
+                    {{ loop.index }}.
+                </td>
+                <td>
+                    {{ entry.name }}
+                </td>
+                <td>
+                    {{ entry.mail }}
+                </td>
+                <td>
+                    {{ entry.alcohol }}
+                </td>
+                <td>
+                    {{ entry.wine }}
+                </td>
+                <td>
+                    {{ entry.beer }}
+                </td>
+                <td class="long">
+                    {{ entry.specialneeds }}
+                </td>
+                <td>
+                    {{ entry.avec_name }}
+                </td>
+                <td class="long">
+                    {{ entry.other }}
+                </td>
+                <td>
+                    {{ entry.avec }}
+                </td>
+                <td>
+                    {{ entry.datetime }}
+                </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        <th colspan="11" class="guild">Prose 34</th>
+        {% for entry in entrys %}
+            {% if entry.guild == "prose" %}
+                <tr>
+                <td>
+                    {{ loop.index }}.
+                </td>
+                <td>
+                    {{ entry.name }}
+                </td>
+                <td>
+                    {{ entry.mail }}
+                </td>
+                <td>
+                    {{ entry.alcohol }}
+                </td>
+                <td>
+                    {{ entry.wine }}
+                </td>
+                <td>
+                    {{ entry.beer }}
+                </td>
+                <td class="long">
+                    {{ entry.specialneeds }}
+                </td>
+                <td>
+                    {{ entry.avec_name }}
+                </td>
+                <td class="long">
+                    {{ entry.other }}
+                </td>
+                <td>
+                    {{ entry.avec }}
+                </td>
+                <td>
+                    {{ entry.datetime }}
+                </td>
+                </tr>
+            {% endif %}
         {% endfor %}
         </tbody>
     </table>
