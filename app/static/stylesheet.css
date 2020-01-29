@@ -38,3 +38,44 @@ body {
     color: #d8d8d8;
     font-family: "arial", serif;
 }
+
+.container{
+    background-color: black;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border: 1px solid #ffffff;
+    border-collapse: collapse;
+
+}
+
+td {
+    border: 1px solid #ffffff;
+    padding: 2px;
+}
+
+td.long {
+    white-space: nowrap;
+}
+
+tr {
+    border: 1px solid #ffffff;
+    text-indent: 5px;
+    padding: 2px;
+}
+
+tr:nth-child(even)  {
+    background-color: #d8d8d8;
+    color: #777777;
+}
+
+th {
+    border: 1px solid #ffffff;
+    text-indent: 5px;
+    color: #777777;
+    background-color: #d8d8d8;
+    padding: 2px;
+}
