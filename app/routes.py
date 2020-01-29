@@ -15,16 +15,15 @@ basic_auth = BasicAuth(app)
 def index():
     form = Form()
 
-    starttime = datetime(2020, 1, 29, 19, 19, 00)
-    endtime = datetime(2020, 1, 29, 20, 00, 00)
-    nowtime = datetime.utcnow()
-    #otitlimit = 33
-    #communicalimit = 33
-    #proselimit = 34
+    #starttime = datetime(2020, 1, 31, 10, 00, 00)
+    #endtime = datetime(2020, 2, 10, 21, 59, 00)
 
-    otitlimit = 3
-    communicalimit = 3
-    proselimit = 3
+    starttime = datetime(2020, 1, 29, 20, 16, 00)
+    endtime = datetime(2020, 1, 29, 20, 17, 00)
+    nowtime = datetime.utcnow()
+    otitlimit = 33
+    communicalimit = 33
+    proselimit = 34
 
     entrys = Model.query.all()
     count = Model.query.count()

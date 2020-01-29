@@ -23,8 +23,7 @@ class Form(FlaskForm):
     avec_alcohol = RadioField('Juomatoive', choices=(['alkoholillinen', 'Alkoholillinen'], ['alkoholiton', 'Alkoholiton']), validators=[Optional()])
     avec_wine = RadioField('Juomatoive', choices=(['punaviini', 'Punaviini'], ['valkoviini', 'Valkoviini']), validators=[Optional()])
     avec_beer = RadioField('Juomatoive', choices=(['olut', 'Olut'], ['siideri', 'Siideri']), validators=[Optional()])
-    avec_specialneeds = TextAreaField('Allergiat ja erityisruokavaliot'
-    ,validators=[Optional(), Length(max=200)])
+    avec_specialneeds = TextAreaField('Allergiat ja erityisruokavaliot',validators=[Optional(), Length(max=200)])
     other = TextAreaField('Lisätietoja',
     validators=[Optional(), Length(max=200)])
     avec_consent = BooleanField(
