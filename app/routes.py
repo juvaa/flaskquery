@@ -106,4 +106,4 @@ def index():
 def admin():
     entrys = Model.query.all()
     return render_template('admin.html', title='Humu admin', appurl=appurl,
-                           entries=entrys)
+                           entrys=entrys)

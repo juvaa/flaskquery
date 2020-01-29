@@ -54,17 +54,17 @@ table {
 
 td {
     border: 1px solid #ffffff;
-    padding: 2px;
+    padding: 5px;
 }
 
 td.long {
-    white-space: nowrap;
+    white-space: normal;
 }
 
 tr {
     border: 1px solid #ffffff;
-    text-indent: 5px;
-    padding: 2px;
+    text-align: left;
+    padding: 5px;
 }
 
 tr:nth-child(even)  {
@@ -74,8 +74,8 @@ tr:nth-child(even)  {
 
 th {
     border: 1px solid #ffffff;
-    text-indent: 5px;
+    text-align: left;
     color: #777777;
     background-color: #d8d8d8;
-    padding: 2px;
+    padding: 5px;
 }

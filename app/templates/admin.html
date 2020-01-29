@@ -44,10 +44,13 @@
             <th>
                 avec
             </th>
+            <th>
+                aika
+            </th>
         </tr>
         </thead>
         <tbody>
-        {% for entry in entries %}
+        {% for entry in entrys %}
             <tr>
             <td>{{ loop.index }}.
             </td>
@@ -80,6 +83,9 @@
             </td>
             <td>
                 {{ entry.avec }}
+            </td>
+            <td>
+                {{ entry.datetime }}
             </td>
             </tr>
         {% endfor %}
