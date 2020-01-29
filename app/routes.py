@@ -11,8 +11,8 @@ appurl = os.environ.get("URL")
 def index():
     form = Form()
 
-    starttime = datetime(2020, 1, 28, 21, 40, 00)
-    endtime = datetime(2020, 1, 28, 21, 45, 00)
+    starttime = datetime(2020, 1, 29, 8, 19, 00)
+    endtime = datetime(2020, 1, 29, 10, 21, 00)
     nowtime = datetime.utcnow()
     #otitlimit = 33
     #communicalimit = 33
@@ -31,7 +31,7 @@ def index():
     proses = []
 
     #maxlimit = 100
-    maxlimit = 9
+    maxlimit = 27
 
     for entry in entrys:
         if entry.guild == "otit":
