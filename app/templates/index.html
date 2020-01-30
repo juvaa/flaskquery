@@ -107,7 +107,7 @@
                 <h3>Prose: {{ prosecount }}/{{ proselimit }}</h3>
                 {% for entry in proses %}
                     <p>{{ loop.index }}. {{ entry["name"][:30] }}
-                        {% if loop.index > communicalimit %}
+                        {% if loop.index > proselimit %}
                             (Varasijalla)
                         {% endif %}
                     </p>

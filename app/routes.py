@@ -15,12 +15,9 @@ basic_auth = BasicAuth(app)
 def index():
     form = Form()
 
-    #starttime = datetime(2020, 1, 31, 10, 00, 00)
-    #endtime = datetime(2020, 2, 10, 21, 59, 00)
-
-    starttime = datetime(2020, 1, 29, 20, 16, 00)
-    endtime = datetime(2020, 1, 29, 20, 17, 00)
-    nowtime = datetime.utcnow()
+    starttime = datetime(2020, 1, 31, 10, 00, 00)
+    endtime = datetime(2020, 2, 10, 21, 59, 00)
+    nowtime = datetime.now()
     otitlimit = 33
     communicalimit = 33
     proselimit = 34
