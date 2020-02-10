@@ -17,6 +17,10 @@
     padding-top: 50px;
 }
 
+.hide_{
+    display: none;
+}
+
 html, body {
     width: 100%;
     margin: 0;
