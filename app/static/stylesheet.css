@@ -25,10 +25,7 @@ html, body {
     width: 100%;
     margin: 0;
     padding: 0;
-}
-
-table{
-    width: 100%;
+    cursor: url(img/Dragon_scimitar.png), pointer;
 }
 
 body {
@@ -36,7 +33,6 @@ body {
     background: linear-gradient(#001aff, #000000 10%) repeat-x fixed center #000000;
     color: white;
     font-family: "arial", serif;
-    cursor: url(img/Dragon_scimitar.png), pointer;
 }
 
 table {
@@ -49,6 +45,11 @@ table {
 td {
     border: 1px solid #ffffff;
     padding: 5px;
+}
+
+tr:hover {
+    background-color: #001aff;
+    color: #ffffff;
 }
 
 tr {
