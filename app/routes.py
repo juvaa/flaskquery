@@ -50,7 +50,8 @@ def index():
                            endtime=endtime,
                            nowtime=nowtime,
                            limit=limit,
-                           form=form)
+                           form=form
+                           appurl=appurl)
 
 @app.route('/admin', methods=['GET'])
 @basic_auth.required
