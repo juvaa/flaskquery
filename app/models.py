@@ -7,4 +7,6 @@ class Model(db.Model):
     mail = db.Column(db.String(64))
     phone = db.Column(db.String(64))
     place = db.Column(db.String(64))
+    cruise = db.Column(db.Boolean())
+    buffet = db.Column(db.Boolean())
     datetime = db.Column(db.DateTime())
