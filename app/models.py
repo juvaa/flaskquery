@@ -9,4 +9,5 @@ class Model(db.Model):
     place = db.Column(db.String(64))
     cruise = db.Column(db.Boolean())
     buffet = db.Column(db.Boolean())
+    name_consent = db.Column(db.Boolean())
     datetime = db.Column(db.DateTime())

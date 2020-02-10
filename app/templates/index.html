@@ -46,21 +46,35 @@
         <div class="col-sm-6">
             <h3>OTiT: {{ o_count }}/{{ limit }}</h3>
             {% for entry in o_entries %}
-                <p>{{ loop.index }}. {{ entry["name"][:30] }}
+                {% if entry["name_consent"] %}
+                    <p>{{ loop.index }}. {{ entry["name"][:30] }}
+                        {% if loop.index > limit %}
+                            (Varasijalla)
+                        {% endif %}
+                    </p>
+                {% else %}
+                <p>{{ loop.index }}. NULL
                     {% if loop.index > limit %}
                         (Varasijalla)
                     {% endif %}
-                </p>
+                {% endif %}
             {% endfor %}
         </div>
         <div class="col-sm-6">
             <h3>SIK: {{ s_count }}/{{ limit }}</h3>
             {% for entry in s_entries %}
-                <p>{{ loop.index }}. {{ entry["name"][:30] }}
-                    {% if loop.index > limit %}
-                        (Varasijalla)
-                    {% endif %}
-                </p>
+                {% if entry["name_consent"] %}
+                    <p>{{ loop.index }}. {{ entry["name"][:30] }}
+                        {% if loop.index > limit %}
+                            (Varasijalla)
+                        {% endif %}
+                    </p>
+                {% else %}
+                    <p>{{ loop.index }}. NULL
+                        {% if loop.index > limit %}
+                            (Varasijalla)
+                        {% endif %}
+                {% endif %}
             {% endfor %}
         </div>
     </div>

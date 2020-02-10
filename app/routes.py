@@ -36,6 +36,9 @@ def index():
             guild=form.guild.data,
             phone=form.phone.data,
             place=form.place.data,
+            cruise=form.cruise.data,
+            buffet=form.buffet.data,
+            name_consent=form.name_consent.data,
             datetime=nowtime
         )
         db.session.add(sub)
