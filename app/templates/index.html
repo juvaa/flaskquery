@@ -26,7 +26,9 @@
             {{ wtf.form_field(form.phone) }}
             {{ wtf.form_field(form.place) }}
             {{ wtf.form_field(form.cruise) }}
-            {{ wtf.form_field(form.buffet) }}
+            <div id="buffet" class="inset hide_">
+                {{ wtf.form_field(form.buffet) }}
+            </div>
             {{ wtf.form_field(form.consent) }}
             {{ wtf.form_field(form.name_consent) }}
             {{ wtf.form_field(form.submit) }}
