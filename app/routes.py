@@ -40,8 +40,8 @@ def index():
         )
         db.session.add(sub)
         db.session.commit()
-        return redirect("https://www.otit.fi/kmp/")
-    return render_template('index.html', title='KMP-2019 Ilmoittautuminen',
+        return redirect(appurl)
+    return render_template('index.html', title='KMP-2020 Ilmoittautuminen',
                            o_entries=o_entries,
                            s_entries=s_entries,
                            o_count=o_count,
@@ -61,7 +61,7 @@ def admin():
     s_entries = Model.query.filter_by(guild="sik")
     o_count = Model.query.filter_by(guild="otit").count()
     s_count = Model.query.filter_by(guild="sik").count()
-    return render_template('admin.html', title='KMP-2019 ADMIN',
+    return render_template('admin.html', title='KMP-2020 ADMIN',
                            o_entries=o_entries,
                            s_entries=s_entries,
                            o_count=o_count,
