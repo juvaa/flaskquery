@@ -11,9 +11,9 @@ class Form(FlaskForm):
     cruise = BooleanField('Lähden risteilylle')
     buffet = BooleanField('Haluan buffetin')
     consent = BooleanField(
-        'Hyväksyn henkilötietojeni käsittelyn tietosuojaselosteen mukaisesti, sekä ymmärrän ilmoittatumisen olevan sitova.',
+        'Hyväksyn henkilötietojeni käsittelyn tietosuojaselosteen mukaisesti, sekä ymmärrän ilmoittatumisen olevan sitova.*',
         validators=[InputRequired()])
     name_consent = BooleanField(
-        'Haluan, että nimeni julkaistaan osallistuvien listalla'
+        'Haluan, että nimeni julkaistaan osallistuvien listalla.'
         )
     submit = SubmitField('Lähetä')
