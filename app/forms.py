@@ -14,6 +14,6 @@ class Form(FlaskForm):
         'Hyväksyn henkilötietojeni käsittelyn tietosuojaselosteen mukaisesti, sekä ymmärrän ilmoittatumisen olevan sitova.*',
         validators=[InputRequired()])
     name_consent = BooleanField(
-        'Haluan, että nimeni julkaistaan osallistuvien listalla.'
+        'Haluan, että nimeni julkaistaan osallistujalistalla.'
         )
     submit = SubmitField('Lähetä')

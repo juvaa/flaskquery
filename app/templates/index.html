@@ -25,15 +25,20 @@
             {{ wtf.form_field(form.mail) }}
             {{ wtf.form_field(form.phone) }}
             {{ wtf.form_field(form.place) }}
+            <label class="extra-label">Risteily</label>
             <div id="cruise">
             {{ wtf.form_field(form.cruise) }}
             </div>
             <div id="buffet" class="inset hide_">
                 {{ wtf.form_field(form.buffet) }}
             </div>
+            <div class="consent">
             {{ wtf.form_field(form.consent) }}
             {{ wtf.form_field(form.name_consent) }}
+            </div>
+            <div class="button">
             {{ wtf.form_field(form.submit) }}
+            </div>
         </form>
     {% elif nowtime < starttime %}
         <p>Ilmoittautuminen ei ole vielä alkanut</p>

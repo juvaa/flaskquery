@@ -17,8 +17,23 @@
     padding-top: 50px;
 }
 
+.inset{
+    padding-left: 40px;
+    padding-bottom: 10px;
+}
+
 .hide_{
     display: none;
+}
+
+.button{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.consent{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 html, body {
