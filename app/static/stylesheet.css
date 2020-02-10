@@ -29,7 +29,7 @@ table{
 
 body {
     background-size: cover;
-    background: linear-gradient(#0094ff, #000000 10%) repeat-x fixed center #000000;
+    background: linear-gradient(#001aff, #000000 10%) repeat-x fixed center #000000;
     color: white;
     font-family: "arial", serif;
 }
