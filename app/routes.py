@@ -8,7 +8,7 @@ import os
 
 app.config['BASIC_AUTH_USERNAME'] = os.environ.get("ADMIN_USER") or 'admin'
 app.config['BASIC_AUTH_PASSWORD'] = os.environ.get("ADMIN_PASSWORD") or 'helevetinhyvasalasana' # TODO: this could be somewhere else
-
+appurl = os.environ.get("URL")
 basic_auth = BasicAuth(app)
 
 
