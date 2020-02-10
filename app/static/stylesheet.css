@@ -46,7 +46,7 @@ html, body {
 body {
     background-size: cover;
     background: linear-gradient(#001aff, #000000 10%) repeat-x fixed center #000000;
-    color: white;
+    color: #d8d8d8;
     font-family: "arial", serif;
 }
 
