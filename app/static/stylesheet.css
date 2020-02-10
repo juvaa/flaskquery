@@ -32,5 +32,5 @@ body {
     background: linear-gradient(#001aff, #000000 10%) repeat-x fixed center #000000;
     color: white;
     font-family: "arial", serif;
-    cursor: url(Dragon_scimitar.png), auto;
+    cursor: url(img/Dragon_scimitar.png), auto;
 }
