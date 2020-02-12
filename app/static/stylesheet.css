@@ -45,7 +45,7 @@ html, body {
 
 body {
     background-size: cover;
-    background: linear-gradient(#0073ff, #000000 10%) repeat-x fixed center #000000;
+    background: linear-gradient(#0094ff, #000000 10%) repeat-x fixed center #000000;
     color: #d8d8d8;
     font-family: "arial", serif;
 }
@@ -68,7 +68,7 @@ tr:nth-child(even)  {
 }
 
 tr:hover {
-    background-color: #0073ff;
+    background-color: #0094ff;
     color: #ffffff;
 }
 
