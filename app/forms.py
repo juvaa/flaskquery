@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, SubmitField, RadioField, SelectField
-from wtforms.validators import DataRequired, InputRequired, Length
+from wtforms.validators import DataRequired, InputRequired, Optional, Length
 
 class Form(FlaskForm):
     name = StringField('Nimi*', validators=[DataRequired(), Length(max=64)])
