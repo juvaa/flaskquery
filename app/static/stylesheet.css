@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+  }
+
 .form-horizontal .form-group {
     margin-right: 0;
     margin-left: 0;
@@ -34,6 +38,46 @@
 .consent{
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.page-header {
+    overflow: hidden;
+}
+
+#left {
+    float: left;
+    height: auto;
+    width: 10%;
+}
+
+#header {
+    text-align: center;
+    display: inline-block;
+    margin-left: 20%;
+    margin-right: 21%;
+}
+
+#right {
+    float: right;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    height: auto;
+    width: 10%;
+}
+
+@media screen and (max-width: 1200px) {
+    #left {
+        display: none;
+    }
+
+    #header {
+        margin-left: unset;
+        margin-right: unset;
+    }
+
+    #right {
+        display: none;
+    }
 }
 
 html, body {
