@@ -33,34 +33,58 @@
             <th>
                 Buffet
             </th>
+            <th>
+                Sitsit
+            </th>
+            <th>
+                Juoma
+            </th>
+            <th>
+                Ruokavalio
+            </th>
+            <th>
+                Tampere
+            </th>
         </tr>
         </thead>
         <tbody>
         {% for entry in o_entries %}
             <tr>
-            <td>{{ loop.index }}.
-                {% if loop.index > limit %}
-                    (Vara)
-                {% endif %}
-            </td>
-            <td>
-                {{ entry.name }}
-            </td>
-            <td>
-                {{ entry.mail }}
-            </td>
-            <td>
-                {{ entry.phone }}
-            </td>
-            <td>
-                {{ entry.place }}
-            </td>
-            <td>
-                {{ entry.cruise }}
-            </td>
-            <td>
-                {{ entry.buffet }}
-            </td>
+                <td>{{ loop.index }}.
+                    {% if loop.index > limit %}
+                        (Vara)
+                    {% endif %}
+                </td>
+                <td>
+                    {{ entry.name }}
+                </td>
+                <td>
+                    {{ entry.mail }}
+                </td>
+                <td>
+                    {{ entry.phone }}
+                </td>
+                <td>
+                    {{ entry.place }}
+                </td>
+                <td>
+                    {{ entry.cruise }}
+                </td>
+                <td>
+                    {{ entry.buffet }}
+                </td>
+                <td>
+                    {{ entry.sitsit }}
+                </td>
+                <td>
+                    {{ entry.alcohol }}
+                </td>
+                <td>
+                    {{ entry.specialneeds }}
+                </td>
+                <td>
+                    {{ entry.tampere }}
+                </td>
             </tr>
         {% endfor %}
         </tbody>
@@ -91,34 +115,58 @@
             <th>
                 Buffet
             </th>
+            <th>
+                Sitsit
+            </th>
+            <th>
+                Juoma
+            </th>
+            <th>
+                Ruokavalio
+            </th>
+            <th>
+                Tampere
+            </th>
         </tr>
         </thead>
         <tbody>
         {% for entry in s_entries %}
             <tr>
-            <td>{{ loop.index }}.
-                {% if loop.index > limit %}
-                    (Vara)
-                {% endif %}
-            </td>
-            <td>
-                {{ entry.name }}
-            </td>
-            <td>
-                {{ entry.mail }}
-            </td>
-            <td>
-                {{ entry.phone }}
-            </td>
-            <td>
-                {{ entry.place }}
-            </td>
-            <td>
-                {{ entry.cruise }}
-            </td>
-            <td>
-                {{ entry.buffet }}
-            </td>
+                <td>{{ loop.index }}.
+                    {% if loop.index > limit %}
+                        (Vara)
+                    {% endif %}
+                </td>
+                <td>
+                    {{ entry.name }}
+                </td>
+                <td>
+                    {{ entry.mail }}
+                </td>
+                <td>
+                    {{ entry.phone }}
+                </td>
+                <td>
+                    {{ entry.place }}
+                </td>
+                <td>
+                    {{ entry.cruise }}
+                </td>
+                <td>
+                    {{ entry.buffet }}
+                </td>
+                <td>
+                    {{ entry.sitsit }}
+                </td>
+                <td>
+                    {{ entry.alcohol }}
+                </td>
+                <td>
+                    {{ entry.specialneeds }}
+                </td>
+                <td>
+                    {{ entry.tampere }}
+                </td>
             </tr>
         {% endfor %}
         </tbody>
