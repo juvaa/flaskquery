@@ -11,7 +11,7 @@ class Form(FlaskForm):
     cruise = BooleanField('Lähden risteilylle')
     buffet = BooleanField('Haluan buffetin')
     sitsit = BooleanField('Haluan osallistua sitseille')
-    alcohol = RadioField
+    alcohol = RadioField('Juomatoive', choices=(['alkoholillinen', 'Alkoholillinen'], ['alkoholiton', 'Alkoholiton']))
     allergies = StringField('Allergiat ja erityisruokavalio', validators=           [Length (max=200)])
     tampere = BooleanField('Haluan Tampereelle')
     consent = BooleanField(
