@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, BooleanField, SubmitField, RadioField, SelectField
+from wtforms import StringField, BooleanField, SubmitField, RadioField, SelectField, TextAreaField
 from wtforms.validators import DataRequired, InputRequired, Optional, Length
 
 class Form(FlaskForm):
@@ -12,7 +12,7 @@ class Form(FlaskForm):
     buffet = BooleanField('Haluan buffetin')
     sitsit = BooleanField('Haluan osallistua sitseille')
     alcohol = RadioField('Juomatoive', choices=(['alkoholillinen', 'Alkoholillinen'], ['alkoholiton', 'Alkoholiton']))
-    allergies = StringField('Allergiat ja erityisruokavalio', validators=           [Length (max=200)])
+    specialneeds = TextAreaField('Allergiat ja erityisruokavaliot', validators=           [Length (max=200)])
     tampere = BooleanField('Haluan Tampereelle')
     consent = BooleanField(
         'Hyväksyn henkilötietojeni käsittelyn tietosuojaselosteen mukaisesti, sekä ymmärrän ilmoittatumisen olevan sitova.*',

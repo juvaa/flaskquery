@@ -11,7 +11,7 @@ class Model(db.Model):
     buffet = db.Column(db.Boolean())
     sitsit = db.Column(db.Boolean())
     alcohol = db.Column(db.String(64))
-    allergies = db.Column(db.String(200))
+    specialneeds = db.Column(db.String(200))
     tampere = db.Column(db.Boolean())
     name_consent = db.Column(db.Boolean())
     datetime = db.Column(db.DateTime())
