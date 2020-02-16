@@ -10,6 +10,10 @@ class Form(FlaskForm):
     place = SelectField('Lähtöpaikka*', choices=(['yliopisto', 'Yliopisto'], ['tuira', 'Tuira'], ['linja-autoasema', 'Linja-autoasema']), validators=[DataRequired()])
     cruise = BooleanField('Lähden risteilylle')
     buffet = BooleanField('Haluan buffetin')
+    sitsit = BooleanField('Haluan osallistua sitseille')
+    alcohol = RadioField
+    allergies = StringField('Allergiat ja erityisruokavalio', validators=           [Length (max=200)])
+    tampere = BooleanField('Haluan Tampereelle')
     consent = BooleanField(
         'Hyväksyn henkilötietojeni käsittelyn tietosuojaselosteen mukaisesti, sekä ymmärrän ilmoittatumisen olevan sitova.*',
         validators=[InputRequired()])

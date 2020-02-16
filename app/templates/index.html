@@ -30,12 +30,24 @@
             {{ wtf.form_field(form.phone) }}
             {{ wtf.form_field(form.place) }}
             <label class="extra-label">Risteily</label>
-            <div id="cruise">
-            {{ wtf.form_field(form.cruise) }}
-            </div>
-            <div id="buffet" class="inset hide_">
-                {{ wtf.form_field(form.buffet) }}
-            </div>
+                <div id="cruise">
+                {{ wtf.form_field(form.cruise) }}
+                </div>
+                <div id="buffet" class="inset hide_">
+                    {{ wtf.form_field(form.buffet) }}
+                </div>
+            <label class="extra-label">Sitsit</label>
+                <div id="sitsit">
+                {{ wtf.form_field(form.sitsit) }}
+                </div>
+                <div id="alcohol" class="inset hide_">
+                    {{ wtf.form_field(form.alcohol) }}
+                </div>
+                <div id="allergies" class="inset hide_">
+                    {{ wtf.form_field(form.allergies) }}
+                </div>
+            <label class="extra-label">Sitsit</label>
+            {{ wtf.form_field(form.tampere) }}
             <div class="consent">
             {{ wtf.form_field(form.consent) }}
             {{ wtf.form_field(form.name_consent) }}
