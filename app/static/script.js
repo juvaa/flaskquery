@@ -1,9 +1,18 @@
 $(document).ready(function () {
     $('input[type=checkbox][name=cruise]').change(function() {
-        $('#buffet').toggle()
+        if (document.getElementById('cruise').checked) {
+            $('#buffet').show();
+        } else {
+            $('#buffet').hide();
+        }
     });
     $('input[type=checkbox][name=sitsit]').change(function() {
-        $('#alcohol').toggle()
-        $('#specialneeds').toggle()
+        if (document.getElementById('sitsit').checked) {
+            $('#alcohol').show();
+            $('#specialneeds').show();
+        } else {
+            $('#alcohol').hide();
+            $('#specialneeds').hide();
+        }
     });
 })
