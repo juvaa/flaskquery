@@ -38,6 +38,10 @@ def index():
             place=form.place.data,
             cruise=form.cruise.data,
             buffet=form.buffet.data,
+            sitsit=form.sitsit.data,
+            alcohol=form.alcohol.data,
+            specialneeds=form.specialneeds.data,
+            tampere=form.tampere.data,
             name_consent=form.name_consent.data,
             datetime=nowtime
         )
