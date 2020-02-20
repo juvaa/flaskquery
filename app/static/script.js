@@ -6,13 +6,4 @@ $(document).ready(function () {
             $('#buffet').hide();
         }
     });
-    $('input[type=checkbox][name=sitsit]').change(function() {
-        if (document.getElementById('sitsit').checked) {
-            $('#alcohol').show();
-            $('#specialneeds').show();
-        } else {
-            $('#alcohol').hide();
-            $('#specialneeds').hide();
-        }
-    });
 })
