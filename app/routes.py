@@ -20,7 +20,7 @@ def index():
     endtime = datetime(2020, 3, 15, 00, 00, 00)
     nowtime = datetime.now()
 
-    limit = 24
+    limit = 27
 
     o_entries = Model.query.filter_by(guild="otit")
     s_entries = Model.query.filter_by(guild="sik")
@@ -63,7 +63,7 @@ def index():
 @app.route('/admin', methods=['GET'])
 @basic_auth.required
 def admin():
-    limit = 24
+    limit = 27
     o_entries = Model.query.filter_by(guild="otit")
     s_entries = Model.query.filter_by(guild="sik")
     o_count = Model.query.filter_by(guild="otit").count()
