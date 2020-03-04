@@ -50,16 +50,17 @@ def index():
         db.session.add(sub)
         db.session.commit()
         return redirect(appurl)
-    return render_template('index.html', title='Opetuksenkehittämisseminaari ja proffasitsit 2020', appurl=appurl,
-                           o_count=o_count,
-                           s_count=s_count,
-                           b_count=b_count,
-                           h_count=h_count,
-                           starttime=starttime,
-                           endtime=endtime,
-                           nowtime=nowtime,
-                           limit=limit,
-                           form=form)
+    return render_template('index.html', title='Opetuksenkehittämisseminaari ja proffasitsit 2020',
+                        appurl=appurl,
+                        o_count=o_count,
+                        s_count=s_count,
+                        b_count=b_count,
+                        h_count=h_count,
+                        starttime=starttime,
+                        endtime=endtime,
+                        nowtime=nowtime,
+                        limit=limit,
+                        form=form)
 
 
 @app.route('/admin', methods=['GET'])
