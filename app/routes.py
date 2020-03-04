@@ -76,7 +76,7 @@ def admin():
     b_count = Model.query.filter_by(guild="blanko", attend=True).count()
     h_count = Model.query.filter_by(guild="henkilokunta", attend=True).count()
     count = Model.query.filter_by(attend=False).count()
-    return render_template('admin.html', title='OKS-2019 ADMIN', rooturl=appurl,
+    return render_template('admin.html', title='OKS-2020 ADMIN', rooturl=appurl,
                            o_entries=o_entries,
                            s_entries=s_entries,
                            b_entries=b_entries,
