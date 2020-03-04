@@ -8,19 +8,6 @@
         <h1>{{ title }}</h1>
     </div>
     <p>
-        SIK, OTiT ja Blanko järjestävät jokavuotisen Tieto- ja sähkötekniikan tiedekunnan opetuksenkehittämisseminaarin
-        (OKS) tiistaina 2.4. Teekkaritalolla. Seminaari kokoaa yhteen järjestäjäkiltojen opiskelijat ja TST:n
-        opetushenkilökunnan keskustelemaan ajankohtaisista opintoihin liittyvistä teemoista ja miettimään miten opintoja
-        voitaisiin kehittää ja sujuvoittaa. Paikalle on myös kutsuttu kiltojen yhteistyöyritysten edustajia. Seminaariin
-        kuuluu kahvitarjoilu.
-        <br>Heti seminaarin jälkeen illanvietto jatkuu hyvämaineisten proffasitsien ja ruokatarjoilun merkeissä. Sitsit
-        ovat osallistujille ilmaiset. Pukukoodina on tumma puku. Sitsien jälkeen saunat lämpenevät.
-        <br>Alustava aikataulu seminaarin alkamiselle on 17:00, ja sitseille 20:00. Osallitujakiintiöt ovat alustavat,
-        ja tulevat riippumaan kutsuttujen yritysten edustajien osallistumisesta. Voit esittää toiveita tapahtumasta tai
-        seminaarissa käsiteltävistä aiheista ilmoittautumisen yhteydessä.
-
-    </p>
-    <p>
         Ilmo aukeaa 11.3.2019 klo 12:00 ja sulkeutuu 26.3.2019 klo 23.59
     </p>
     {% if starttime < nowtime < endtime %}
@@ -64,7 +51,7 @@
     {% endif %}
     <p>
         Tietosuojasuojaselosteen voit lukea täältä: <a
-            href="{{ rooturl }}static/Tietosuoja.pdf">Tietosuojaseloste</a>
+            href="{{ appurl }}/static/Tietosuoja.pdf">Tietosuojaseloste</a>
     </p>
     <h2>Kiintiöt</h2>
     <div class="row">

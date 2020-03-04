@@ -7,7 +7,7 @@ from flask_basicauth import BasicAuth
 import os
 
 
-rooturl = os.environ.get("ROOT_URL")
+appurl = os.environ.get("URL")
 app.config['BASIC_AUTH_USERNAME'] = os.environ.get("ADMIN_USER") or 'admin'
 app.config['BASIC_AUTH_PASSWORD'] = os.environ.get("ADMIN_PASSWORD") or 'helevetinhyvasalasana' # TODO: this could be somewhere else
 
@@ -19,7 +19,7 @@ limit = 17
 def index():
     form = Form()
 
-    starttime = datetime(2019, 3, 11, 12, 00, 00)
+    starttime = datetime(2019, 3, 1, 20, 15, 00)
     endtime = datetime(2019, 3, 26, 23, 59, 59)
     nowtime = datetime.now()
 
@@ -49,8 +49,8 @@ def index():
 
         db.session.add(sub)
         db.session.commit()
-        return redirect(rooturl)
-    return render_template('index.html', title='Opetuksenkehittämisseminaari ja proffasitsit 2019', rooturl=rooturl,
+        return redirect(appurl)
+    return render_template('index.html', title='Opetuksenkehittämisseminaari ja proffasitsit 2020', appurl=appurl,
                            o_count=o_count,
                            s_count=s_count,
                            b_count=b_count,
@@ -75,7 +75,7 @@ def admin():
     b_count = Model.query.filter_by(guild="blanko", attend=True).count()
     h_count = Model.query.filter_by(guild="henkilokunta", attend=True).count()
     count = Model.query.filter_by(attend=False).count()
-    return render_template('admin.html', title='OKS-2019 ADMIN', rooturl=rooturl,
+    return render_template('admin.html', title='OKS-2019 ADMIN', rooturl=appurl,
                            o_entries=o_entries,
                            s_entries=s_entries,
                            b_entries=b_entries,
