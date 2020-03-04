@@ -43,9 +43,25 @@ html, body {
 }
 
 body {
-    color: #c7c7c7;
+    color: #f0f0f0;
     font-family: "arial", serif;
-    background-color: teal;
+    background-color: #00C9C9;
+}
+
+.container {
+    background-color: #009696;
+}
+
+a {
+    color: #00C9C9;
+}
+
+a:hover {
+    color: #C90000
+}
+
+a:visited {
+    color: #960000;
 }
 
 table {
