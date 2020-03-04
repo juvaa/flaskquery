@@ -10,10 +10,8 @@ $(document).ready(function () {
     $('input[type=checkbox][name=attend]').change(function() {
         if (document.getElementById('attend').checked) {
             $('#attend_box').show();
-            $('#avec_consent').prop("checked", false);
         } else {
             $('#attend_box').hide();
-            $('#avec_consent').prop("checked", true);
         }
     });
 });
