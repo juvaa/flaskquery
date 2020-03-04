@@ -32,12 +32,46 @@ html, body {
     padding: 0;
 }
 
-table{
-    width: 100%;
-}
-
 body {
     color: #c7c7c7;
     font-family: "arial", serif;
     background-color: teal;
+}
+
+table {
+    width: 100%;
+    border: 1px solid #ffffff;
+    border-collapse: collapse;
+
+}
+
+td {
+    border: 1px solid #ffffff;
+    padding: 5px;width: 100%
+}
+
+tr:nth-child(even)  {
+    background-color: #272727;
+    color: #d3d3d3;
+}
+
+tr:hover {
+    background-color: #0094ff;
+    color: #ffffff;
+}
+
+tr {
+    border: 1px solid #ffffff;
+    text-align: left;
+    padding: 5px;
+    background-color: #d4d4d4;
+    color: #333333;
+}
+
+th {
+    border: 1px solid #ffffff;
+    text-align: left;
+    color: #696969;
+    background-color: #f0f0f0;
+    padding: 5px;
 }
