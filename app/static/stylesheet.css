@@ -41,17 +41,3 @@ body {
     font-family: "arial", serif;
     background-color: teal;
 }
-
-@keyframes flash {
-    0% { background-color: rgba(47, 255, 0, 0.63)
-    }
-    100% { background-color: rgba(0, 142, 245, 0)
-    }
-}
-
-.follow {
-    pointer-events: none;
-    position: relative;
-    width: 20px;
-    height: 18px;
-}
