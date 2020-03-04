@@ -42,14 +42,19 @@ html, body {
     padding: 0;
 }
 
+.container {
+    background-color: #009696;
+    background: linear-gradient(#960000, #009696 10%) repeat-x fixed center #00C9C9;
+}
+
 body {
     color: #f0f0f0;
     font-family: "arial", serif;
     background-color: #00C9C9;
 }
 
-.container {
-    background-color: #009696;
+h1 {
+    font-size: 2vmax;
 }
 
 a {
@@ -82,7 +87,7 @@ tr:nth-child(even)  {
 }
 
 tr:hover {
-    background-color: #0094ff;
+    background-color: #960000;
     color: #ffffff;
 }
 
