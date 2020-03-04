@@ -50,7 +50,9 @@
                     {{ wtf.form_field(form.beer) }}
                 </div>
             </div>
+            <div class="consent">
             {{ wtf.form_field(form.consent) }}
+            </div>
             {{ wtf.form_field(form.submit) }}
         </form>
     {% elif nowtime < starttime %}

@@ -26,6 +26,16 @@
     padding-top: 50px;
 }
 
+.btn{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.consent{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 html, body {
     width: 100%;
     margin: 0;
