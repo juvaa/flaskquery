@@ -66,25 +66,21 @@ def index():
 @app.route('/admin', methods=['GET'])
 @basic_auth.required
 def admin():
-    o_entries = Model.query.filter_by(guild="otit", attend=True)
-    s_entries = Model.query.filter_by(guild="sik", attend=True)
-    b_entries = Model.query.filter_by(guild="blanko", attend=True)
-    h_entries = Model.query.filter_by(guild="henkilokunta", attend=True)
-    entries = Model.query.filter_by(attend=False)
-    o_count = Model.query.filter_by(guild="otit", attend=True).count()
-    s_count = Model.query.filter_by(guild="sik", attend=True).count()
-    b_count = Model.query.filter_by(guild="blanko", attend=True).count()
-    h_count = Model.query.filter_by(guild="henkilokunta", attend=True).count()
-    count = Model.query.filter_by(attend=False).count()
+    o_entries = Model.query.filter_by(guild="otit")
+    s_entries = Model.query.filter_by(guild="sik")
+    b_entries = Model.query.filter_by(guild="blanko")
+    h_entries = Model.query.filter_by(guild="henkilokunta")
+    o_count = Model.query.filter_by(guild="otit").count()
+    s_count = Model.query.filter_by(guild="sik").count()
+    b_count = Model.query.filter_by(guild="blanko").count()
+    h_count = Model.query.filter_by(guild="henkilokunta").count()
     return render_template('admin.html', title='OKS-2020 ADMIN', rooturl=appurl,
                            o_entries=o_entries,
                            s_entries=s_entries,
                            b_entries=b_entries,
                            h_entries=h_entries,
-                           entries=entries,
                            o_count=o_count,
                            s_count=s_count,
                            b_count=b_count,
                            h_count=h_count,
-                           count=count,
                            limit=limit)
