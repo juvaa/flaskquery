@@ -99,6 +99,10 @@ tr {
     color: #333333;
 }
 
+td.long {
+    white-space: normal;
+}
+
 th {
     border: 1px solid #ffffff;
     text-align: left;
