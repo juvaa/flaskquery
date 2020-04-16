@@ -49,3 +49,9 @@ def index():
                                          nowtime=nowtime,
                                          limit=limit,
                                          form=form)
+
+
+@app.route('/admin', methods=['GET'])
+@basic_auth.required
+def admin():
+    return render_template('admin.html', title='Query')
