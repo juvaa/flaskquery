@@ -3,6 +3,15 @@ from app import app, db
 from app.forms import Form
 from app.models import Model
 from datetime import datetime
+from flask_basicauth import BasicAuth
+import os
+
+
+appurl = os.environ.get("URL")
+app.config['BASIC_AUTH_USERNAME'] = os.environ.get("ADMIN_USER") or 'admin'
+app.config['BASIC_AUTH_PASSWORD'] = os.environ.get("ADMIN_PASSWORD") or 'helevetinhyvasalasana' # TODO: this could be somewhere else
+
+basic_auth = BasicAuth(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
