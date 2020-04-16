@@ -38,7 +38,7 @@ def index():
         )
         db.session.add(sub)
         db.session.commit()
-        return redirect(url_for('index'))
+        return redirect(appurl)
     elif form.is_submitted() and count > maxlimit:
         flash('Query is already full')
     return render_template('index.html', title='Query',
@@ -48,10 +48,12 @@ def index():
                                          endtime=endtime,
                                          nowtime=nowtime,
                                          limit=limit,
-                                         form=form)
+                                         form=form,
+                                         appurl=appurl)
 
 
 @app.route('/admin', methods=['GET'])
 @basic_auth.required
 def admin():
-    return render_template('admin.html', title='Query')
+    return render_template('admin.html', title='Query',
+                                         appurl=appurl)
