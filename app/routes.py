@@ -19,9 +19,6 @@ def index():
 
     nowtime = datetime.now()
 
-    entrys = Model.query.all()
-    count = Model.query.count()
-
     if form.validate_on_submit():
         flash('Thank you for participating')
         sub = Model(
@@ -35,9 +32,6 @@ def index():
         db.session.commit()
         return redirect(appurl)
     return render_template('index.html', title='Palautetta OTiT:lle',
-                                         entrys=entrys,
-                                         count=count,
-                                         nowtime=nowtime,
                                          form=form,
                                          appurl=appurl)
 
