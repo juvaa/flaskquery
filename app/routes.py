@@ -39,9 +39,9 @@ def index():
 @app.route('/admin', methods=['GET'])
 @basic_auth.required
 def admin():
-    h_entrys = Model.query.all()
-    h_count = Model.query.count()
+    entrys = Model.query.all()
+    count = Model.query.count()
     return render_template('admin.html', title='Palaute boxi',
-                                         h_entrys=h_entrys,
-                                         h_count=h_count,
+                                         entrys=entrys,
+                                         count=count,
                                          appurl=appurl)
