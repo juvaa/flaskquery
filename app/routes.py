@@ -1,15 +1,15 @@
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect
 from app import app, db
 from app.forms import Form
 from app.models import Model
 from datetime import datetime
 from flask_basicauth import BasicAuth
-import os
+from os import environ
 
 
-appurl = os.environ.get("URL")
-app.config['BASIC_AUTH_USERNAME'] = os.environ.get("ADMIN_USER") or 'admin'
-app.config['BASIC_AUTH_PASSWORD'] = os.environ.get("ADMIN_PASSWORD") or 'helevetinhyvasalasana' # TODO: this could be somewhere else
+appurl = environ.get("URL")
+app.config['BASIC_AUTH_USERNAME'] = environ.get("ADMIN_USER") or 'admin'
+app.config['BASIC_AUTH_PASSWORD'] = environ.get("ADMIN_PASSWORD") or 'helevetinhyvasalasana' # TODO: this could be somewhere else
 
 basic_auth = BasicAuth(app)
 
