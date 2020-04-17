@@ -3,8 +3,9 @@ from wtforms import StringField, BooleanField, SubmitField, RadioField, TextArea
 from wtforms.validators import DataRequired
 
 class Form(FlaskForm):
-    string = StringField('StringField (data required)', validators=[DataRequired()])
-    boolean = BooleanField('BooleanField')
-    radio = RadioField('RadioField', choices=(['Choice1', 'Choice1'],['Choice2', 'Choice2']))
-    text = TextAreaField('TextArea')
-    submit = SubmitField('Submit')
+    hallitus = TextAreaField('Palautetta hallitukselle toiminnasta:')
+    tapahtuma = TextAreaField('Palautetta tapahtumasta:')
+    ehdotus = TextAreaField(
+        'Ehdotuksia tapahtumasta/aktiviteetista/kiltahuonehankinnasta:')
+    muuta = TextAreaField('Muuta, mitä haluat hallituksen tietävän:')
+    submit = SubmitField('Lähetä')

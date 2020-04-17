@@ -25,16 +25,16 @@ def index():
     if form.validate_on_submit():
         flash('Thank you for participating')
         sub = Model(
-            string = form.string.data,
-            boolean = form.boolean.data,
-            radio = form.string.data,
-            text = form.text.data,
-            datetime = nowtime,
+            hallitus = form.hallitus.data(),
+            tapahtuma = form.tapahtuma.data(),
+            ehdotus = form.ehdotus.data(),
+            muuta = form.muuta.data(),
+            datetime = nowtime
         )
         db.session.add(sub)
         db.session.commit()
         return redirect(appurl)
-    return render_template('index.html', title='Query',
+    return render_template('index.html', title='Palautetta OTiT:lle',
                                          entrys=entrys,
                                          count=count,
                                          nowtime=nowtime,
