@@ -47,7 +47,7 @@ def index():
 def admin():
     entrys = Model.query.all()
     count = Model.query.count()
-    return render_template('admin.html', title='Query',
+    return render_template('admin.html', title='Palaute boxi',
                                          entrys=entrys,
                                          count=count,
                                          appurl=appurl)
