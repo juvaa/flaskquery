@@ -17,17 +17,12 @@ basic_auth = BasicAuth(app)
 def index():
     form = Form()
 
-    starttime = datetime(2018, 1, 19, 12, 00, 00)
-    endtime = datetime(3018, 2, 2, 23, 59, 00)
     nowtime = datetime.now()
-
-    limit = 64
-    maxlimit = 100
 
     entrys = Model.query.all()
     count = Model.query.count()
 
-    if form.validate_on_submit() and count <= maxlimit:
+    if form.validate_on_submit():
         flash('Thank you for participating')
         sub = Model(
             string = form.string.data,
@@ -39,15 +34,10 @@ def index():
         db.session.add(sub)
         db.session.commit()
         return redirect(appurl)
-    elif form.is_submitted() and count > maxlimit:
-        flash('Query is already full')
     return render_template('index.html', title='Query',
                                          entrys=entrys,
                                          count=count,
-                                         starttime=starttime,
-                                         endtime=endtime,
                                          nowtime=nowtime,
-                                         limit=limit,
                                          form=form,
                                          appurl=appurl)
 
@@ -55,5 +45,9 @@ def index():
 @app.route('/admin', methods=['GET'])
 @basic_auth.required
 def admin():
+    entrys = Model.query.all()
+    count = Model.query.count()
     return render_template('admin.html', title='Query',
+                                         entrys=entrys,
+                                         count=count,
                                          appurl=appurl)
