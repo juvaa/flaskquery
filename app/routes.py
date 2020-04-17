@@ -22,10 +22,10 @@ def index():
     if form.validate_on_submit():
         flash('Thank you for participating')
         sub = Model(
-            hallitus = form.hallitus.data(),
-            tapahtuma = form.tapahtuma.data(),
-            ehdotus = form.ehdotus.data(),
-            muuta = form.muuta.data(),
+            hallitus = form.hallitus.data,
+            tapahtuma = form.tapahtuma.data,
+            ehdotus = form.ehdotus.data,
+            muuta = form.muuta.data,
             datetime = nowtime
         )
         db.session.add(sub)
@@ -39,9 +39,9 @@ def index():
 @app.route('/admin', methods=['GET'])
 @basic_auth.required
 def admin():
-    entrys = Model.query.all()
-    count = Model.query.count()
+    h_entrys = Model.query.all()
+    h_count = Model.query.count()
     return render_template('admin.html', title='Palaute boxi',
-                                         entrys=entrys,
-                                         count=count,
+                                         h_entrys=h_entrys,
+                                         h_count=h_count,
                                          appurl=appurl)
