@@ -39,9 +39,15 @@ def index():
 @app.route('/admin', methods=['GET'])
 @basic_auth.required
 def admin():
-    entrys = Model.query.all()
+    h_entrys = Model.query.with_entities(Model.hallitus)
+    t_entrys = Model.query.with_entities(Model.tapahtuma)
+    e_entrys = Model.query.with_entities(Model.ehdotus)
+    m_entrys = Model.query.with_entities(Model.muuta)
     count = Model.query.count()
     return render_template('admin.html', title='Palaute boxi',
-                                         entrys=entrys,
+                                         h_entrys=h_entrys,
+                                         t_entrys=t_entrys,
+                                         e_entrys=e_entrys,
+                                         m_entrys=m_entrys,
                                          count=count,
                                          appurl=appurl)

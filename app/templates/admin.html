@@ -7,8 +7,45 @@
     <div class="page-header">
         <h1>{{ title }}</h1>
     </div>
-{% for entry in entrys %}
-    <p> {{ entry.hallitus }} </p>
-{% endfor %}
+    <div>
+        <h2>Palaute toiminnasta</h2>
+            <table>
+            {% for entry in h_entrys %}
+                <tr>
+                <td> {{ entry.hallitus }} </td>
+                </tr>
+            {% endfor %}
+            </table>
+    </div>
+    <div>
+        <h2>Palaute tapahtumasta</h2>
+            <table>
+            {% for entry in t_entrys %}
+                <tr>
+                <td> {{ entry.tapahtuma }} </td>
+                </tr>
+            {% endfor %}
+            </table>
+    </div>
+    <div>
+        <h2>Ehdotuksia</h2>
+            <table>
+            {% for entry in e_entrys %}
+                <tr>
+                <td> {{ entry.ehdotus }} </td>
+                </tr>
+            {% endfor %}
+            </table>
+    </div>
+    <div>
+        <h2>Muuta palautetta</h2>
+            <table>
+            {% for entry in m_entrys %}
+                <tr>
+                <td> {{ entry.muuta }} </td>
+                </tr>
+            {% endfor %}
+            </table>
+    </div>
 </div>
 {% endblock %}
