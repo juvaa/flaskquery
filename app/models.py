@@ -7,3 +7,4 @@ class Model(db.Model):
     ehdotus = db.Column(db.String(500))
     muuta = db.Column(db.String(500))
     datetime = db.Column(db.DateTime())
+    arkisto = db.Column(db.Boolean())

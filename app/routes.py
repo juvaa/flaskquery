@@ -26,7 +26,8 @@ def index():
             tapahtuma = form.tapahtuma.data,
             ehdotus = form.ehdotus.data,
             muuta = form.muuta.data,
-            datetime = nowtime
+            datetime = nowtime,
+            arkisto = False
         )
         db.session.add(sub)
         db.session.commit()
@@ -36,7 +37,7 @@ def index():
                                          appurl=appurl)
 
 
-@app.route('/admin', methods=['GET'])
+@app.route('/admin', methods=['GET', 'POST'])
 @basic_auth.required
 def admin():
     h_entrys = Model.query.with_entities(Model.hallitus)
