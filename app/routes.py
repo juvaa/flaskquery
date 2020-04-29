@@ -59,14 +59,18 @@ def index():
 @app.route('/admin', methods=['GET', 'POST'])
 @basic_auth.required
 def admin():
-    h_entries = Hallitus.query.all()
-    t_entries = Tapahtuma.query.all()
-    e_entries = Ehdotus.query.all()
-    m_entries = Muuta.query.all()
+    h_entries = Hallitus.query.filter_by(arkisto = False)
+    t_entries = Tapahtuma.query.filter_by(arkisto = False)
+    e_entries = Ehdotus.query.filter_by(arkisto = False)
+    m_entries = Muuta.query.filter_by(arkisto = False)
     h_new = Hallitus.query.filter_by(arkisto = False).count()
     t_new = Tapahtuma.query.filter_by(arkisto = False).count()
     e_new = Ehdotus.query.filter_by(arkisto = False).count()
     m_new = Muuta.query.filter_by(arkisto = False).count()
+    h_arkistot = Hallitus.query.filter_by(arkisto = True)
+    t_arkistot = Tapahtuma.query.filter_by(arkisto = True)
+    e_arkistot = Ehdotus.query.filter_by(arkisto = True)
+    m_arkistot = Muuta.query.filter_by(arkisto = True)
     new = h_new + t_new + e_new + m_new
 
     if request.form:
@@ -103,6 +107,26 @@ def admin():
                 elif request.form[("m_" + str(m_entry.id))] == "remove":
                     db.session.delete(m_entry)
                     flash("Palaute poistettu")
+        for h_arkisto in h_arkistot:
+            if ("h_" + str(h_arkisto.id)) in request.form.keys():
+                if request.form[("h_" + str(h_arkisto.id))] == "remove":
+                    db.session.delete(h_arkisto)
+                    flash("Palaute poistettu")
+        for t_arkisto in t_arkistot:
+            if ("t_" + str(t_arkisto.id)) in request.form.keys():
+                if request.form[("t_" + str(t_arkisto.id))] == "remove":
+                    db.session.delete(t_arkisto)
+                    flash("Palaute poistettu")
+        for e_arkisto in e_arkistot:
+            if ("e_" + str(e_arkisto.id)) in request.form.keys():
+                if request.form[("e_" + str(e_arkisto.id))] == "remove":
+                    db.session.delete(e_arkisto)
+                    flash("Palaute poistettu")
+        for m_arkisto in m_arkistot:
+            if ("m_" + str(m_arkisto.id)) in request.form.keys():
+                if request.form[("m_" + str(m_arkisto.id))] == "remove":
+                    db.session.delete(m_arkisto)
+                    flash("Palaute poistettu")
         db.session.commit()
         return redirect(appurl + '/admin')
     return render_template('admin.html', title='Palaute boxi',
@@ -111,4 +135,8 @@ def admin():
                                          e_entries=e_entries,
                                          m_entries=m_entries,
                                          new=new,
+                                         h_arkistot=h_arkistot,
+                                         t_arkistot=t_arkistot,
+                                         e_arkistot=e_arkistot,
+                                         m_arkistot=m_arkistot,
                                          appurl=appurl)
