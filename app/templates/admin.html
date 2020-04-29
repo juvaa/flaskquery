@@ -11,6 +11,11 @@
     <div>
         <h2>Palaute toiminnasta</h2>
             <table>
+            <tr>
+                <th>Palaute</th>
+                <th>Arkistoi</th>
+                <th>Poista</th>
+            </tr>
             {% for h_entry in h_entries %}
                 <tr>
                 <td class="long"> {{ h_entry.palaute }} </td>
@@ -27,6 +32,11 @@
     <div>
         <h2>Palaute tapahtumasta</h2>
             <table>
+            <tr>
+                <th>Palaute</th>
+                <th>Arkistoi</th>
+                <th>Poista</th>
+            </tr>
             {% for t_entry in t_entries %}
                 <tr>
                 <td class="long"> {{ t_entry.palaute }} </td>
@@ -43,6 +53,11 @@
     <div>
         <h2>Ehdotuksia</h2>
             <table>
+            <tr>
+                <th>Palaute</th>
+                <th>Arkistoi</th>
+                <th>Poista</th>
+            </tr>
             {% for e_entry in e_entries %}
                 <tr>
                 <td class="long"> {{ e_entry.palaute }} </td>
@@ -59,6 +74,11 @@
     <div>
         <h2>Muuta palautetta</h2>
             <table>
+            <tr>
+                <th>Palaute</th>
+                <th>Arkistoi</th>
+                <th>Poista</th>
+            </tr>
             {% for m_entry in m_entries %}
                 <tr>
                 <td class="long"> {{ m_entry.palaute }} </td>
@@ -76,6 +96,10 @@
         <div>
             <h2>Palaute toiminnasta</h2>
                 <table>
+                <tr>
+                    <th>Palaute</th>
+                    <th>Poista</th>
+                </tr>
                 {% for h_arkisto in h_arkistot %}
                     <tr>
                     <td class="long"> {{ h_arkisto.palaute }} </td>
@@ -89,6 +113,10 @@
         <div>
             <h2>Palaute tapahtumasta</h2>
                 <table>
+                <tr>
+                    <th>Palaute</th>
+                    <th>Poista</th>
+                </tr>
                 {% for t_arkisto in t_arkistot %}
                     <tr>
                     <td class="long"> {{ t_arkisto.palaute }} </td>
@@ -102,6 +130,10 @@
         <div>
             <h2>Ehdotuksia</h2>
                 <table>
+                <tr>
+                    <th>Palaute</th>
+                    <th>Poista</th>
+                </tr>
                 {% for e_arkisto in e_arkistot %}
                     <tr>
                     <td class="long"> {{ e_arkisto.palaute }} </td>
@@ -115,6 +147,10 @@
         <div>
             <h2>Muuta palautetta</h2>
                 <table>
+                <tr>
+                    <th>Palaute</th>
+                    <th>Poista</th>
+                </tr>
                 {% for m_arkisto in m_arkistot %}
                     <tr>
                     <td class="long"> {{ m_arkisto.palaute }} </td>
