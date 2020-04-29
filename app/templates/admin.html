@@ -5,7 +5,7 @@
 {% block content %}
 <div class="container">
     <div class="page-header">
-        <h1>{{ title }} | {{ count }} uutta palautetta</h1>
+        <h1>{{ title }} | {{ new }} uutta palautetta</h1>
     </div>
     <form action="{{ appurl + '/admin' }}" method="post">
     <div>
@@ -13,12 +13,12 @@
             <table>
             {% for h_entry in h_entries %}
                 <tr>
-                <td class="long"> {{ h_entry.hallitus }} </td>
+                <td class="long"> {{ h_entry.palaute }} </td>
                 <td>
-                    <input class="acceptbutton" type="radio" name="{{ h_entry.id }}" value="arkisto">
+                    <input class="acceptbutton" type="checkbox" name="h_{{ h_entry.id }}" value="arkisto">
                </td>
                <td>
-                <input class="acceptbutton" type="radio" name="{{ h_entry.id }}" value="remove">
+                <input class="acceptbutton" type="checkbox" name="h_{{ h_entry.id }}" value="remove">
                 </td>
                 </tr>
             {% endfor %}
@@ -29,12 +29,12 @@
             <table>
             {% for t_entry in t_entries %}
                 <tr>
-                <td class="long"> {{ t_entry.tapahtuma }} </td>
+                <td class="long"> {{ t_entry.palaute }} </td>
                 <td>
-                    <input class="acceptbutton" type="radio" name="{{ t_entry.id }}" value="arkisto">
+                    <input class="acceptbutton" type="checkbox" name="t_{{ t_entry.id }}" value="arkisto">
                </td>
                <td>
-                <input class="acceptbutton" type="radio" name="{{ t_entry.id }}" value="remove">
+                <input class="acceptbutton" type="checkbox" name="t_{{ t_entry.id }}" value="remove">
                 </td>
                 </tr>
             {% endfor %}
@@ -45,12 +45,12 @@
             <table>
             {% for e_entry in e_entries %}
                 <tr>
-                <td class="long"> {{ e_entry.ehdotus }} </td>
+                <td class="long"> {{ e_entry.palaute }} </td>
                 <td>
-                    <input class="acceptbutton" type="radio" name="{{ e_entry.id }}" value="arkisto">
+                    <input class="acceptbutton" type="checkbox" name="e_{{ e_entry.id }}" value="arkisto">
                </td>
                <td>
-                <input class="acceptbutton" type="radio" name="{{ e_entry.id }}" value="remove">
+                <input class="acceptbutton" type="checkbox" name="e_{{ e_entry.id }}" value="remove">
                 </td>
                 </tr>
             {% endfor %}
@@ -61,12 +61,12 @@
             <table>
             {% for m_entry in m_entries %}
                 <tr>
-                <td class="long"> {{ m_entry.muuta }} </td>
+                <td class="long"> {{ m_entry.palaute }} </td>
                 <td>
-                    <input class="acceptbutton" type="radio" name="{{ m_entry.id }}" value="arkisto">
+                    <input class="acceptbutton" type="checkbox" name="m_{{ m_entry.id }}" value="arkisto">
                </td>
                <td>
-                <input class="acceptbutton" type="radio" name="{{ m_entry.id }}" value="remove">
+                <input class="acceptbutton" type="checkbox" name="m_{{ m_entry.id }}" value="remove">
                 </td>
                 </tr>
             {% endfor %}
