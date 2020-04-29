@@ -7,12 +7,19 @@
     <div class="page-header">
         <h1>{{ title }} | {{ count }} uutta palautetta</h1>
     </div>
+    <form action="{{ appurl + '/admin' }}" method="post">
     <div>
         <h2>Palaute toiminnasta</h2>
             <table>
-            {% for entry in h_entrys %}
+            {% for h_entry in h_entries %}
                 <tr>
-                <td class="long"> {{ entry.hallitus }} </td>
+                <td class="long"> {{ h_entry.hallitus }} </td>
+                <td>
+                    <input class="acceptbutton" type="radio" name="{{ h_entry.id }}" value="arkisto">
+               </td>
+               <td>
+                <input class="acceptbutton" type="radio" name="{{ h_entry.id }}" value="remove">
+                </td>
                 </tr>
             {% endfor %}
             </table>
@@ -20,9 +27,15 @@
     <div>
         <h2>Palaute tapahtumasta</h2>
             <table>
-            {% for entry in t_entrys %}
+            {% for t_entry in t_entries %}
                 <tr>
-                <td class="long"> {{ entry.tapahtuma }} </td>
+                <td class="long"> {{ t_entry.tapahtuma }} </td>
+                <td>
+                    <input class="acceptbutton" type="radio" name="{{ t_entry.id }}" value="arkisto">
+               </td>
+               <td>
+                <input class="acceptbutton" type="radio" name="{{ t_entry.id }}" value="remove">
+                </td>
                 </tr>
             {% endfor %}
             </table>
@@ -30,9 +43,15 @@
     <div>
         <h2>Ehdotuksia</h2>
             <table>
-            {% for entry in e_entrys %}
+            {% for e_entry in e_entries %}
                 <tr>
-                <td class="long"> {{ entry.ehdotus }} </td>
+                <td class="long"> {{ e_entry.ehdotus }} </td>
+                <td>
+                    <input class="acceptbutton" type="radio" name="{{ e_entry.id }}" value="arkisto">
+               </td>
+               <td>
+                <input class="acceptbutton" type="radio" name="{{ e_entry.id }}" value="remove">
+                </td>
                 </tr>
             {% endfor %}
             </table>
@@ -40,12 +59,20 @@
     <div>
         <h2>Muuta palautetta</h2>
             <table>
-            {% for entry in m_entrys %}
+            {% for m_entry in m_entries %}
                 <tr>
-                <td class="long"> {{ entry.muuta }} </td>
+                <td class="long"> {{ m_entry.muuta }} </td>
+                <td>
+                    <input class="acceptbutton" type="radio" name="{{ m_entry.id }}" value="arkisto">
+               </td>
+               <td>
+                <input class="acceptbutton" type="radio" name="{{ m_entry.id }}" value="remove">
+                </td>
                 </tr>
             {% endfor %}
             </table>
     </div>
+    <input style="float: right;" type="submit" value="SUBMIT"/>
+    </form>
 </div>
 {% endblock %}
