@@ -20,7 +20,7 @@ def index():
     nowtime = datetime.now()
 
     if form.validate_on_submit():
-        flash('Thank you for participating')
+        flash('Kiitos palautteesta!')
         if form.hallitus.data:
             h_sub = Hallitus(
                 palaute = form.hallitus.data,
@@ -72,6 +72,8 @@ def admin():
     e_arkistot = Ehdotus.query.filter_by(arkisto = True)
     m_arkistot = Muuta.query.filter_by(arkisto = True)
     new = h_new + t_new + e_new + m_new
+    arkistoitu = False
+    poistettu = False
 
     if request.form:
 
@@ -79,55 +81,59 @@ def admin():
             if ("h_" + str(h_entry.id)) in request.form.keys():
                 if request.form[("h_" + str(h_entry.id))] == "arkisto":
                     h_entry.arkisto = True
-                    flash("Palaute arkistoitu")
+                    arkistoitu = True
                 elif request.form[("h_" + str(h_entry.id))] == "remove":
                     db.session.delete(h_entry)
-                    flash("Palaute poistettu")
+                    poistettu = True
         for t_entry in t_entries:
             if ("t_" + str(t_entry.id)) in request.form.keys():
                 if request.form[("t_" + str(t_entry.id))] == "arkisto":
                     t_entry.arkisto = True
-                    flash("Palaute arkistoitu")
+                    arkistoitu = True
                 elif request.form[("t_" + str(t_entry.id))] == "remove":
                     db.session.delete(t_entry)
-                    flash("Palaute poistettu")
+                    poistettu = True
         for e_entry in e_entries:
             if ("e_" + str(e_entry.id)) in request.form.keys():
                 if request.form[("e_" + str(e_entry.id))] == "arkisto":
                     e_entry.arkisto = True
-                    flash("Palaute arkistoitu")
+                    arkistoitu = True
                 elif request.form[("e_" + str(e_entry.id))] == "remove":
                     db.session.delete(e_entry)
-                    flash("Palaute poistettu")
+                    poistettu = True
         for m_entry in m_entries:
             if ("m_" + str(m_entry.id)) in request.form.keys():
                 if request.form[("m_" + str(m_entry.id))] == "arkisto":
                     m_entry.arkisto = True
-                    flash("Palaute arkistoitu")
+                    arkistoitu = True
                 elif request.form[("m_" + str(m_entry.id))] == "remove":
                     db.session.delete(m_entry)
-                    flash("Palaute poistettu")
+                    poistettu = True
         for h_arkisto in h_arkistot:
             if ("h_" + str(h_arkisto.id)) in request.form.keys():
                 if request.form[("h_" + str(h_arkisto.id))] == "remove":
                     db.session.delete(h_arkisto)
-                    flash("Palaute poistettu")
+                    poistettu = True
         for t_arkisto in t_arkistot:
             if ("t_" + str(t_arkisto.id)) in request.form.keys():
                 if request.form[("t_" + str(t_arkisto.id))] == "remove":
                     db.session.delete(t_arkisto)
-                    flash("Palaute poistettu")
+                    poistettu = True
         for e_arkisto in e_arkistot:
             if ("e_" + str(e_arkisto.id)) in request.form.keys():
                 if request.form[("e_" + str(e_arkisto.id))] == "remove":
                     db.session.delete(e_arkisto)
-                    flash("Palaute poistettu")
+                    poistettu = True
         for m_arkisto in m_arkistot:
             if ("m_" + str(m_arkisto.id)) in request.form.keys():
                 if request.form[("m_" + str(m_arkisto.id))] == "remove":
                     db.session.delete(m_arkisto)
-                    flash("Palaute poistettu")
+                    poistettu = True
         db.session.commit()
+        if arkistoitu:
+            flash("Palaute arkistoitu")
+        if poistettu:
+            flash("Palaute poistettu")
         return redirect(appurl + '/admin')
     return render_template('admin.html', title='Palaute boxi',
                                          h_entries=h_entries,
