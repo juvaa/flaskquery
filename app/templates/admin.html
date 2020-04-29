@@ -7,7 +7,7 @@
     <div class="page-header">
         <h1>{{ title }} | {{ new }} uutta palautetta</h1>
     </div>
-    <form action="{{ appurl + '/admin' }}" method="post">
+    <form action="{{ appurl + '/admin' }}" method="post" onsubmit="return confirm('Haluatko varmasti tehdä valitut toimenpiteet?')">
     <div>
         <h2>Palaute toiminnasta</h2>
             <table>
