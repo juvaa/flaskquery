@@ -21,30 +21,34 @@ def index():
 
     if form.validate_on_submit():
         flash('Thank you for participating')
-        h_sub = Hallitus(
-            palaute = form.hallitus.data,
-            datetime = nowtime,
-            arkisto = False
-        )
-        t_sub = Tapahtuma(
-            palaute = form.tapahtuma.data,
-            datetime = nowtime,
-            arkisto = False
-        )
-        e_sub = Ehdotus(
-            palaute = form.ehdotus.data,
-            datetime = nowtime,
-            arkisto = False
-        )
-        m_sub = Muuta(
-            palaute = form.muuta.data,
-            datetime = nowtime,
-            arkisto = False
-        )
-        db.session.add(h_sub)
-        db.session.add(t_sub)
-        db.session.add(e_sub)
-        db.session.add(m_sub)
+        if form.hallitus.data:
+            h_sub = Hallitus(
+                palaute = form.hallitus.data,
+                datetime = nowtime,
+                arkisto = False
+            )
+            db.session.add(h_sub)
+        if form.tapahtuma.data:
+            t_sub = Tapahtuma(
+                palaute = form.tapahtuma.data,
+                datetime = nowtime,
+                arkisto = False
+            )
+            db.session.add(t_sub)
+        if form.ehdotus.data:
+            e_sub = Ehdotus(
+                palaute = form.ehdotus.data,
+                datetime = nowtime,
+                arkisto = False
+            )
+            db.session.add(e_sub)
+        if form.muuta.data:
+            m_sub = Muuta(
+                palaute = form.muuta.data,
+                datetime = nowtime,
+                arkisto = False
+            )
+            db.session.add(m_sub)
         db.session.commit()
         return redirect(appurl)
     return render_template('index.html', title='Palautetta OTiT:lle',

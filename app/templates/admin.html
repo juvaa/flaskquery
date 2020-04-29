@@ -12,6 +12,7 @@
         <h2>Palaute toiminnasta</h2>
             <table>
             {% for h_entry in h_entries %}
+                {% if not h_entry.arkisto %}
                 <tr>
                 <td class="long"> {{ h_entry.palaute }} </td>
                 <td>
@@ -21,6 +22,7 @@
                 <input class="acceptbutton" type="checkbox" name="h_{{ h_entry.id }}" value="remove">
                 </td>
                 </tr>
+                {% endif %}
             {% endfor %}
             </table>
     </div>
@@ -28,6 +30,7 @@
         <h2>Palaute tapahtumasta</h2>
             <table>
             {% for t_entry in t_entries %}
+                {% if not t_entry.arkisto %}
                 <tr>
                 <td class="long"> {{ t_entry.palaute }} </td>
                 <td>
@@ -37,6 +40,7 @@
                 <input class="acceptbutton" type="checkbox" name="t_{{ t_entry.id }}" value="remove">
                 </td>
                 </tr>
+                {% endif %}
             {% endfor %}
             </table>
     </div>
@@ -44,6 +48,7 @@
         <h2>Ehdotuksia</h2>
             <table>
             {% for e_entry in e_entries %}
+                {% if not e_entry.arkisto %}
                 <tr>
                 <td class="long"> {{ e_entry.palaute }} </td>
                 <td>
@@ -53,6 +58,7 @@
                 <input class="acceptbutton" type="checkbox" name="e_{{ e_entry.id }}" value="remove">
                 </td>
                 </tr>
+                {% endif %}
             {% endfor %}
             </table>
     </div>
@@ -60,6 +66,7 @@
         <h2>Muuta palautetta</h2>
             <table>
             {% for m_entry in m_entries %}
+                {% if not m_entry.arkisto %}
                 <tr>
                 <td class="long"> {{ m_entry.palaute }} </td>
                 <td>
@@ -69,6 +76,7 @@
                 <input class="acceptbutton" type="checkbox" name="m_{{ m_entry.id }}" value="remove">
                 </td>
                 </tr>
+                {% endif %}
             {% endfor %}
             </table>
     </div>
