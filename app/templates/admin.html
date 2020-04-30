@@ -13,17 +13,17 @@
             <table>
             <tr>
                 <th>Palaute</th>
-                <th>Arkistoi</th>
-                <th>Poista</th>
+                <th class="check">Arkistoi</th>
+                <th class="check">Poista</th>
             </tr>
             {% for h_entry in h_entries %}
                 <tr>
                 <td class="long"> {{ h_entry.palaute }} </td>
                 <td>
-                    <input class="acceptbutton" type="checkbox" name="h_{{ h_entry.id }}" value="arkisto">
+                    <input id="choises" class="acceptbutton" type="checkbox" name="h_{{ h_entry.id }}" value="arkisto">
                </td>
                <td>
-                <input class="acceptbutton" type="checkbox" name="h_{{ h_entry.id }}" value="remove">
+                <input id="choises" class="acceptbutton" type="checkbox" name="h_{{ h_entry.id }}" value="remove">
                 </td>
                 </tr>
             {% endfor %}
@@ -34,17 +34,17 @@
             <table>
             <tr>
                 <th>Palaute</th>
-                <th>Arkistoi</th>
-                <th>Poista</th>
+                <th class="check">Arkistoi</th>
+                <th class="check">Poista</th>
             </tr>
             {% for t_entry in t_entries %}
                 <tr>
                 <td class="long"> {{ t_entry.palaute }} </td>
                 <td>
-                    <input class="acceptbutton" type="checkbox" name="t_{{ t_entry.id }}" value="arkisto">
+                    <input id="choises" class="acceptbutton" type="checkbox" name="t_{{ t_entry.id }}" value="arkisto">
                </td>
                <td>
-                <input class="acceptbutton" type="checkbox" name="t_{{ t_entry.id }}" value="remove">
+                <input id="choises" class="acceptbutton" type="checkbox" name="t_{{ t_entry.id }}" value="remove">
                 </td>
                 </tr>
             {% endfor %}
@@ -55,17 +55,17 @@
             <table>
             <tr>
                 <th>Palaute</th>
-                <th>Arkistoi</th>
-                <th>Poista</th>
+                <th class="check">Arkistoi</th>
+                <th class="check">Poista</th>
             </tr>
             {% for e_entry in e_entries %}
                 <tr>
                 <td class="long"> {{ e_entry.palaute }} </td>
                 <td>
-                    <input class="acceptbutton" type="checkbox" name="e_{{ e_entry.id }}" value="arkisto">
+                    <input id="choises" id="choises" class="acceptbutton" type="checkbox" name="e_{{ e_entry.id }}" value="arkisto">
                </td>
                <td>
-                <input class="acceptbutton" type="checkbox" name="e_{{ e_entry.id }}" value="remove">
+                <input id="choises" id="choises" class="acceptbutton" type="checkbox" name="e_{{ e_entry.id }}" value="remove">
                 </td>
                 </tr>
             {% endfor %}
@@ -76,35 +76,37 @@
             <table>
             <tr>
                 <th>Palaute</th>
-                <th>Arkistoi</th>
-                <th>Poista</th>
+                <th class="check">Arkistoi</th>
+                <th class="check">Poista</th>
             </tr>
             {% for m_entry in m_entries %}
                 <tr>
                 <td class="long"> {{ m_entry.palaute }} </td>
                 <td>
-                    <input class="acceptbutton" type="checkbox" name="m_{{ m_entry.id }}" value="arkisto">
+                    <input id="choises" class="acceptbutton" type="checkbox" name="m_{{ m_entry.id }}" value="arkisto">
                </td>
                <td>
-                <input class="acceptbutton" type="checkbox" name="m_{{ m_entry.id }}" value="remove">
+                <input id="choises" class="acceptbutton" type="checkbox" name="m_{{ m_entry.id }}" value="remove">
                 </td>
                 </tr>
             {% endfor %}
             </table>
     </div>
+    <br>
     <h1>Arkistoidut palautteet</h1>
+    <hr>
         <div>
             <h2>Palaute toiminnasta</h2>
                 <table>
                 <tr>
                     <th>Palaute</th>
-                    <th>Poista</th>
+                    <th class="check">Poista</th>
                 </tr>
                 {% for h_arkisto in h_arkistot %}
                     <tr>
-                    <td class="long"> {{ h_arkisto.palaute }} </td>
+                    <td id="choises" class="long"> {{ h_arkisto.palaute }} </td>
                    <td>
-                    <input class="acceptbutton" type="checkbox" name="h_{{ h_arkisto.id }}" value="remove">
+                    <input id="choises" class="acceptbutton" type="checkbox" name="h_{{ h_arkisto.id }}" value="remove">
                     </td>
                     </tr>
                 {% endfor %}
@@ -115,13 +117,13 @@
                 <table>
                 <tr>
                     <th>Palaute</th>
-                    <th>Poista</th>
+                    <th class="check">Poista</th>
                 </tr>
                 {% for t_arkisto in t_arkistot %}
                     <tr>
                     <td class="long"> {{ t_arkisto.palaute }} </td>
                    <td>
-                    <input class="acceptbutton" type="checkbox" name="t_{{ t_arkisto.id }}" value="remove">
+                    <input id="choises" class="acceptbutton" type="checkbox" name="t_{{ t_arkisto.id }}" value="remove">
                     </td>
                     </tr>
                 {% endfor %}
@@ -132,13 +134,13 @@
                 <table>
                 <tr>
                     <th>Palaute</th>
-                    <th>Poista</th>
+                    <th class="check">Poista</th>
                 </tr>
                 {% for e_arkisto in e_arkistot %}
                     <tr>
                     <td class="long"> {{ e_arkisto.palaute }} </td>
                    <td>
-                    <input class="acceptbutton" type="checkbox" name="e_{{ e_arkisto.id }}" value="remove">
+                    <input id="choises" class="acceptbutton" type="checkbox" name="e_{{ e_arkisto.id }}" value="remove">
                     </td>
                     </tr>
                 {% endfor %}
@@ -149,19 +151,19 @@
                 <table>
                 <tr>
                     <th>Palaute</th>
-                    <th>Poista</th>
+                    <th class="check">Poista</th>
                 </tr>
                 {% for m_arkisto in m_arkistot %}
                     <tr>
                     <td class="long"> {{ m_arkisto.palaute }} </td>
                    <td>
-                    <input class="acceptbutton" type="checkbox" name="m_{{ m_arkisto.id }}" value="remove">
+                    <input id="choises" class="acceptbutton" type="checkbox" name="m_{{ m_arkisto.id }}" value="remove">
                     </td>
                     </tr>
                 {% endfor %}
                 </table>
         </div>
-        <input style="float: right;" type="submit" value="SUBMIT"/>
+        <input id="adminbutton"class="btn btn-default" type="submit" value="Hyväksy"/>
         </form>
 </div>
 {% endblock %}

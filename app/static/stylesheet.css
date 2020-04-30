@@ -65,7 +65,7 @@ td {
 }
 
 tr:nth-child(even)  {
-    background-color: #272727;
+    background-color: #333333;
     color: #d3d3d3;
 }
 
@@ -78,7 +78,7 @@ tr {
     border: 1px solid #ffffff;
     text-align: left;
     padding: 5px;
-    background-color: #d4d4d4;
+    background-color: #dbdbdb;
     color: #333333;
 }
 
@@ -87,9 +87,23 @@ td.long {
 }
 
 th {
-    border: 1px solid #ffffff;
+    border: 1px solid #000000;
     text-align: left;
     color: #696969;
-    background-color: #f0f0f0;
+    background-color: #c7c7c7;
     padding: 5px;
+}
+
+.check {
+    width: 70px;
+    text-align: center;
+}
+
+#choises {
+    margin-left: 27px;
+}
+
+#adminbutton {
+    margin-top: 20px;
+    margin-left: 46%;
 }
