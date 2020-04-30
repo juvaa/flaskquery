@@ -91,6 +91,8 @@ tr {
 
 td.long {
     white-space: normal;
+    overflow-wrap: break-word;
+    max-width: 0px;
 }
 
 th {
