@@ -23,7 +23,13 @@
 }
 
 .flashes{
-    padding-top: 50px;
+    margin-top: 10px;
+    padding-top: 20px;
+    font-size: 30px;
+    padding-bottom: 20px;
+    animation: flash 5s linear;
+    list-style-type: none;
+    text-align: center;
 }
 
 .btn{

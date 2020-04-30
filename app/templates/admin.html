@@ -4,6 +4,15 @@
 
 {% block content %}
 <div class="container">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class=flashes>
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+    {% endwith %}
     <div class="page-header">
         <h1>{{ title }} | {{ new }} uutta palautetta</h1>
     </div>
@@ -104,7 +113,7 @@
                 </tr>
                 {% for h_arkisto in h_arkistot %}
                     <tr>
-                    <td id="choises" class="long"> {{ h_arkisto.palaute }} </td>
+                    <td class="long"> {{ h_arkisto.palaute }} </td>
                    <td>
                     <input id="choises" class="acceptbutton" type="checkbox" name="h_{{ h_arkisto.id }}" value="remove">
                     </td>
