@@ -44,6 +44,7 @@ html, body {
 
 .container {
     background-color: #6d6d6d;
+    border-style: outset;
 }
 
 body {
@@ -70,7 +71,7 @@ tr:nth-child(even)  {
 }
 
 tr:hover {
-    background-color: #960000;
+    background-color: #009edd;
     color: #ffffff;
 }
 
