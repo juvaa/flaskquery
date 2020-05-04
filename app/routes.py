@@ -16,6 +16,20 @@ basic_auth = BasicAuth(app)
 limit = 17
 
 
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html',
+                           title='Vuosijuhlat',
+                           )
+
+
+@app.route('/ohjelma', methods=['GET'])
+def schedule():
+    return render_template('schedule.html',
+                           title='Vuosijuhlien ohjelma',
+                           )
+
+
 @app.route('/ilmo', methods=['GET', 'POST'])
 def register():
     form = Form()
@@ -54,20 +68,6 @@ def register():
                            nowtime=nowtime,
                            limit=limit,
                            form=form
-                           )
-
-
-@app.route('/', methods=['GET'])
-def index():
-    return render_template('index.html',
-                           title='Vuosijuhlat',
-                           )
-
-
-@app.route('/ohjelma', methods=['GET'])
-def schedule():
-    return render_template('schedule.html',
-                           title='Vuosijuhlien ohjelma',
                            )
 
 
