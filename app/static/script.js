@@ -1,17 +1,17 @@
 
 $(document).ready(function () {
-    $('input[type=radio][name=alcohol]').change(function() {
-        if (document.getElementById('alcohol-0').checked) {
-            $('#drinks').show()
+    $('input[type=checkbox][name=greeting]').change(function() {
+        if (document.getElementById('greeting').checked) {
+            $('#greeting_box').show();
         } else {
-            $('#drinks').hide()
+            $('#greeting_box').hide();
         }
     });
-    $('input[type=checkbox][name=attend]').change(function() {
-        if (document.getElementById('attend').checked) {
-            $('#attend_box').show();
+    $('input[type=checkbox][name=avek]').change(function() {
+        if (document.getElementById('avek').checked) {
+            $('#avek_box').show();
         } else {
-            $('#attend_box').hide();
+            $('#avek_box').hide();
         }
     });
 });

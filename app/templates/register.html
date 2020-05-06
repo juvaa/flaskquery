@@ -11,33 +11,21 @@
         <form class="form form-horizontal" method="post" role="form">
             {{ form.hidden_tag() }}
             {{ wtf.form_field(form.name) }}
-            <label class="extra-label">Ryhmä*</label>
-            {{ wtf.form_field(form.guild) }}
-            {% for e in form.guild.errors %}
-                <p class="text-danger">Valitse kilta</p>
-            {% endfor %}
-
             {{ wtf.form_field(form.mail) }}
-
+            {{ wtf.form_field(form.s_year) }}
             {{ wtf.form_field(form.specialfoods) }}
-            {{ wtf.form_field(form.hopesndreams) }}
-            <label class="extra-label">Aion osallistua seminaarin jälkeisille proffasitseille</label>
-            {{ wtf.form_field(form.attend) }}
-            <div id="attend_box" class="inset hide_">
-                <label class="extra-label">Juomatoive</label>
-                {{ wtf.form_field(form.alcohol) }}
-                {% for e in form.alcohol.errors %}
-                    <p class="text-danger">Valitse juoma</p>
-                {% endfor %}
-
-                <div id="drinks" class="inset hide_">
-                    <label class="extra-label">Viini</label>
-                    {{ wtf.form_field(form.wine) }}
-
-                    <label class="extra-label">Mieto</label>
-                    {{ wtf.form_field(form.beer) }}
-                </div>
+            {{ wtf.form_field(form.sillis) }}
+            {{ wtf.form_field(form.greeting) }}
+            <div id="greeting_box" class="inset hide_">
+                {{ wtf.form_field(form.greeter) }}
             </div>
+            {{ wtf.form_field(form.avek) }}
+            <div id="avek_box" class="inset hide_">
+                {{ wtf.form_field(form.avek_name) }}
+            </div>
+            {{ wtf.form_field(form.history) }}
+            {{ wtf.form_field(form.table) }}
+            {{ wtf.form_field(form.name_consent) }}
             <div class="consent">
             {{ wtf.form_field(form.consent) }}
             </div>
@@ -52,19 +40,5 @@
         Tietosuojasuojaselosteen voit lukea täältä: <a
             href="{{ appurl }}/static/Tietosuoja.pdf">Tietosuojaseloste</a>
     </p>
-    <h2>Kiintiöt</h2>
-    <div class="row">
-        <div class="col-sm-3">
-            <h3>OTiT: {{ o_count }}/{{ limit }}</h3>
-        </div>
-        <div class="col-sm-3">
-            <h3>SIK: {{ s_count }}/{{ limit }}</h3>
-        </div>
-        <div class="col-sm-3">
-            <h3>Blanko: {{ b_count }}/{{ limit }}</h3>
-        </div>
-        <div class="col-sm-3">
-            <h3>Henkilökunta: {{ h_count }}/{{ limit }}</h3>
-        </div>
-    </div>
+    <h2>Ilmoitautuneet</h2>
 {% endblock %}
