@@ -5,7 +5,7 @@ from wtforms.validators import InputRequired, Optional, Length, NumberRange
 class Form(FlaskForm):
     name = StringField('Nimi*', validators=[InputRequired(), Length(max=64)])
     mail = StringField('Sähköpostiosoite*', validators=[InputRequired(), Length(max=64)])
-    s_year = IntegerField('Opintojen aloitusvuosi*', validators=[InputRequired(), Length(max=4), NumberRange(min=1900, max=2020)])
+    s_year = IntegerField('Opintojen aloitusvuosi*', validators=[InputRequired(), NumberRange(min=1900, max=2020)])
     specialfoods = TextAreaField('Erityisruokavaliot', validators=[Optional(), Length(max=500)])
     sillis = BooleanField('Osallistun sillikseen', validators=[Optional()])
     greeting = BooleanField('Tuon tervehdyksen', validators=[Optional()])

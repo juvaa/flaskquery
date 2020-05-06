@@ -35,7 +35,7 @@ def register():
     form = Form()
 
     starttime = datetime(2020, 3, 11, 12, 00, 00)
-    endtime = datetime(2020, 3, 24, 23, 59, 59)
+    endtime = datetime(2020, 6, 24, 23, 59, 59)
     nowtime = datetime.now()
 
 
@@ -61,7 +61,7 @@ def register():
 
         db.session.add(sub)
         db.session.commit()
-        return redirect(APPURL)
+        return redirect(APPURL + '/ilmo')
     return render_template('register.html',
                            title='Ilmoittautuminen',
                            appurl=APPURL,
@@ -78,7 +78,7 @@ def invite_register():
     form = Form()
 
     starttime = datetime(2020, 3, 11, 12, 00, 00)
-    endtime = datetime(2020, 3, 24, 23, 59, 59)
+    endtime = datetime(2020, 6, 24, 23, 59, 59)
     nowtime = datetime.now()
 
 
@@ -104,7 +104,7 @@ def invite_register():
 
         db.session.add(sub)
         db.session.commit()
-        return redirect(APPURL)
+        return redirect(APPURL + '/kutsu-ilmo')
     return render_template('invite_register.html',
                            title='Ilmoittautuminen',
                            appurl=APPURL,
