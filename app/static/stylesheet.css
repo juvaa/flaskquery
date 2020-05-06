@@ -29,11 +29,16 @@
 .btn{
     margin-top: 20px;
     margin-bottom: 10px;
+    background-color: #ffffff;
 }
 
 .consent{
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.navbar-toggler{
+    float: right;
 }
 
 html, body {
@@ -49,14 +54,19 @@ form {
 
 .container {
     background-color: #009696;
-    background: linear-gradient(#960000, #009696 10%) repeat-x fixed center #00C9C9;
 }
 
 body {
     color: #f0f0f0;
     font-family: "arial", serif;
     background-color: #00C9C9;
+    padding-top: 80px;
 }
+
+@media screen and (max-width: 990px) {
+    body {
+        padding-top: 40px;
+    }
 
 table {
     width: 100%;
