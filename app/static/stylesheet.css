@@ -40,6 +40,11 @@ html, body {
     width: 100%;
     margin: 0;
     padding: 0;
+    text-align: center;
+}
+
+form {
+    text-align: left;
 }
 
 .container {
@@ -51,22 +56,6 @@ body {
     color: #f0f0f0;
     font-family: "arial", serif;
     background-color: #00C9C9;
-}
-
-h1 {
-    font-size: 2vmax;
-}
-
-a {
-    color: #00C9C9;
-}
-
-a:hover {
-    color: #C90000
-}
-
-a:visited {
-    color: #960000;
 }
 
 table {
