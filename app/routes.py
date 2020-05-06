@@ -41,19 +41,21 @@ def register():
 
     if form.validate_on_submit():
         flash('Kiitos ilmoittautumisesta!')
-        if form.attend.data and Model.query.filter_by(guild=form.guild.data).count() >= limit:
-            flash('Olet varasijalla!')
+        #if Model.query.filter_by(guild=form.guild.data).count() >= limit:
+        #    flash('Olet varasijalla!')
 
-        sub = Model(
+        sub = Register(
 
             name=form.name.data,
             mail=form.mail.data,
-            guild=form.guild.data,
+            s_year=form.s_year.data,
             specialfoods=form.specialfoods.data,
-            hopesndreams=form.hopesndreams.data,
-            attend=form.attend.data,
-            wine=form.wine.data,
-            beer=form.beer.data,
+            sillis=form.sillis.data,
+            greeting=form.greeter.data,
+            avek=form.avek_name.data,
+            history=form.history.data,
+            table=form.table.data,
+            name_consent=form.name_consent.data,
             datetime=nowtime
         )
 
@@ -82,19 +84,21 @@ def invite_register():
 
     if form.validate_on_submit():
         flash('Kiitos ilmoittautumisesta!')
-        if form.attend.data and Model.query.filter_by(guild=form.guild.data).count() >= limit:
-            flash('Olet varasijalla!')
+        #if Model.query.filter_by(guild=form.guild.data).count() >= limit:
+        #    flash('Olet varasijalla!')
 
-        sub = Model(
+        sub = Invite_register(
 
             name=form.name.data,
             mail=form.mail.data,
-            guild=form.guild.data,
+            s_year=form.s_year.data,
             specialfoods=form.specialfoods.data,
-            hopesndreams=form.hopesndreams.data,
-            attend=form.attend.data,
-            wine=form.wine.data,
-            beer=form.beer.data,
+            sillis=form.sillis.data,
+            greeting=form.greeter.data,
+            avek=form.avek_name.data,
+            history=form.history.data,
+            table=form.table.data,
+            name_consent=form.name_consent.data,
             datetime=nowtime
         )
 

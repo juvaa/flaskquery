@@ -14,6 +14,8 @@ class Form(FlaskForm):
     avek_name = StringField('Avekin nimi', validators=[Optional(), Length(max=64)])
     history = BooleanField('Haluan tilata historiikin', validators=[Optional()])
     table = StringField('Pöytätoive', validators=[Optional(), Length(max=64)])
+    name_consent = BooleanField(
+        'Haluan, että nimeni julkaistaan osallistuvien listalla')
     consent = BooleanField(
         'Hyväksyn henkilötietojeni käsittelyn tietosuojaselosteen mukaisesti, sekä ymmärrän ilmoittatumisen olevan sitova.',
         validators=[InputRequired()])
