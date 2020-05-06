@@ -1,17 +1,19 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, BooleanField, SubmitField, RadioField, SelectField, TextAreaField
-from wtforms.validators import DataRequired, InputRequired, Optional, Length
+from wtforms import StringField, BooleanField, SubmitField, RadioField, SelectField, TextAreaField, IntegerField
+from wtforms.validators import InputRequired, Optional, Length, NumberRange
 
 class Form(FlaskForm):
-    name = StringField('Nimi*', validators=[DataRequired(), Length(max=64)])
-    guild = RadioField('Ryhmä*', choices=(['otit', 'OTiT'],['sik', 'SIK'], ['blanko', 'Blanko'], ['henkilokunta', 'Tiedekunnan henkilöstö']))
-    mail = StringField('Sähköpostiosoite*', validators=[DataRequired(), Length(max=64)])
-    specialfoods = TextAreaField('Erityisruokavaliot (Vastaa vaikket osallistuisi sitseille)', validators=[Length(max=500)])
-    hopesndreams = TextAreaField('Toiveita seminaarissa käsiteltävistä asioista', validators=[Length(max=500)])
-    attend = BooleanField('Kyllä')
-    alcohol = RadioField('Juomatoive', choices=(['alkoholillinen', 'Alkoholillinen'], ['alkoholiton', 'Alkoholiton']), validators=[Optional()])
-    wine = RadioField('Juomatoive', choices=(['punaviini', 'Punaviini'], ['valkoviini', 'Valkoviini']), validators=[Optional()])
-    beer = RadioField('Juomatoive', choices=(['olut', 'Olut'], ['siideri', 'Siideri']), validators=[Optional()])
+    name = StringField('Nimi*', validators=[InputRequired(), Length(max=64)])
+    mail = StringField('Sähköpostiosoite*', validators=[InputRequired(), Length(max=64)])
+    s_year = IntegerField('Opintojen aloitusvuosi*', validators=[InputRequired(), Length(max=4), NumberRange(min=1900, max=2020)])
+    specialfoods = TextAreaField('Erityisruokavaliot', validators=[Optional(), Length(max=500)])
+    sillis = BooleanField('Osallistun sillikseen', validators=[Optional()])
+    greeting = BooleanField('Tuon tervehdyksen', validators=[Optional()])
+    greeter = StringField('Edustettu taho', validators=[Optional(), Length(max=64)])
+    avek = BooleanField('Avek', validators=[Optional()])
+    avek_name = StringField('Avekin nimi', validators=[Optional(), Length(max=64)])
+    history = BooleanField('Haluan tilata historiikin', validators=[Optional()])
+    table = StringField('Pöytätoive', validators=[Optional(), Length(max=64)])
     consent = BooleanField(
         'Hyväksyn henkilötietojeni käsittelyn tietosuojaselosteen mukaisesti, sekä ymmärrän ilmoittatumisen olevan sitova.',
         validators=[InputRequired()])

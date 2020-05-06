@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect
 from app import app, db
 from app.forms import Form
-from app.models import Model
+from app.models import Register, Invite_register
 from datetime import datetime
 from flask_basicauth import BasicAuth
 from os import environ
