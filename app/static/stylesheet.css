@@ -39,6 +39,8 @@
 
 .navbar-toggler{
     float: right;
+    margin-top: 0.75rem;
+    margin-right: 0.75rem;
 }
 
 html, body {
@@ -60,13 +62,36 @@ body {
     color: #f0f0f0;
     font-family: "arial", serif;
     background-color: #00C9C9;
-    padding-top: 80px;
+    margin-top: 106px;
 }
 
-@media screen and (max-width: 990px) {
+@media (max-width: 991px) {
     body {
-        padding-top: 40px;
+        margin-top: 66px;
     }
+    .navbar-brand {
+        margin-left: 4.5rem;
+    }
+}
+
+@media (max-width: 575px) {
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+        margin-top: 0.25rem
+    }
+    body {
+        margin-top: 47px;
+    }
+    .navbar-toggler{
+        margin-top: 0.25rem;
+        margin-right: 0.25rem;
+        margin-bottom: 0.25rem;
+    }
+    .nav-link{
+        margin-left: 3.75rem;
+    }
+}
 
 table {
     width: 100%;
