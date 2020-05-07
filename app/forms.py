@@ -12,6 +12,7 @@ class Form(FlaskForm):
     greeter = StringField('Edustettu taho', validators=[Optional(), Length(max=64)])
     avek = BooleanField('Avek', validators=[Optional()])
     avek_name = StringField('Avekin nimi', validators=[Optional(), Length(max=64)])
+    avek_specialfoods = TextAreaField('Erityisruokavaliot', validators=[Optional(), Length(max=500)])
     history = BooleanField('Haluan tilata historiikin', validators=[Optional()])
     table = StringField('Pöytätoive', validators=[Optional(), Length(max=64)])
     name_consent = BooleanField(
