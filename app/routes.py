@@ -92,7 +92,6 @@ def invite_register():
 
             name=form.name.data,
             mail=form.mail.data,
-            s_year=form.s_year.data,
             specialfoods=form.specialfoods.data,
             sillis=form.sillis.data,
             greeting=form.greeter.data,
