@@ -63,6 +63,28 @@ def register():
         db.session.add(sub)
         db.session.commit()
         return redirect(APPURL + '/ilmo')
+
+
+    entries = Register.query.all()
+
+    names = []
+
+    for entry in entries:
+        if entry.avek:
+            if entry.name_consent:
+                names.append(entry.name)
+                names.append(entry.avek)
+            else:
+                names.append('anonyymi')
+                names.append('anonyymi')
+        else:
+            if entry.name_consent:
+                names.append(entry.name)
+            else:
+                names.append('anonyymi')
+
+    count = len(names)
+
     return render_template('register.html',
                            title='Ilmoittautuminen',
                            appurl=APPURL,
@@ -70,6 +92,8 @@ def register():
                            endtime=endtime,
                            nowtime=nowtime,
                            limit=limit,
+                           names=names,
+                           count=count,
                            form=form
                            )
 
@@ -120,7 +144,11 @@ def invite_register():
 @app.route('/admin', methods=['GET'])
 @basic_auth.required
 def admin():
+    kiltalaiset = Register.query.all()
+    kutsutut = Invite_register.query.all()
     return render_template('admin.html',
                            title='VUJU ADMIN',
+                           kiltalaiset=kiltalaiset,
+                           kutsutut=kutsutut,
                            limit=limit
                            )

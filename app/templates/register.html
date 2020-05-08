@@ -40,7 +40,12 @@
         Tietosuojasuojaselosteen voit lukea täältä: <a
             href="{{ appurl }}/static/Tietosuoja.pdf">Tietosuojaseloste</a>
     </p>
-    <h2>Ilmoitautuneet</h2>
+    <h2>Ilmoitautuneet {{ count }}/{{ limit }}</h2>
+    <ul>
+        {% for name in names %}
+            <li> {{ name }}</li>
+        {% endfor %}
+    </ul>
     </main>
     </div>
 {% endblock %}
