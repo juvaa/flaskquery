@@ -3,9 +3,10 @@
 {% extends "headers.html" %}
 
 {% block content %}
+<main>
 <div class="container">
     <h2>Osallistujat:</h2>
-    <h3>OTiT: {{ o_count }}/{{ limit }}</h3>
+    <h3>Kiltalaiset</h3>
     <table>
         <thead>
         <tr>
@@ -19,26 +20,35 @@
                 SäPo
             </th>
             <th>
+                Aloitusvuosi
+            </th>
+            <th>
                 Erityisruokavalio
             </th>
             <th>
-                Toiveita
+                Sillis
             </th>
             <th>
-                Sitsit
+                Tervehdyksen lähettäjä
             </th>
             <th>
-                Juomat
+                Avek
             </th>
-        </th>
+            <th>
+                Avekin erityisruokavalio
+            </th>
+            <th>
+                Historiikin tilaus
+            </th>
+            <th>
+                Pöytätoive
+            </th>
+        </tr>
         </thead>
         <tbody>
-        {% for entry in o_entries %}
+        {% for entry in kiltalaiset %}
             <tr>
             <td>{{ loop.index }}.
-                {% if loop.index > limit %}
-                    (Vara)
-                {% endif %}
             </td>
             <td>
                 {{ entry.name }}
@@ -46,24 +56,36 @@
             <td>
                 {{ entry.mail }}
             </td>
+            <td>
+                {{ entry.s_year }}
+            </td>
             <td class="long">
                 {{ entry.specialfoods }}
             </td>
+            <td>
+                {{ entry.sillis }}
+            </td>
+            <td>
+                {{ entry.greeting }}
+            </td>
+            <td>
+                {{ entry.avek }}
+            </td>
             <td class="long">
-                {{ entry.hopesndreams }}
+                {{ entry.avek_specialfoods }}
             </td>
             <td>
-                {{ entry.attend }}
+                {{ entry.history }}
             </td>
             <td>
-                {{ entry.wine }} / {{ entry.beer }}
+                {{ entry.table }}
             </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <h3>SIK: {{ s_count }}/{{ limit }}</h3>
+    <h3>Kutsuvieraat</h3>
     <table>
         <thead>
         <tr>
@@ -80,159 +102,61 @@
                 Erityisruokavalio
             </th>
             <th>
-                Toiveita
+                Sillis
             </th>
             <th>
-                Sitsit
+                Tervehdyksen lähettäjä
             </th>
             <th>
-                Juomat
+                Avek
+            </th>
+            <th>
+                Avekin erityisruokavalio
+            </th>
+            <th>
+                Historiikin tilaus
+            </th>
+            <th>
+                Pöytätoive
             </th>
         </tr>
         </thead>
         <tbody>
-        {% for entry in s_entries %}
+        {% for entry in kutsutut %}
             <tr>
-            <td>{{ loop.index }}.
-                {% if loop.index > limit %}
-                    (Vara)
-                {% endif %}
-            </td>
-            <td>
-                {{ entry.name }}
-            </td>
-            <td>
-                {{ entry.mail }}
-            </td>
-            <td class="long">
-                {{ entry.specialfoods }}
-            </td>
-            <td class="long">
-                {{ entry.hopesndreams }}
-            </td>
-            <td>
-                {{ entry.attend }}
-            </td>
-            <td>
-                {{ entry.wine }} / {{ entry.beer }}
-            </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-<h3>Blanko: {{ b_count }}/{{ limit }}</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>
-                #
-            </th>
-            <th>
-                Nimi
-            </th>
-            <th>
-                SäPo
-            </th>
-            <th>
-                Erityisruokavalio
-            </th>
-            <th>
-                Toiveita
-            </th>
-            <th>
-                Sitsit
-            </th>
-            <th>
-                Juomat
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for entry in b_entries %}
-            <tr>
-            <td>{{ loop.index }}.
-                {% if loop.index > limit %}
-                    (Vara)
-                {% endif %}
-            </td>
-            <td>
-                {{ entry.name }}
-            </td>
-            <td>
-                {{ entry.mail }}
-            </td>
-            <td class="long">
-                {{ entry.specialfoods }}
-            </td>
-            <td class="long">
-                {{ entry.hopesndreams }}
-            </td>
-            <td>
-                {{ entry.attend }}
-            </td>
-            <td>
-                {{ entry.wine }} / {{ entry.beer }}
-            </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-<h3>Henkilökunta: {{ h_count }}/{{ limit }}</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>
-                #
-            </th>
-            <th>
-                Nimi
-            </th>
-            <th>
-                SäPo
-            </th>
-            <th>
-                Erityisruokavalio
-            </th>
-            <th>
-                Toiveita
-            </th>
-            <th>
-                Sitsit
-            </th>
-            <th>
-                Juomat
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for entry in h_entries %}
-            <tr>
-            <td>{{ loop.index }}.
-                {% if loop.index > limit %}
-                    (Vara)
-                {% endif %}
-            </td>
-            <td>
-                {{ entry.name }}
-            </td>
-            <td>
-                {{ entry.mail }}
-            </td>
-            <td class="long">
-                {{ entry.specialfoods }}
-            </td>
-            <td class="long">
-                {{ entry.hopesndreams }}
-            </td>
-            <td>
-                {{ entry.attend }}
-            </td>
-            <td>
-                {{ entry.wine }} / {{ entry.beer }}
-            </td>
+                <td>{{ loop.index }}.
+                </td>
+                <td>
+                    {{ entry.name }}
+                </td>
+                <td>
+                    {{ entry.mail }}
+                </td>
+                <td class="long">
+                    {{ entry.specialfoods }}
+                </td>
+                <td>
+                    {{ entry.sillis }}
+                </td>
+                <td>
+                    {{ entry.greeting }}
+                </td>
+                <td>
+                    {{ entry.avek }}
+                </td>
+                <td class="long">
+                    {{ entry.avek_specialfoods }}
+                </td>
+                <td>
+                    {{ entry.history }}
+                </td>
+                <td>
+                    {{ entry.table }}
+                </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 </div>
+</main>
 {% endblock %}
