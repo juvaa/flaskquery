@@ -19,6 +19,7 @@ limit = 17
 @app.route('/', methods=['GET'])
 def index():
     return render_template('index.html',
+                           appurl=APPURL,
                            title='Vuosijuhlat',
                            )
 
@@ -26,6 +27,7 @@ def index():
 @app.route('/ohjelma', methods=['GET'])
 def schedule():
     return render_template('schedule.html',
+                           appurl=APPURL,
                            title='Vuosijuhlien ohjelma',
                            )
 
@@ -148,6 +150,7 @@ def admin():
     kutsutut = Invite_register.query.all()
     return render_template('admin.html',
                            title='VUJU ADMIN',
+                           appurl=APPURL,
                            kiltalaiset=kiltalaiset,
                            kutsutut=kutsutut,
                            limit=limit
