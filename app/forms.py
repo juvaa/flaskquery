@@ -10,4 +10,7 @@ class Form(FlaskForm):
     muuta = TextAreaField('Muuta, mitä haluat hallituksen tietävän:', validators=[Length(max=500)])
     nimi = StringField('Nimi', validators=[Length(max=64), Optional()])
     email = StringField('Sähköpostiosoite', validators=[Length(max=64), Optional()])
+    consent = BooleanField(
+        'Hyväksyn henkilötietojeni käsittelyn tietosuojaselosteen mukaisesti*',
+        validators=[InputRequired()])
     submit = SubmitField('Lähetä')
