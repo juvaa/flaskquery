@@ -34,7 +34,9 @@
         </div>
         <div class="consent">
           {{ wtf.form_field(form.consent) }}
-          <a href="={{ appurl }}/static/tietosuojaseloste.pdf">Tietosuojaseloste</a>
+          <h4>Tietosuojaselosteen voit lukea täältä:
+          <a href="{{ appurl }}/static/tietosuojaseloste.pdf">tietosuojaseloste</a>
+          </h4>
         </div>
         {{ wtf.form_field(form.submit) }}
     </form>

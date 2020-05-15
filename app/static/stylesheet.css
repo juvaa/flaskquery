@@ -116,3 +116,11 @@ th {
     margin-top: 20px;
     margin-left: 46%;
 }
+
+a {
+    color: #3000dd;
+}
+
+a:hover {
+    color: #0a0099;
+}
