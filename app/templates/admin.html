@@ -22,12 +22,16 @@
             <table>
             <tr>
                 <th>Palaute</th>
+                <th>Nimi</th>
+                <th>SäPo</th>
                 <th class="check">Arkistoi</th>
                 <th class="check">Poista</th>
             </tr>
             {% for h_entry in h_entries %}
                 <tr>
                 <td class="long"> {{ h_entry.palaute }} </td>
+                <td>{{ h_entry.nimi }}</td>
+                <td>{{ h_entry.email }}</td>
                 <td>
                     <input id="choises" class="acceptbutton" type="checkbox" name="h_{{ h_entry.id }}" value="arkisto">
                </td>
@@ -43,12 +47,16 @@
             <table>
             <tr>
                 <th>Palaute</th>
+                <th>Nimi</th>
+                <th>SäPo</th>
                 <th class="check">Arkistoi</th>
                 <th class="check">Poista</th>
             </tr>
             {% for t_entry in t_entries %}
                 <tr>
                 <td class="long"> {{ t_entry.palaute }} </td>
+                <td>{{ t_entry.nimi }}</td>
+                <td>{{ t_entry.email }}</td>
                 <td>
                     <input id="choises" class="acceptbutton" type="checkbox" name="t_{{ t_entry.id }}" value="arkisto">
                </td>
@@ -64,12 +72,16 @@
             <table>
             <tr>
                 <th>Palaute</th>
+                <th>Nimi</th>
+                <th>SäPo</th>
                 <th class="check">Arkistoi</th>
                 <th class="check">Poista</th>
             </tr>
             {% for e_entry in e_entries %}
                 <tr>
                 <td class="long"> {{ e_entry.palaute }} </td>
+                <td>{{ e_entry.nimi }}</td>
+                <td>{{ e_entry.email }}</td>
                 <td>
                     <input id="choises" id="choises" class="acceptbutton" type="checkbox" name="e_{{ e_entry.id }}" value="arkisto">
                </td>
@@ -85,12 +97,16 @@
             <table>
             <tr>
                 <th>Palaute</th>
+                <th>Nimi</th>
+                <th>SäPo</th>
                 <th class="check">Arkistoi</th>
                 <th class="check">Poista</th>
             </tr>
             {% for m_entry in m_entries %}
                 <tr>
                 <td class="long"> {{ m_entry.palaute }} </td>
+                <td>{{ m_entry.nimi }}</td>
+                <td>{{ m_entry.email }}</td>
                 <td>
                     <input id="choises" class="acceptbutton" type="checkbox" name="m_{{ m_entry.id }}" value="arkisto">
                </td>
@@ -109,12 +125,16 @@
                 <table>
                 <tr>
                     <th>Palaute</th>
+                    <th>Nimi</th>
+                    <th>SäPo</th>
                     <th class="check">Poista</th>
                 </tr>
                 {% for h_arkisto in h_arkistot %}
                     <tr>
                     <td class="long"> {{ h_arkisto.palaute }} </td>
-                   <td>
+                    <td>{{ h_arkisto.nimi }}</td>
+                    <td>{{ h_arkisto.email }}</td>
+                    <td>
                     <input id="choises" class="acceptbutton" type="checkbox" name="h_{{ h_arkisto.id }}" value="remove">
                     </td>
                     </tr>
@@ -126,12 +146,16 @@
                 <table>
                 <tr>
                     <th>Palaute</th>
+                    <th>Nimi</th>
+                    <th>SäPo</th>
                     <th class="check">Poista</th>
                 </tr>
                 {% for t_arkisto in t_arkistot %}
                     <tr>
                     <td class="long"> {{ t_arkisto.palaute }} </td>
-                   <td>
+                    <td>{{ t_arkisto.nimi }}</td>
+                    <td>{{ t_arkisto.email }}</td>
+                    <td>
                     <input id="choises" class="acceptbutton" type="checkbox" name="t_{{ t_arkisto.id }}" value="remove">
                     </td>
                     </tr>
@@ -143,12 +167,16 @@
                 <table>
                 <tr>
                     <th>Palaute</th>
+                    <th>Nimi</th>
+                    <th>SäPo</th>
                     <th class="check">Poista</th>
                 </tr>
                 {% for e_arkisto in e_arkistot %}
                     <tr>
                     <td class="long"> {{ e_arkisto.palaute }} </td>
-                   <td>
+                    <td>{{ e_arkisto.nimi }}</td>
+                    <td>{{ e_arkisto.email }}</td>
+                    <td>
                     <input id="choises" class="acceptbutton" type="checkbox" name="e_{{ e_arkisto.id }}" value="remove">
                     </td>
                     </tr>
@@ -160,12 +188,16 @@
                 <table>
                 <tr>
                     <th>Palaute</th>
+                    <th>Nimi</th>
+                    <th>SäPo</th>
                     <th class="check">Poista</th>
                 </tr>
                 {% for m_arkisto in m_arkistot %}
                     <tr>
                     <td class="long"> {{ m_arkisto.palaute }} </td>
-                   <td>
+                    <td>{{ m_arkisto.nimi }}</td>
+                    <td>{{ m_arkisto.email }}</td>
+                    <td>
                     <input id="choises" class="acceptbutton" type="checkbox" name="m_{{ m_arkisto.id }}" value="remove">
                     </td>
                     </tr>
