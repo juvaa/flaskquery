@@ -24,6 +24,8 @@ def index():
         if form.hallitus.data:
             h_sub = Hallitus(
                 palaute = form.hallitus.data,
+                nimi = form.nimi.data,
+                email = form.email.data,
                 datetime = nowtime,
                 arkisto = False
             )
@@ -31,6 +33,8 @@ def index():
         if form.tapahtuma.data:
             t_sub = Tapahtuma(
                 palaute = form.tapahtuma.data,
+                nimi = form.nimi.data,
+                email = form.email.data,
                 datetime = nowtime,
                 arkisto = False
             )
@@ -38,6 +42,8 @@ def index():
         if form.ehdotus.data:
             e_sub = Ehdotus(
                 palaute = form.ehdotus.data,
+                nimi = form.nimi.data,
+                email = form.email.data,
                 datetime = nowtime,
                 arkisto = False
             )
@@ -45,6 +51,8 @@ def index():
         if form.muuta.data:
             m_sub = Muuta(
                 palaute = form.muuta.data,
+                nimi = form.nimi.data,
+                email = form.email.data,
                 datetime = nowtime,
                 arkisto = False
             )

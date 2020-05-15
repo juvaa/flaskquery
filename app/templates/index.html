@@ -25,6 +25,13 @@
         {{ wtf.form_field(form.tapahtuma) }}
         {{ wtf.form_field(form.ehdotus) }}
         {{ wtf.form_field(form.muuta) }}
+        <label class="extra-label">
+          Voit halutessasi jättää palautteesi nimellisenä. Lisäksi voit ilmoittaa sähköpostiosoitteesi mahdollista yhteydenottoa varten.
+        </label>
+        <div class="inset">
+          {{ wtf.form_field(form.nimi) }}
+          {{ wtf.form_field(form.email) }}
+        </div>
         {{ wtf.form_field(form.submit) }}
     </form>
     </div>
