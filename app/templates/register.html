@@ -13,15 +13,31 @@
             {{ wtf.form_field(form.mail) }}
             {{ wtf.form_field(form.s_year) }}
             {{ wtf.form_field(form.specialfoods) }}
+            <label class="extra-label">Juomatoive</label>
+            {{ wtf.form_field(form.drink) }}
+            <div id="alcohol_box" class="inset hide_">
+                {{ wtf.form_field(form.alcohol_wish) }}
+            </div>
+            <div id="none_box" class="inset hide_">
+                {{ wtf.form_field(form.none_wish) }}
+            </div>
             {{ wtf.form_field(form.sillis) }}
             {{ wtf.form_field(form.greeting) }}
             <div id="greeting_box" class="inset hide_">
                 {{ wtf.form_field(form.greeter) }}
             </div>
-            {{ wtf.form_field(form.avek) }}
-            <div id="avek_box" class="inset hide_">
-                {{ wtf.form_field(form.avek_name) }}
-                {{ wtf.form_field(form.avek_specialfoods) }}
+            {{ wtf.form_field(form.avec) }}
+            <div id="avec_box" class="inset hide_">
+                {{ wtf.form_field(form.avec_name) }}
+                {{ wtf.form_field(form.avec_specialfoods) }}
+                <label class="extra-label">Juomatoive</label>
+                {{ wtf.form_field(form.avec_drink) }}
+                <div id="avec_alcohol_box" class="inset hide_">
+                    {{ wtf.form_field(form.avec_alcohol_wish) }}
+                </div>
+                <div id="avec_none_box" class="inset hide_">
+                    {{ wtf.form_field(form.avec_none_wish) }}
+                </div>
             </div>
             {{ wtf.form_field(form.history) }}
             {{ wtf.form_field(form.table) }}

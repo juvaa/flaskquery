@@ -46,16 +46,30 @@ def register():
         #if Model.query.filter_by(guild=form.guild.data).count() >= limit:
         #    flash('Olet varasijalla!')
 
+        if form.drink.data == 'alkoholillinen':
+            drink_wish = form.alcohol_wish.data
+        else:
+            drink_wish = form.none_wish.data
+
+        if form.avec_drink.data == 'alkoholillinen':
+            avec_drink_wish = form.avec_alcohol_wish.data
+        else:
+            avec_drink_wish = form.avec_none_wish.data
+
         sub = Register(
 
             name=form.name.data,
             mail=form.mail.data,
             s_year=form.s_year.data,
             specialfoods=form.specialfoods.data,
+            drink=form.drink.data,
+            drink_wish=drink_wish,
             sillis=form.sillis.data,
             greeting=form.greeter.data,
-            avek=form.avek_name.data,
-            avek_specialfoods=form.avek_specialfoods.data,
+            avec=form.avec_name.data,
+            avec_specialfoods=form.avec_specialfoods.data,
+            avec_drink=form.avec_drink.data,
+            avec_drink_wish=avec_drink_wish,
             history=form.history.data,
             table=form.table.data,
             name_consent=form.name_consent.data,
@@ -72,10 +86,10 @@ def register():
     names = []
 
     for entry in entries:
-        if entry.avek:
+        if entry.avec:
             if entry.name_consent:
                 names.append(entry.name)
-                names.append(entry.avek)
+                names.append(entry.avec)
             else:
                 names.append('anonyymi')
                 names.append('anonyymi')
@@ -114,15 +128,29 @@ def invite_register():
         #if Model.query.filter_by(guild=form.guild.data).count() >= limit:
         #    flash('Olet varasijalla!')
 
+        if form.drink.data == 'alkoholillinen':
+            drink_wish = form.alcohol_wish.data
+        else:
+            drink_wish = form.none_wish.data
+
+        if form.avec_drink.data == 'alkoholillinen':
+            avec_drink_wish = form.avec_alcohol_wish.data
+        else:
+            avec_drink_wish = form.avec_none_wish.data
+
         sub = Invite_register(
 
             name=form.name.data,
             mail=form.mail.data,
             specialfoods=form.specialfoods.data,
+            drink=form.drink.data,
+            drink_wish=drink_wish,
             sillis=form.sillis.data,
             greeting=form.greeter.data,
-            avek=form.avek_name.data,
-            avek_specialfoods=form.avek_specialfoods.data,
+            avec=form.avec_name.data,
+            avec_specialfoods=form.avec_specialfoods.data,
+            avec_drink=form.avec_drink.data,
+            avec_drink_wish=avec_drink_wish,
             history=form.history.data,
             table=form.table.data,
             name_consent=form.name_consent.data,
