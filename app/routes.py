@@ -4,6 +4,7 @@ from app.forms import Form
 from app.models import Register, Invite_register
 from datetime import datetime
 from flask_basicauth import BasicAuth
+from flask_mail import Mail, Message
 from os import environ
 
 
