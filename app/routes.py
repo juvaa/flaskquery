@@ -12,6 +12,13 @@ APPURL = environ.get("URL")
 app.config['BASIC_AUTH_USERNAME'] = environ.get("ADMIN_USER") or 'admin'
 app.config['BASIC_AUTH_PASSWORD'] = environ.get("ADMIN_PASSWORD") or 'helevetinhyvasalasana' # TODO: this could be somewhere else
 
+app.config['MAIL_SERVER']='smtp-relay.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_SUPPRESS_SEND'] = True
+mail = Mail(app)
+
 basic_auth = BasicAuth(app)
 
 limit = 17
@@ -79,6 +86,9 @@ def register():
 
         db.session.add(sub)
         db.session.commit()
+        msg = Message('Hello', sender = 'admin@otit.fi', recipients = [form.mail.data])
+        msg.body = "Hello Flask message sent from Flask-Mail"
+        mail.send(msg)
         return redirect(APPURL + '/ilmo')
 
 
