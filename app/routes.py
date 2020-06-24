@@ -14,6 +14,8 @@ app.config['BASIC_AUTH_PASSWORD'] = environ.get("ADMIN_PASSWORD") or 'helevetinh
 
 app.config['MAIL_SERVER']='smtp-relay.gmail.com'
 app.config['MAIL_PORT'] = 587
+app.config['MAIL_USERNAME'] = environ.get('MAIL_USER')
+app.config['MAIL_PASSWORD'] = environ.get('MAIL_PASSWORD')
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 app.config['MAIL_SUPPRESS_SEND'] = True
@@ -86,7 +88,7 @@ def register():
 
         db.session.add(sub)
         db.session.commit()
-        msg = Message('Hello', sender = 'admin@otit.fi', recipients = [form.mail.data])
+        msg = Message('Hello', sender = 'noreply@otit.fi', recipients = [form.mail.data])
         msg.body = "Hello Flask message sent from Flask-Mail"
         mail.send(msg)
         return redirect(APPURL + '/ilmo')
