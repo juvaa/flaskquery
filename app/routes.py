@@ -12,14 +12,14 @@ APPURL = environ.get("URL")
 app.config['BASIC_AUTH_USERNAME'] = environ.get("ADMIN_USER") or 'admin'
 app.config['BASIC_AUTH_PASSWORD'] = environ.get("ADMIN_PASSWORD") or 'helevetinhyvasalasana' # TODO: this could be somewhere else
 
-app.config['MAIL_SERVER']='smtp-relay.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USERNAME'] = environ.get('MAIL_USER')
-app.config['MAIL_PASSWORD'] = environ.get('MAIL_PASSWORD')
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USE_SSL'] = False
-app.config['MAIL_SUPPRESS_SEND'] = True
-mail = Mail(app)
+#app.config['MAIL_SERVER']='smtp-relay.gmail.com'
+#app.config['MAIL_PORT'] = 587
+#app.config['MAIL_USERNAME'] = environ.get('MAIL_USER')
+#app.config['MAIL_PASSWORD'] = environ.get('MAIL_PASSWORD')
+#app.config['MAIL_USE_TLS'] = True
+#app.config['MAIL_USE_SSL'] = False
+#app.config['MAIL_SUPPRESS_SEND'] = True
+#mail = Mail(app)
 
 basic_auth = BasicAuth(app)
 
@@ -47,7 +47,7 @@ def register():
     form = Form()
 
     starttime = datetime(2020, 3, 11, 12, 00, 00)
-    endtime = datetime(2020, 6, 24, 23, 59, 59)
+    endtime = datetime(2020, 7, 24, 23, 59, 59)
     nowtime = datetime.now()
 
 
@@ -88,9 +88,9 @@ def register():
 
         db.session.add(sub)
         db.session.commit()
-        msg = Message('Hello', sender = 'noreply@otit.fi', recipients = [form.mail.data])
-        msg.body = "Hello Flask message sent from Flask-Mail"
-        mail.send(msg)
+        #msg = Message('Hello', sender = 'noreply@otit.fi', recipients = [form.mail.data])
+        #msg.body = "Hello Flask message sent from Flask-Mail"
+        #mail.send(msg)
         return redirect(APPURL + '/ilmo')
 
 
