@@ -38,7 +38,7 @@
 
 .navbar-toggler{
     float: right;
-    margin-top: 0.75rem;
+    margin-top: 2.188rem;
     margin-right: 0.75rem;
 }
 
@@ -56,7 +56,7 @@ body {
     background: linear-gradient(#211f1f, #060506);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    margin-top: 6.625rem;
+    margin-top: 9.375rem;
 }
 
 .container {
@@ -90,7 +90,7 @@ a {
 .form-control {
     color: #ca990d;
     background-color: #222021;
-    border: 5px groove #ca990d;
+    border: 0.4rem groove #ca990d;
 }
 
 form {
@@ -99,30 +99,15 @@ form {
 
 @media (max-width: 991px) {
     body {
-        margin-top: 4.125rem;
+        margin-top: 6.875rem;
     }
     .navbar-brand {
-        margin-left: 4.5rem;
+        margin-left: 5.25rem;
     }
 }
 
-@media (max-width: 575px) {
-    h1 {
-        font-size: 1.5rem;
-        margin-bottom: 0.25rem;
-        margin-top: 0.25rem
-    }
-    body {
-        margin-top: 2.938rem;
-    }
-    .navbar-toggler{
-        margin-top: 0.25rem;
-        margin-right: 0.25rem;
-        margin-bottom: 0.25rem;
-    }
-    .nav-link{
-        margin-left: 3.75rem;
-    }
+li {
+    list-style: none;
 }
 
 table {
