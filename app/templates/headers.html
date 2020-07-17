@@ -15,7 +15,7 @@
     <script src="{{ appurl }}/static/script.js"></script>
 </head>
 <body>
-<div class="container">
+<div id="navbar" class="container">
     <nav class="fixed-top navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand"> <img width="100" height="100" src="{{appurl}}static/img/favicon.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,6 +51,11 @@
         {% endwith %}
     </div>
 </div>
+<div class="hide_">
+    <img id="zero" src="{{appurl}}static/img/zero.png">
+    <img id="one" src="{{appurl}}static/img/one.png">
+</div>
+<canvas id="background"></canvas>
 {% block content %}{% endblock %}
 </body>
 </html>

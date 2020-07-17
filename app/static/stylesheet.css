@@ -59,8 +59,20 @@ body {
     margin-top: 9.375rem;
 }
 
+#background { 
+    display: block;
+    position: fixed;
+    z-index: 0;
+}
+
 .container {
     background-color: #1c1c1c;
+    position: relative;
+    z-index: 1;
+}
+
+#navbar {
+    z-index: 2;
 }
 
 .bg-dark {
