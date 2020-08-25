@@ -56,6 +56,11 @@
             href="{{ appurl }}/static/Tietosuoja.pdf">Tietosuojaseloste</a>
     </p>
     <h2>Ilmoittautuneet</h2>
+    <ul>
+        {% for name in names %}
+            <li> {{ name }}</li>
+        {% endfor %}
+    </ul>
     </main>
     </div>
 {% endblock %}

@@ -80,7 +80,11 @@ body {
 }
 
 a {
-    color: #ca990d;
+    color: #a07809;
+}
+
+a:hover {
+    color: #a07809;
 }
 
 .navbar-dark .navbar-brand{

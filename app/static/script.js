@@ -53,10 +53,7 @@ $(document).ready(function () {
     
         function drawStuff() {
                 // do your drawing stuff here
-                var zero = document.getElementById("zero");
-                var one = document.getElementById("one");
-                context.drawImage(zero, 0, 0, 50, 50);
-                context.drawImage(one, 50, 50, 50, 50);
+
         }
     })();
 });

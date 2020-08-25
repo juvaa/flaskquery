@@ -32,9 +32,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ appurl }}/ilmo">Ilmoittautuminen</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ appurl }}/kutsu-ilmo">Kutsuttujen  ilmoittautuminen</a>
-            </li>
         </ul>
     </nav>
 </div>
@@ -50,10 +47,6 @@
             {% endif %}
         {% endwith %}
     </div>
-</div>
-<div class="hide_">
-    <img id="zero" src="{{appurl}}static/img/zero.png">
-    <img id="one" src="{{appurl}}static/img/one.png">
 </div>
 <canvas id="background"></canvas>
 {% block content %}{% endblock %}

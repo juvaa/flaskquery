@@ -12,15 +12,6 @@ APPURL = environ.get("URL")
 app.config['BASIC_AUTH_USERNAME'] = environ.get("ADMIN_USER") or 'admin'
 app.config['BASIC_AUTH_PASSWORD'] = environ.get("ADMIN_PASSWORD") or 'helevetinhyvasalasana' # TODO: this could be somewhere else
 
-#app.config['MAIL_SERVER']='smtp-relay.gmail.com'
-#app.config['MAIL_PORT'] = 587
-#app.config['MAIL_USERNAME'] = environ.get('MAIL_USER')
-#app.config['MAIL_PASSWORD'] = environ.get('MAIL_PASSWORD')
-#app.config['MAIL_USE_TLS'] = True
-#app.config['MAIL_USE_SSL'] = False
-#app.config['MAIL_SUPPRESS_SEND'] = True
-#mail = Mail(app)
-
 basic_auth = BasicAuth(app)
 
 limit = 17
@@ -46,15 +37,15 @@ def schedule():
 def register():
     form = Form()
 
-    starttime = datetime(2020, 3, 11, 12, 00, 00)
-    endtime = datetime(2020, 7, 24, 23, 59, 59)
+    starttime = datetime(2020, 8, 25, 19, 29, 00)
+    endtime = datetime(2020, 8, 25, 19, 46, 00)
     nowtime = datetime.now()
 
 
     if form.validate_on_submit():
         flash('Kiitos ilmoittautumisesta!')
         #if Model.query.filter_by(guild=form.guild.data).count() >= limit:
-        #    flash('Olet varasijalla!')
+        #   flash('Olet varasijalla!')
 
         if form.drink.data == 'alkoholillinen':
             drink_wish = form.alcohol_wish.data
@@ -88,11 +79,7 @@ def register():
 
         db.session.add(sub)
         db.session.commit()
-        #msg = Message('Hello', sender = 'noreply@otit.fi', recipients = [form.mail.data])
-        #msg.body = "Hello Flask message sent from Flask-Mail"
-        #mail.send(msg)
         return redirect(APPURL + '/ilmo')
-
 
     entries = Register.query.all()
 
@@ -131,15 +118,13 @@ def register():
 def invite_register():
     form = Form()
 
-    starttime = datetime(2020, 3, 11, 12, 00, 00)
-    endtime = datetime(2020, 6, 24, 23, 59, 59)
+    starttime = datetime(2020, 8, 25, 19, 29, 00)
+    endtime = datetime(2020, 8, 25, 19, 46, 00)
     nowtime = datetime.now()
 
 
     if form.validate_on_submit():
         flash('Kiitos ilmoittautumisesta!')
-        #if Model.query.filter_by(guild=form.guild.data).count() >= limit:
-        #    flash('Olet varasijalla!')
 
         if form.drink.data == 'alkoholillinen':
             drink_wish = form.alcohol_wish.data
@@ -173,13 +158,32 @@ def invite_register():
         db.session.add(sub)
         db.session.commit()
         return redirect(APPURL + '/kutsu-ilmo')
+
+    entries = Invite_register.query.all()
+
+    names = []
+
+    for entry in entries:
+        if entry.avec:
+            if entry.name_consent:
+                names.append(entry.name)
+                names.append(entry.avec)
+            else:
+                names.append('anonyymi')
+                names.append('anonyymi')
+        else:
+            if entry.name_consent:
+                names.append(entry.name)
+            else:
+                names.append('anonyymi')
+
     return render_template('invite_register.html',
                            title='Ilmoittautuminen',
                            appurl=APPURL,
                            starttime=starttime,
                            endtime=endtime,
                            nowtime=nowtime,
-                           limit=limit,
+                           names=names,
                            form=form
                            )
 
