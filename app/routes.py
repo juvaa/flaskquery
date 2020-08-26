@@ -37,8 +37,8 @@ def schedule():
 def register():
     form = Form()
 
-    starttime = datetime(2020, 8, 25, 19, 29, 00)
-    endtime = datetime(2020, 8, 25, 19, 46, 00)
+    starttime = datetime(2020, 9, 30, 00, 00, 00)
+    endtime = datetime(2020, 9, 30, 00, 00, 00)
     nowtime = datetime.now()
 
 
@@ -118,8 +118,8 @@ def register():
 def invite_register():
     form = Form()
 
-    starttime = datetime(2020, 8, 25, 19, 29, 00)
-    endtime = datetime(2020, 8, 25, 19, 46, 00)
+    starttime = datetime(2020, 8, 26, 00, 00, 00)
+    endtime = datetime(2020, 9, 6, 23, 59, 59)
     nowtime = datetime.now()
 
 
