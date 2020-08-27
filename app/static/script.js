@@ -7,11 +7,4 @@ $(document).ready(function () {
             $('#drinks').hide()
         }
     });
-    $('input[type=checkbox][name=attend]').change(function() {
-        if (document.getElementById('attend').checked) {
-            $('#attend_box').show();
-        } else {
-            $('#attend_box').hide();
-        }
-    });
 });

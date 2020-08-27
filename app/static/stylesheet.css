@@ -5,12 +5,12 @@
 
 .extra-label{
     margin-bottom: 0;
-    margin-top: 10px;
+    margin-top: 1rem;
 }
 
 .inset{
-    padding-left: 40px;
-    padding-bottom: 10px;
+    margin-left: 4rem;
+    margin-bottom: 1rem;
 }
 
 .hide_{
@@ -18,12 +18,12 @@
 }
 
 .return_msg{
-    font-size: 40px;
+    font-size: 2.5rem;
     animation: flash 5s linear;
 }
 
 .flashes{
-    padding-top: 50px;
+    padding-top: 2rem;
 }
 
 .btn{
@@ -32,8 +32,8 @@
 }
 
 .consent{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 html, body {
@@ -67,6 +67,10 @@ a:hover {
 
 a:visited {
     color: #960000;
+}
+
+li {
+    list-style: none;
 }
 
 table {
