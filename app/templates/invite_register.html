@@ -56,11 +56,11 @@
             href="{{ appurl }}/static/32v_kutsuvieras_tietosuoja.pdf">Tietosuojaseloste</a>
     </p>
     <h2>Ilmoittautuneet</h2>
-    <ul>
+    <ol>
         {% for name in names %}
-            <li> {{ name }}</li>
+            <li id="names"> {{ name }}</li>
         {% endfor %}
-    </ul>
+    </ol>
     </main>
     </div>
 {% endblock %}
