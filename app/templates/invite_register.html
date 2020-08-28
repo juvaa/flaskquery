@@ -5,7 +5,7 @@
 {% block content %}
     <div class="container">
     <main>
-    <p>Tällä sivulla voivat ilmoittautua kutsuvieraat</p>
+    <p>Tällä sivulla voivat ilmoittautua kutsuvieraat.</p>
     {% if starttime < nowtime < endtime %}
         <form class="form form-horizontal" method="post" role="form">
             {{ form.hidden_tag() }}

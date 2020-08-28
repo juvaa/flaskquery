@@ -5,7 +5,8 @@
 {% block content %}
     <div class="container">
     <main>
-    <p>Tällä sivulla voivat ilmoittautua killanjäsenet</p>
+    <p>Tällä sivulla voivat ilmoittautua killanjäsenet.</p>
+    <p>Jos olet saanut kutsun vuosijuhlaan, ilmottaudu kutsussa olevassa osoitteessa.</p>
     {% if starttime < nowtime < endtime %}
         <form class="form form-horizontal" method="post" role="form">
             {{ form.hidden_tag() }}
