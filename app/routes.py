@@ -13,7 +13,9 @@ app.config['BASIC_AUTH_PASSWORD'] = environ.get("ADMIN_PASSWORD") or 'helevetinh
 
 basic_auth = BasicAuth(app)
 
-limit = 17
+f_limit = 17
+p_limit = 17
+h_limit = 17
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -30,24 +32,33 @@ def index():
 
     if form.validate_on_submit():
         flash('Kiitos ilmoittautumisesta!')
-        if Model.query.filter_by(guild=form.guild.data).count() >= limit:
-            flash('Olet varasijalla!')
+        if form.guild.data == "fuksi":
+            if Model.query.filter_by(guild="fuksi").count() >= f_limit:
+                flash('Olet varasijalla!')
+        elif form.guild.data == "pro":
+            if Model.query.filter_by(guild="pro").count() >= p_limit:
+                flash('Olet varasijalla!')
+        elif form.guild.data == "hallitus":
+            if Model.query.filter_by(guild="hallitus").count() >= h_limit:
+                flash('Olet varasijalla!')
 
         sub = Model(
-
             name=form.name.data,
             mail=form.mail.data,
             guild=form.guild.data,
             specialfoods=form.specialfoods.data,
+            alcohol=form.alcohol.data,
             wine=form.wine.data,
             beer=form.beer.data,
+            name_consent = form.name_consent.data,
             datetime=nowtime
         )
 
         db.session.add(sub)
         db.session.commit()
         return redirect(appurl)
-    return render_template('index.html', title='Opetuksenkehittämisseminaari ja proffasitsit 2020',
+    return render_template('index.html',
+                            title='Fuksisitsit',
                             appurl=appurl,
                             f_count=f_count,
                             p_count=p_count,
@@ -55,7 +66,9 @@ def index():
                             starttime=starttime,
                             endtime=endtime,
                             nowtime=nowtime,
-                            limit=limit,
+                            f_limit=f_limit,
+                            p_limit=p_limit,
+                            h_limit=h_limit,
                             form=form)
 
 
@@ -68,7 +81,8 @@ def admin():
     f_count = Model.query.filter_by(guild="fuksi").count()
     p_count = Model.query.filter_by(guild="pro").count()
     h_count = Model.query.filter_by(guild="hallitus").count()
-    return render_template('admin.html', title='fuksisitsi ADMIN',
+    return render_template('admin.html',
+                            title='Fuksisitsi ADMIN',
                             rooturl=appurl,
                             f_entries=f_entries,
                             p_entries=p_entries,
@@ -76,4 +90,6 @@ def admin():
                             f_count=f_count,
                             p_count=p_count,
                             h_count=h_count,
-                            limit=limit)
+                            f_limit=f_limit,
+                            p_limit=p_limit,
+                            h_limit=h_limit)

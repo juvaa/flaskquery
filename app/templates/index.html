@@ -7,19 +7,6 @@
     <div class="page-header">
         <h1>{{ title }}</h1>
     </div>
-    <p>
-        SIK, OTiT ja Blanko järjestävät jokavuotisen Tieto- ja sähkötekniikan tiedekunnan opetuksenkehittämisseminaarin (OKS) keskiviikkona 1.4. Teekkaritalolla. Seminaari kokoaa yhteen järjestäjäkiltojen opiskelijat ja TST:n opetushenkilökunnan keskustelemaan ajankohtaisista opintoihin liittyvistä teemoista ja miettimään miten opintoja voitaisiin kehittää ja sujuvoittaa. Paikalle on myös kutsuttu kiltojen yhteistyöyritysten edustajia.
-    </p>
-    <p>
-        Seminaariin kuuluu kahvitarjoilu.
-    </p>
-    <p>
-        Heti seminaarin jälkeen illanvietto jatkuu hyvämaineisten proffasitsien ja ruokatarjoilun merkeissä. Sitsit ovat osallistujille ilmaiset. Pukukoodina on tumma puku. Sitsien jälkeen saunat lämpenevät.
-    </p>
-    <p>
-        Alustava aikataulu seminaarin alkamiselle on 17:00, ja sitseille 20:00. Osallitujakiintiöt ovat alustavat, ja tulevat riippumaan kutsuttujen yritysten edustajien osallistumisesta. Voit esittää toiveita tapahtumasta tai seminaarissa käsiteltävistä aiheista ilmoittautumisen yhteydessä.
-    </p>
-    <h4>Ilmoittautuminen alkaa 11.3. klo 12:00 ja päättyy 24.3.</h4>
     {% if starttime < nowtime < endtime %}
         <form class="form form-horizontal" method="post" role="form">
             {{ form.hidden_tag() }}
@@ -27,32 +14,25 @@
             <label class="extra-label">Ryhmä*</label>
             {{ wtf.form_field(form.guild) }}
             {% for e in form.guild.errors %}
-                <p class="text-danger">Valitse kilta</p>
+                <p class="text-danger">Valitse ryhmä</p>
             {% endfor %}
-
             {{ wtf.form_field(form.mail) }}
-
             {{ wtf.form_field(form.specialfoods) }}
-            {{ wtf.form_field(form.hopesndreams) }}
-            <label class="extra-label">Aion osallistua seminaarin jälkeisille proffasitseille</label>
-            {{ wtf.form_field(form.attend) }}
-            <div id="attend_box" class="inset hide_">
-                <label class="extra-label">Juomatoive</label>
-                {{ wtf.form_field(form.alcohol) }}
-                {% for e in form.alcohol.errors %}
-                    <p class="text-danger">Valitse juoma</p>
-                {% endfor %}
-
-                <div id="drinks" class="inset hide_">
-                    <label class="extra-label">Viini</label>
-                    {{ wtf.form_field(form.wine) }}
-
-                    <label class="extra-label">Mieto</label>
-                    {{ wtf.form_field(form.beer) }}
-                </div>
+            <label class="extra-label">Juomatoive</label>
+            {{ wtf.form_field(form.alcohol) }}
+            {% for e in form.alcohol.errors %}
+                <p class="text-danger">Valitse juoma</p>
+            {% endfor %}
+            <div id="drinks" class="inset hide_">
+                <label class="extra-label">Viini</label>
+                {{ wtf.form_field(form.wine) }}
+                <label class="extra-label">Mieto</label>
+                {{ wtf.form_field(form.beer) }}
             </div>
             <div class="consent">
+            {{ wtf.form_field(form.name_consent) }}
             {{ wtf.form_field(form.consent) }}
+            {{ wtf.form_field(form.corona) }}
             </div>
             {{ wtf.form_field(form.submit) }}
         </form>
@@ -68,16 +48,13 @@
     <h2>Kiintiöt</h2>
     <div class="row">
         <div class="col-sm-3">
-            <h3>OTiT: {{ o_count }}/{{ limit }}</h3>
+            <h3>Fuksit: {{ f_count }}/{{ f_limit }}</h3>
         </div>
         <div class="col-sm-3">
-            <h3>SIK: {{ s_count }}/{{ limit }}</h3>
+            <h3>Pro: {{ p_count }}/{{ p_limit }}</h3>
         </div>
         <div class="col-sm-3">
-            <h3>Blanko: {{ b_count }}/{{ limit }}</h3>
-        </div>
-        <div class="col-sm-3">
-            <h3>Henkilökunta: {{ h_count }}/{{ limit }}</h3>
+            <h3>Hallitus: {{ h_count }}/{{ h_limit }}</h3>
         </div>
     </div>
 {% endblock %}
