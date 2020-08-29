@@ -29,6 +29,9 @@ def index():
     f_count = Model.query.filter_by(guild="fuksi").count()
     p_count = Model.query.filter_by(guild="pro").count()
     h_count = Model.query.filter_by(guild="hallitus").count()
+    f_entries = Model.query.filter_by(guild="fuksi")
+    p_entries = Model.query.filter_by(guild="pro")
+    h_entries = Model.query.filter_by(guild="hallitus")
 
     if form.validate_on_submit():
         flash('Kiitos ilmoittautumisesta!')
@@ -63,6 +66,9 @@ def index():
                             f_count=f_count,
                             p_count=p_count,
                             h_count=h_count,
+                            f_entries=f_entries,
+                            p_entries=p_entries,
+                            h_entries=h_entries,
                             starttime=starttime,
                             endtime=endtime,
                             nowtime=nowtime,
