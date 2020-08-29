@@ -18,7 +18,7 @@
             {% endfor %}
             {{ wtf.form_field(form.mail) }}
             {{ wtf.form_field(form.specialfoods) }}
-            <label class="extra-label">Juomatoive</label>
+            <label class="extra-label">Juomatoive*</label>
             {{ wtf.form_field(form.alcohol) }}
             {% for e in form.alcohol.errors %}
                 <p class="text-danger">Valitse juoma</p>
@@ -50,7 +50,7 @@
         <div class="col-sm-3">
             <h3>Fuksit: {{ f_count }}/{{ f_limit }}</h3>
             {% for entry in f_entries %}
-            {% if entry["name_consent"] %}
+            {% if entry["name_consent"] == "1" %}
                 <p>{{ loop.index }}. {{ entry["name"][:30] }}
                     {% if loop.index > f_limit %}
                         (Varasijalla)
@@ -61,13 +61,14 @@
                     {% if loop.index > f_limit %}
                         (Varasijalla)
                     {% endif %}
+                </p>    
             {% endif %}
             {% endfor %}
         </div>
         <div class="col-sm-3">
             <h3>Pro: {{ p_count }}/{{ p_limit }}</h3>
             {% for entry in p_entries %}
-            {% if entry["name_consent"] %}
+            {% if entry["name_consent"] == "1" %}
                 <p>{{ loop.index }}. {{ entry["name"][:30] }}
                     {% if loop.index > p_limit %}
                         (Varasijalla)
@@ -78,13 +79,14 @@
                     {% if loop.index > p_limit %}
                         (Varasijalla)
                     {% endif %}
+                </p>
             {% endif %}
             {% endfor %}
         </div>
         <div class="col-sm-3">
             <h3>Hallitus: {{ h_count }}/{{ h_limit }}</h3>
             {% for entry in h_entries %}
-            {% if entry["name_consent"] %}
+            {% if entry["name_consent"] == "1" %}
                 <p>{{ loop.index }}. {{ entry["name"][:30] }}
                     {% if loop.index > h_limit %}
                         (Varasijalla)
@@ -95,6 +97,7 @@
                     {% if loop.index > h_limit %}
                         (Varasijalla)
                     {% endif %}
+                </p>
             {% endif %}
             {% endfor %}
         </div>
