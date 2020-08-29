@@ -89,7 +89,7 @@ def admin():
     h_count = Model.query.filter_by(guild="hallitus").count()
     return render_template('admin.html',
                             title='Fuksisitsi ADMIN',
-                            rooturl=appurl,
+                            appurl=appurl,
                             f_entries=f_entries,
                             p_entries=p_entries,
                             h_entries=h_entries,

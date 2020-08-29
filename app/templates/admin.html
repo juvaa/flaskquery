@@ -8,234 +8,158 @@
         <h1>{{ title }}</h1>
     </div>
     <h2>Osallistujat:</h2>
-    <h3>OTiT: {{ o_count }}/{{ limit }}</h3>
+    <h3>Fuksit: {{ f_count }}/{{ f_limit }}</h3>
     <table>
         <thead>
-        <tr>
-            <th>
-                #
-            </th>
-            <th>
-                Nimi
-            </th>
-            <th>
-                SäPo
-            </th>
-            <th>
-                Erityisruokavalio
-            </th>
-            <th>
-                Toiveita
-            </th>
-            <th>
-                Sitsit
-            </th>
-            <th>
-                Juomat
-            </th>
-        </th>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Nimi
+                </th>
+                <th>
+                    SäPo
+                </th>
+                <th>
+                    Erityisruokavalio
+                </th>
+                <th>
+                    Juomat
+                </th>
+                <th>
+                    Alkoholi
+                </th>
+            </tr>
         </thead>
         <tbody>
-        {% for entry in o_entries %}
+        {% for entry in f_entries %}
             <tr>
-            <td>{{ loop.index }}.
-                {% if loop.index > limit %}
-                    (Vara)
-                {% endif %}
-            </td>
-            <td>
-                {{ entry.name }}
-            </td>
-            <td>
-                {{ entry.mail }}
-            </td>
-            <td class="long">
-                {{ entry.specialfoods }}
-            </td>
-            <td class="long">
-                {{ entry.hopesndreams }}
-            </td>
-            <td>
-                {{ entry.attend }}
-            </td>
-            <td>
-                {{ entry.wine }} / {{ entry.beer }}
-            </td>
+                <td>{{ loop.index }}.
+                    {% if loop.index > f_limit %}
+                        (Vara)
+                    {% endif %}
+                </td>
+                <td>
+                    {{ entry.name }}
+                </td>
+                <td>
+                    {{ entry.mail }}
+                </td>
+                <td class="long">
+                    {{ entry.specialfoods }}
+                </td>
+                <td>
+                    {{ entry.alcohol }}
+                </td>
+                <td>
+                    {{ entry.wine }} / {{ entry.beer }}
+                </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <h3>SIK: {{ s_count }}/{{ limit }}</h3>
+    <h3>Prot: {{ p_count }}/{{ p_limit }}</h3>
     <table>
         <thead>
-        <tr>
-            <th>
-                #
-            </th>
-            <th>
-                Nimi
-            </th>
-            <th>
-                SäPo
-            </th>
-            <th>
-                Erityisruokavalio
-            </th>
-            <th>
-                Toiveita
-            </th>
-            <th>
-                Sitsit
-            </th>
-            <th>
-                Juomat
-            </th>
-        </tr>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Nimi
+                </th>
+                <th>
+                    SäPo
+                </th>
+                <th>
+                    Erityisruokavalio
+                </th>
+                <th>
+                    Juomat
+                </th>
+                <th>
+                    Alkoholi
+                </th>
+            </tr>
         </thead>
         <tbody>
-        {% for entry in s_entries %}
+        {% for entry in p_entries %}
             <tr>
-            <td>{{ loop.index }}.
-                {% if loop.index > limit %}
-                    (Vara)
-                {% endif %}
-            </td>
-            <td>
-                {{ entry.name }}
-            </td>
-            <td>
-                {{ entry.mail }}
-            </td>
-            <td class="long">
-                {{ entry.specialfoods }}
-            </td>
-            <td class="long">
-                {{ entry.hopesndreams }}
-            </td>
-            <td>
-                {{ entry.attend }}
-            </td>
-            <td>
-                {{ entry.wine }} / {{ entry.beer }}
-            </td>
+                <td>{{ loop.index }}.
+                    {% if loop.index > p_limit %}
+                        (Vara)
+                    {% endif %}
+                </td>
+                <td>
+                    {{ entry.name }}
+                </td>
+                <td>
+                    {{ entry.mail }}
+                </td>
+                <td class="long">
+                    {{ entry.specialfoods }}
+                </td>
+                <td>
+                    {{ entry.alcohol }}
+                </td>
+                <td>
+                    {{ entry.wine }} / {{ entry.beer }}
+                </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-<h3>Blanko: {{ b_count }}/{{ limit }}</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>
-                #
-            </th>
-            <th>
-                Nimi
-            </th>
-            <th>
-                SäPo
-            </th>
-            <th>
-                Erityisruokavalio
-            </th>
-            <th>
-                Toiveita
-            </th>
-            <th>
-                Sitsit
-            </th>
-            <th>
-                Juomat
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for entry in b_entries %}
-            <tr>
-            <td>{{ loop.index }}.
-                {% if loop.index > limit %}
-                    (Vara)
-                {% endif %}
-            </td>
-            <td>
-                {{ entry.name }}
-            </td>
-            <td>
-                {{ entry.mail }}
-            </td>
-            <td class="long">
-                {{ entry.specialfoods }}
-            </td>
-            <td class="long">
-                {{ entry.hopesndreams }}
-            </td>
-            <td>
-                {{ entry.attend }}
-            </td>
-            <td>
-                {{ entry.wine }} / {{ entry.beer }}
-            </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-<h3>Henkilökunta: {{ h_count }}/{{ limit }}</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>
-                #
-            </th>
-            <th>
-                Nimi
-            </th>
-            <th>
-                SäPo
-            </th>
-            <th>
-                Erityisruokavalio
-            </th>
-            <th>
-                Toiveita
-            </th>
-            <th>
-                Sitsit
-            </th>
-            <th>
-                Juomat
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for entry in h_entries %}
-            <tr>
-            <td>{{ loop.index }}.
-                {% if loop.index > limit %}
-                    (Vara)
-                {% endif %}
-            </td>
-            <td>
-                {{ entry.name }}
-            </td>
-            <td>
-                {{ entry.mail }}
-            </td>
-            <td class="long">
-                {{ entry.specialfoods }}
-            </td>
-            <td class="long">
-                {{ entry.hopesndreams }}
-            </td>
-            <td>
-                {{ entry.attend }}
-            </td>
-            <td>
-                {{ entry.wine }} / {{ entry.beer }}
-            </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <h3>Hallitus: {{ h_count }}/{{ h_limit }}</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        Nimi
+                    </th>
+                    <th>
+                        SäPo
+                    </th>
+                    <th>
+                        Erityisruokavalio
+                    </th>
+                    <th>
+                        Juomat
+                    </th>
+                    <th>
+                        Alkoholi
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entry in h_entries %}
+                <tr>
+                    <td>{{ loop.index }}.
+                        {% if loop.index > h_limit %}
+                            (Vara)
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{ entry.name }}
+                    </td>
+                    <td>
+                        {{ entry.mail }}
+                    </td>
+                    <td class="long">
+                        {{ entry.specialfoods }}
+                    </td>
+                    <td>
+                        {{ entry.alcohol }}
+                    </td>
+                    <td>
+                        {{ entry.wine }} / {{ entry.beer }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 </div>
 {% endblock %}
