@@ -13,9 +13,9 @@ app.config['BASIC_AUTH_PASSWORD'] = environ.get("ADMIN_PASSWORD") or 'helevetinh
 
 basic_auth = BasicAuth(app)
 
-f_limit = 17
-p_limit = 17
-h_limit = 17
+f_limit = 85
+p_limit = 8
+h_limit = 10
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
