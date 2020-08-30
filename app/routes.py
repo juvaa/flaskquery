@@ -22,7 +22,7 @@ def index():
     form = Form()
 
     starttime = datetime(2020, 8, 29, 21, 38, 00)
-    endtime = datetime(2020, 8, 29, 22, 00, 00)
+    endtime = datetime(2020, 8, 30, 22, 00, 00)
     nowtime = datetime.now()
 
 

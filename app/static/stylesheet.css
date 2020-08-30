@@ -43,30 +43,14 @@ html, body {
 }
 
 .container {
-    background-color: #009696;
-    background: linear-gradient(#960000, #009696 10%) repeat-x fixed center #00C9C9;
+    background-color: #2b2b2b;
+    background: linear-gradient(#494949, #2b2b2b 20%) repeat-x fixed center #2b2b2b;
 }
 
 body {
     color: #f0f0f0;
     font-family: "arial", serif;
-    background-color: #00C9C9;
-}
-
-h1 {
-    font-size: 2vmax;
-}
-
-a {
-    color: #00C9C9;
-}
-
-a:hover {
-    color: #C90000
-}
-
-a:visited {
-    color: #960000;
+    background-color: #303030;
 }
 
 li {
@@ -91,7 +75,7 @@ tr:nth-child(even)  {
 }
 
 tr:hover {
-    background-color: #960000;
+    background-color: #6b6b6b;
     color: #ffffff;
 }
 
