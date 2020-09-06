@@ -14,7 +14,7 @@ app.config['BASIC_AUTH_PASSWORD'] = environ.get("ADMIN_PASSWORD") or 'helevetinh
 
 basic_auth = BasicAuth(app)
 
-limit = 17
+limit = 50
 
 
 @app.route('/', methods=['GET'])
@@ -37,15 +37,38 @@ def schedule():
 def register():
     form = Form()
 
-    starttime = datetime(2020, 9, 30, 00, 00, 00)
-    endtime = datetime(2020, 9, 30, 00, 00, 00)
+    starttime = datetime(2020, 9, 7, 13, 37, 00)
+    endtime = datetime(2020, 9, 11, 15, 00, 00)
     nowtime = datetime.now()
 
+    entries = Register.query.all()
+
+    names = []
+
+    for entry in entries:
+        if entry.avec:
+            if entry.name_consent:
+                names.append(entry.name)
+                names.append(entry.avec)
+            else:
+                names.append('anonyymi')
+                names.append('anonyymi')
+        else:
+            if entry.name_consent:
+                names.append(entry.name)
+            else:
+                names.append('anonyymi')
+
+    count = len(names)
 
     if form.validate_on_submit():
         flash('Kiitos ilmoittautumisesta!')
-        #if Model.query.filter_by(guild=form.guild.data).count() >= limit:
-        #   flash('Olet varasijalla!')
+        if form.avec.data:
+            if count >= limit - 1:
+                flash('Olet varasijalla')
+        else:    
+            if count >= limit:
+               flash('Olet varasijalla!')
 
         if form.drink.data == 'alkoholillinen':
             drink_wish = form.alcohol_wish.data
@@ -80,26 +103,6 @@ def register():
         db.session.add(sub)
         db.session.commit()
         return redirect(APPURL + '/ilmo')
-
-    entries = Register.query.all()
-
-    names = []
-
-    for entry in entries:
-        if entry.avec:
-            if entry.name_consent:
-                names.append(entry.name)
-                names.append(entry.avec)
-            else:
-                names.append('anonyymi')
-                names.append('anonyymi')
-        else:
-            if entry.name_consent:
-                names.append(entry.name)
-            else:
-                names.append('anonyymi')
-
-    count = len(names)
 
     return render_template('register.html',
                            title='Ilmoittautuminen',
